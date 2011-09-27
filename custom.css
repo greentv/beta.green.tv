@@ -20,6 +20,15 @@ a:visited,
     color : #4f9849
 }
 
+#top {
+    background : #4F9849;
+}
+
+#top .nav a {
+    color : #fff;
+    font-size : 12px;
+}
+
 #header {
     border-bottom : 8px solid #ebedea;
 }
