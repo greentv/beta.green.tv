@@ -8,7 +8,7 @@
 			   woo_active_sidebar( 'footer-4') ) && $total > 0 ) : 
 		
   	?>
-	<div id="footer-widgets" class="col-full col-<?php echo $total; ?>">		
+	<div id="footer-widgets" class="col-<?php echo $total; ?>">		
 		<div id="footer-wrapper">
 			<?php $i = 0; while ( $i < $total ) : $i++; ?>			
 				<?php if ( woo_active_sidebar( 'footer-'.$i) ) { ?>
