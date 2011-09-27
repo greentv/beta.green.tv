@@ -24,6 +24,10 @@ a:visited,
     background : #4F9849;
 }
 
+#top .nav li:hover {
+    background : #4F9849; 
+}
+
 #top .nav a {
     color : #ebedea;
     font-size : 12px;
