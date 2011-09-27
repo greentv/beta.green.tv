@@ -160,9 +160,8 @@ a:visited,
 
 #footer-widgets {
     background : #4f9849;
-    border-radius : 4px 4px 0 0;
-    -moz-border-radius : 4px 4px 0 0;
-    -webkit-border-radius : 4px 4px 0 0;
+    margin : 0px auto;
+    width : 960px;
 }
 
 /* video page */
