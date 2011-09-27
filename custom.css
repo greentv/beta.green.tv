@@ -25,13 +25,13 @@ a:visited,
 }
 
 #top .nav a {
-    color : #fff;
+    color : #ebedea;
     font-size : 12px;
 }
 
 #top .nav a:hover,
 #top .nav li.current-menu-item a {
-    color : #ebedea;
+    color : #fff;
     background : #4F9849 !important;  
 }
 
