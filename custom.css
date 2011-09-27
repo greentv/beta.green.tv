@@ -1,10 +1,260 @@
-/* 
-WOO CUSTOM STYLESHEET
----------------------
+body {
+    background : #fff
+}
 
-Instructions:
+h3,
+.widget.widget_woo_twitter h3 {
+    border-bottom : 2px solid #4f9849;
+    margin : 0 0 12px;
+    padding : 0 0 6px;
+}
 
-Add your custom styles in this file instead of style.css so it 
-is easier to update the theme. Simply copy an existing style 
-from style.css to this file, and modify it to your liking. */
+.profile-content h3 {
+    border-bottom : none;
+}
 
+a:link,
+a:visited,
+#main.video-archive .sorting li a:hover,
+#main.video-archive .sorting li.active a {
+    color : #4f9849
+}
+
+#header {
+    border-bottom : 8px solid #ebedea;
+}
+
+#header #header-top {
+    padding : 20px 0 0;
+}
+
+#header #header-top,
+#navigation {
+    background : #4f9849
+}
+
+#main-nav {
+    float : left;
+    margin : 60px 0 0 62px;
+}
+
+.nav a,
+#tabs-home ul.wooTabs li a {
+    border-radius : 4px 4px 0 0;
+    -moz-border-radius : 4px 4px 0 0;
+    -webkit-border-radius :  4px 4px 0 0;
+    color : #fff;
+    font-family : 'PT Sans', arial, sans-serif;
+    font-size : 18px;
+    line-height : 43px !important;
+    margin-right : 3px;
+    padding : 0px 10px;
+    text-shadow : none;
+    text-transform : uppercase
+}
+
+.nav a:hover,
+.nav li.current_page_item a,
+.nav li.current_page_parent a,
+.nav li.current-menu-ancestor a,
+.nav li.current-cat a,
+.nav li.current-menu-item a,
+#tabs-home ul.wooTabs li a:hover {
+    background : #ebedea;
+    color : #000
+}
+
+#tagline {
+    color : #4f9849;
+    font-size : 16px;
+    line-height : 18px;
+}
+
+.site-description {
+    display : block;
+    font-size : 22px;
+    margin : 38px 0px 43px 10px;
+}
+
+#wrapper {
+    background : #fff
+}
+
+#content {
+    background : none;
+    border-radius : 0;
+    -moz-border-radius : 0;
+    -webkit-border-radius : 0;
+    box-shadow : none;
+    -webkit-box-shadow : none;
+    -moz-box-shadow : none
+}
+
+#content-wrap {
+    background : #fff
+}
+
+#tabs-home {
+    background : none;
+    border-radius : 0;
+    -moz-border-radius : 0;
+    -webkit-border-radius : 0;
+    box-shadow : none;
+    -webkit-box-shadow : none;
+    -moz-box-shadow : none
+}
+
+#tabs-home ul.wooTabs {
+    border-bottom : solid 2px #4f9849;
+    overflow : hidden
+}
+
+#tabs-home ul.wooTabs li {
+    background : none
+}
+
+#tabs-home ul.wooTabs li a,
+#tabs-home ul.wooTabs li a.selected {
+    background : #4f9849
+}
+
+#tabs-home ul.wooTabs li a.selected {
+    background : #EBEDEA
+}
+
+#slides {
+    background : #ebedea;
+    padding : 20px 10px
+}
+
+#footer {
+    background : #4f9849;
+    color : #fff;
+    text-shadow : none
+}
+
+#footer a {
+    color : #fff;
+}
+
+#footer-widgets {
+    background : #4f9849;
+    border-radius : 4px 4px 0 0;
+    -moz-border-radius : 4px 4px 0 0;
+    -webkit-border-radius : 4px 4px 0 0;
+}
+
+/* video page */
+#feat-title .title,
+.archive_header {
+    color : #000;
+    text-shadow : none;
+}
+
+#feat-video .video-excerpt p,
+#feat-video .meta span.small,
+#feat-video .meta li,
+#feat-video .meta li a {
+    color : #333!important;
+    text-shadow : none
+}
+
+#feat-video .meta .post-tags a {
+    color : #fff;
+    text-shadow : none;
+}
+
+.widget,
+#feat-video .video-excerpt {
+    background : none;
+    border-bottom : 2px solid #4f9849;
+}
+
+/* twitter feed */
+.widget_woo_twitter ul li .content {
+    background : none;
+    border : none;
+    border-radius : 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius : 0;
+    padding : 0 0 6px;
+}
+
+.widget_woo_twitter ul li .time {
+    background : none;
+    color : #999;
+    font-size : 100% !important;
+    margin : 0;
+    padding : 0 0 30px;
+}
+
+/* comments */
+#comments .comment.bypostauthor {
+    background : #DCEADB;
+    border-bottom : #4f9849;
+}
+
+#comments .cancel-comment-reply {
+    float : none;
+    padding : 0 0 8px;
+    text-align : right;
+}
+
+.comment-head .name {
+    display : block;
+}
+
+#commentform {
+    background : #fafafa;
+    border-width : 1px 0;
+    border-radius : 0;
+    -moz-border-radius : 0;
+    -webkit-border-radius : 0;
+    box-shadow : none;
+    -moz-box-shadow : none;
+    -webkit-box-shadow : none;
+}
+
+a.button, #commentform #submit, .submit {
+    background : #4f9849;
+    border : none;
+    border-radius : 3px;
+    -moz-border-radius : 3px;
+    -webkit-border-radius : 3px;
+    box-shadow : none;
+    -webkit-box-shadow : none;
+    -moz-box-shadow : none;
+    text-shadow : none;
+}
+
+a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .submit:hover {
+    background : #ebedea;
+    color : #000 !important;
+}
+
+/* share buttons */
+#feat-video .share li a,
+#feat-video .meta .post-tags a,
+#feat-video .share li.first a  {
+    background : #4F9849;
+    border-color : #2e592b;
+}
+
+#feat-video .share li a:hover,
+#feat-video .meta .post-tags a:hover,
+#feat-video .share li.first a:hover {
+    background : #ebedea;
+    color : #333;
+    text-shadow : none;
+}
+
+.post-more {
+    background : none;
+    border-width : 1px 0 2px;
+    
+}
+
+/* slider */
+.slides_container .text {
+    background : rgba(79, 152, 73, 0.6);
+}
