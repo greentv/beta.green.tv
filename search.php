@@ -15,6 +15,11 @@
             
                 <h2 class="title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute( array( 'echo' => 0 ) ); ?>"><?php the_title(); ?></a></h2>
                 
+		<?php
+		    $args = 'key=image&width=' . $woo_options['woo_thumb_w'] . '&height=' . $woo_options['woo_thumb_h'] . '&class=thumbnail&link=img&return=true&id=' . get_the_ID();        		
+		    echo '<a href="' . get_permalink( get_the_ID() ) . '" title="' . the_title_attribute( array( 'echo' => 0 ) ) . '">' . woo_image_vimeo( $args ) . '</a>';
+		?>
+		
                 <p class="post-meta">
     			    <span class="post-date"><span class="small"><?php _e( 'Posted on', 'woothemes' ); ?></span> <?php the_time( get_option( 'date_format' ) ); ?></span>
     			    <span class="post-author"><span class="small"><?php _e( 'by', 'woothemes' ); ?></span> <?php the_author_posts_link(); ?></span>
