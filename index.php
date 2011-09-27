@@ -145,7 +145,7 @@
 		        <div id="home-tab-tags" class="list">
 		        	<?php
 		        		$tags_to_include = woo_get_tags_by_post_type( 'woo_video' );
-		        		$args = array( 'number' => 1, 'smallest' => 12, 'largest' => 28 );
+		        		$args = array( 'number' => 20, 'smallest' => 12, 'largest' => 28 );
 		        		
 		        		if ( $tags_to_include ) { $args['include'] = $tags_to_include; } 
 		        	?>
