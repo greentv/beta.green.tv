@@ -160,7 +160,13 @@ a:visited,
 
 #footer-widgets {
     background : #4f9849;
-    margin : 0px auto;
+    border-radius : 0;
+    -moz-border-radius : 0;
+    -webkit-border-radius : 0;
+}
+
+#footer-wrapper {
+    margin : 0 auto;
     width : 960px;
 }
 
