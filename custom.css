@@ -29,6 +29,10 @@ a:visited,
     font-size : 12px;
 }
 
+#top .nav a:hover {
+    background : #4F9849;  
+}
+
 #header {
     border-bottom : 8px solid #ebedea;
 }
