@@ -24,17 +24,18 @@ a:visited,
     background : #4F9849;
 }
 
-#top .nav li:hover {
-    background : #4F9849; 
-}
-
 #top .nav a {
     color : #ebedea;
     font-size : 12px;
 }
 
-#top .nav a:hover,
-#top .nav li.current-menu-item a {
+#top .nav a:hover, 
+#top .nav li.current_page_item a, 
+#top .nav li.current_page_parent a,
+#top .nav li.current-menu-ancestor a,
+#top .nav li.current-cat a,
+#top .nav li.current-menu-item a,
+#top .nav li.sfHover {
     color : #fff;
     background : #4F9849 !important;  
 }
