@@ -30,6 +30,7 @@ a:visited,
 }
 
 #top .nav a:hover {
+    color : #ebedea;
     background : #4F9849 !important;  
 }
 
