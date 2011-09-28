@@ -45,7 +45,7 @@ a:visited,
 }
 
 #header #header-top {
-    height : 120px;
+    height : 108px;
     padding : 0px;
 }
 
@@ -66,12 +66,12 @@ a:visited,
 #search-top {
     position : absolute;
     right : 0px;
-    top : 0px;
+    top : 10px;
 }
 
 #main-nav {
     float : right;
-    margin : 63px 0px 0px 0px;
+    margin : 65px 0px 0px 0px;
 }
 
 .nav a,
