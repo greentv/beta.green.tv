@@ -173,7 +173,8 @@ a:visited,
 
 #footer-wrapper {
     margin : 0 auto;
-    width : 940px;
+    padding-left : 0px;
+    width : 960px;
 }
 
 #footer-wrapper .widget h3,
