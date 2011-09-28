@@ -163,6 +163,10 @@ a:visited,
     background : #EBEDEA
 }
 
+#tabs-home .block {
+    min-height : 170px;
+}
+
 #slides {
     background : #ebedea;
     border-radius : 0;
