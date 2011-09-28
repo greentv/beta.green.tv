@@ -164,8 +164,12 @@ a:visited,
 }
 
 #content-wrap ul.wooTabs li a, #content-wrap ul.wooTabs li a.selected {
-    background : #EBEDEA;
+    background : #FFFFFF;
     color : #999999;
+}
+
+#content-wrap ul.wooTabs li a.selected {
+    color : #000000;
 }
 
 #slides {
