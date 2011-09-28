@@ -114,6 +114,11 @@ a:visited,
     background : #fff
 }
 
+.search img.thumbnail {
+    float      : left;
+    margin-right : 10px;
+}
+
 #tabs-home {
     background : none;
     border-radius : 0;
