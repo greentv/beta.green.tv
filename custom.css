@@ -171,6 +171,16 @@ a:visited,
     width : 940px;
 }
 
+#footer-wrapper .widget h3 {
+    background : none;
+    margin : 0px;
+    padding : 0px;
+}
+
+#footer-widgets a, #footer-widgets .widget ul li a {
+    text-shadow : 0px;
+}
+
 /* video page */
 #feat-title .title,
 .archive_header {
