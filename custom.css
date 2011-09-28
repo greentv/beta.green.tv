@@ -168,6 +168,10 @@ a:visited,
     color : #999999;
 }
 
+#content-wrap ul.wooTabs li a:hover {
+    background : #FFFFFF;  
+}
+
 #content-wrap ul.wooTabs li a.selected {
     color : #000000;
 }
