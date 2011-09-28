@@ -163,6 +163,11 @@ a:visited,
     background : #EBEDEA
 }
 
+#content-wrap ul.wooTabs li a, #content-wrap ul.wooTabs li a.selected {
+    background : #EBEDEA;
+    color : #999999;
+}
+
 #slides {
     background : #ebedea;
     border-radius : 0;
