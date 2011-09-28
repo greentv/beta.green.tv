@@ -76,7 +76,6 @@ a:visited,
 
 .nav a,
 #tabs-home ul.wooTabs li a {
-    background-color : #fff;
     border-radius : 4px 4px 0 0;
     -moz-border-radius : 4px 4px 0 0;
     -webkit-border-radius :  4px 4px 0 0;
@@ -97,7 +96,7 @@ a:visited,
 .nav li.current-cat a,
 .nav li.current-menu-item a,
 #tabs-home ul.wooTabs li a:hover {
-    background-color : #fff;
+    background : #ebedea;
     color : #000
 }
 
@@ -157,11 +156,11 @@ a:visited,
 
 #tabs-home ul.wooTabs li a,
 #tabs-home ul.wooTabs li a.selected {
-    background : #ffffff
+    background : #4f9849
 }
 
 #tabs-home ul.wooTabs li a.selected {
-    background : #ffffff
+    background : #EBEDEA
 }
 
 #slides {
