@@ -186,6 +186,7 @@ a:visited,
 
 #footer-widgets .widget ul li {
     line-height : 1;
+    list-style : inherit;
 }
 
 /* video page */
