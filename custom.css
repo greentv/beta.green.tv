@@ -45,7 +45,8 @@ a:visited,
 }
 
 #header #header-top {
-    padding : 20px 0 0;
+    height : 120px;
+    padding : 0px;
 }
 
 #header #header-top,
@@ -60,7 +61,7 @@ a:visited,
 
 #main-nav {
     float : right;
-    margin : 0px;
+    margin : 63px 0px 0px 0px;
 }
 
 .nav a,
