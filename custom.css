@@ -49,6 +49,10 @@ a:visited,
     padding : 0px;
 }
 
+#header-top .col-full {
+    position : relative;
+}
+
 #header #header-top,
 #navigation {
     background : #4f9849
@@ -56,6 +60,12 @@ a:visited,
 
 #logo {
     position : absolute;
+    top : 0px;
+}
+
+#search-top {
+    position : absolute;
+    right : 0px;
     top : 0px;
 }
 
