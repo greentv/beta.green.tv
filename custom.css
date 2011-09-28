@@ -76,12 +76,13 @@ a:visited,
 
 .nav a,
 #tabs-home ul.wooTabs li a {
+    background-color : #fff;
     border-radius : 4px 4px 0 0;
     -moz-border-radius : 4px 4px 0 0;
     -webkit-border-radius :  4px 4px 0 0;
     color : #fff;
     font-family : 'PT Sans', arial, sans-serif;
-    font-size : 16px;
+    font-size : 14px;
     line-height : 43px !important;
     margin-right : 3px;
     padding : 0px 10px;
@@ -96,7 +97,7 @@ a:visited,
 .nav li.current-cat a,
 .nav li.current-menu-item a,
 #tabs-home ul.wooTabs li a:hover {
-    background : #ebedea;
+    background-color : #fff;
     color : #000
 }
 
@@ -156,15 +157,18 @@ a:visited,
 
 #tabs-home ul.wooTabs li a,
 #tabs-home ul.wooTabs li a.selected {
-    background : #4f9849
+    background : #ffffff
 }
 
 #tabs-home ul.wooTabs li a.selected {
-    background : #EBEDEA
+    background : #ffffff
 }
 
 #slides {
     background : #ebedea;
+    border-radius : 0;
+    -moz-border-radius : 0;
+    -webkit-border-radius : 0;
     padding : 20px
 }
 
@@ -173,9 +177,6 @@ a:visited,
     padding-top : 0px;
     top : 0px;
     height : 100%;
-    border-radius : 0;
-    -moz-border-radius : 0;
-    -webkit-border-radius : 0;
 }
 
 #slides .prev {
