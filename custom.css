@@ -171,15 +171,21 @@ a:visited,
     width : 940px;
 }
 
-#footer-wrapper .widget h3 {
-    background : none;
-    margin : 0px;
-    padding : 0px;
-    text-shadow : none;
+#footer-wrapper .widget h3,
+#footer-widgets a, #footer-widgets .widget ul li a {
+    font-weight : normal;
+    text-shadow : none;    
 }
 
-#footer-widgets a, #footer-widgets .widget ul li a {
-    text-shadow : none;
+#footer-wrapper .widget h3 {
+    background : none;
+    color : #fff;
+    margin : 0px;
+    padding : 0px;
+}
+
+#footer-widgets .widget ul li {
+    line-height : 1;
 }
 
 /* video page */
