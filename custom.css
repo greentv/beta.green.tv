@@ -175,10 +175,11 @@ a:visited,
     background : none;
     margin : 0px;
     padding : 0px;
+    text-shadow : none;
 }
 
 #footer-widgets a, #footer-widgets .widget ul li a {
-    text-shadow : 0px;
+    text-shadow : none;
 }
 
 /* video page */
