@@ -172,7 +172,8 @@ a:visited,
     border-radius : 0;
     -moz-border-radius : 0;
     -webkit-border-radius : 0;
-    padding : 20px
+    padding : 20px;
+    width : 800px;
 }
 
 #slides .prev, #slides .next {
@@ -184,11 +185,11 @@ a:visited,
 }
 
 #slides .prev {
-    left : -80px;
+    left : -60px;
 }
 
 #slides .next {
-    left : 830px;
+    left : 850px;
 }
 
 #content-wrap ul.wooTabs li a, #content-wrap ul.wooTabs li a.selected {
@@ -206,6 +207,7 @@ a:visited,
 
 #tabs-home .inside {
     background-color : #EBEDEA;
+    padding : 30px 20px 20px;
 }
 
 #footer {
