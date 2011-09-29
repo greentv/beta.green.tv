@@ -252,9 +252,11 @@ a:visited,
 
 #footer-wrapper {
     margin : 0 auto;
-    padding : 0px;
+    padding : 0px !important;
     width : 960px;
 }
+
+#footer-widgets #footer-wrapper {}
 
 #footer-wrapper .widget h3,
 #footer-widgets a, #footer-widgets .widget ul li a {
@@ -272,6 +274,10 @@ a:visited,
 #footer-widgets .widget ul li {
     line-height : 1;
     list-style : inherit;
+}
+
+#footer-widgets .block {
+    width : 200px !important
 }
 
 /* video page */
