@@ -190,6 +190,11 @@ a:visited,
     margin : 0 auto;
 }
 
+.slides_container .text h2 {
+    font-size : 20px;
+    line-height : 22px;
+}
+
 #slides .prev, #slides .next {
     padding-top : 0px;
     top : 0px;
