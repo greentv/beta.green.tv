@@ -141,15 +141,10 @@ a:visited,
     padding-top : 13px;
 }
 
-.archive #content-wrap {
-    padding-top : 2px;
-}
-
-.page #content-wrap {
-    padding-top : 2px;
-}
-
-.single-post #content-wrap {
+.archive #content-wrap, 
+.page #content-wrap, 
+.single-post #content-wrap,  
+.search #content-wrap {
     padding-top : 2px;
 }
 
