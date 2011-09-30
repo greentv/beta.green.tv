@@ -145,8 +145,13 @@ a:visited,
     padding-top : 2px;
 }
 
+.page #content-wrap {
+    padding-top : 2px;
+}
+
 #feat-title .title {
     margin-top : 52px;
+    margin-bottom : 0px;
 }
 
 .search img.thumbnail {
