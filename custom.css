@@ -149,6 +149,7 @@ a:visited,
 }
 
 #feat-title .title {
+    line-height : 32px;
     margin-top : 52px;
     margin-bottom : 0px;
 }
