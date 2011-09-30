@@ -520,7 +520,7 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 }
 
 .ie7 #slides .prev, .ie7 #slides .next {
-    top : 600px;
+    top : 585px;
 }
 
 #slides .prev {
