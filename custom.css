@@ -52,11 +52,15 @@ a:visited,
     background-color : #555555 !important;
 }
 
+#top .nav a, #tabs-home ul.wooTabs li {
+    overflow-x : hidden;
+    width : 180px;
+}
+
 #top .nav a, #tabs-home ul.wooTabs li a {
     border-radius : 0px 0px 0 0 !important;
     -moz-border-radius : 0px 0px 0 0 !important;
     -webkit-border-radius :  0px 0px 0 0 !important;
-    max-width : 180px;
 }
 
 
