@@ -55,7 +55,6 @@
     			
     			<div class="<?php echo $slide_content_class; ?>">
     				<h2><a href="<?php echo get_permalink($post->ID); ?>"><?php the_title(); ?></a></h2>
-    				<a class="slide-overlay-toggle">#</a>
     			</div>
     			
     		  	<?php } ?>
@@ -74,8 +73,11 @@
 				
 				<div class="<?php echo $slide_content_class; ?>">
     				<?php if ($woo_options[ 'woo_slider_title' ] == "true" ) { ?><h2><a href="<?php echo get_permalink($post->ID); ?>"><?php the_title(); ?></a></h2><?php } ?>
-    		  		<?php if ($woo_options[ 'woo_slider_content' ] == "true" ) { ?><p><?php echo $content; ?></p><?php } ?>
+    		  		
     			</div>
+			
+			<?php if ($woo_options[ 'woo_slider_content' ] == "true" ) { ?><p class="desc"><?php echo $content; ?></p><?php } ?>
+			
     			<?php } ?>
     			
     		</div>
@@ -86,8 +88,7 @@
 				
     			<div class="<?php echo $slide_content_class; ?>">
     				<?php if ($woo_options[ 'woo_slider_title' ] == "true" ) { ?><h2><a href="<?php echo get_permalink($post->ID); ?>"><?php the_title(); ?></a></h2><?php } ?>
-    		  		<?php if ($woo_options[ 'woo_slider_content' ] == "true" ) { ?><p><?php echo $content; ?></p><?php } ?>
-    		  		<a class="slide-overlay-toggle">#</a>
+    		  		
     			</div>
     			
     			<?php } ?>
@@ -97,6 +98,12 @@
     				<?php echo woo_image_vimeo('key=image&width=760&id=' . $post->ID); ?>
     			
     			</div>
+			
+			<?php if ($woo_options[ 'woo_slider_title' ] == "true" || $woo_options[ 'woo_slider_content' ] == "true" ) { ?>
+			
+			<?php if ($woo_options[ 'woo_slider_content' ] == "true" ) { ?><p><?php echo $content; ?></p><?php } ?>
+			
+			<?php } ?>
     		  
     		</div>
     		<?php } elseif ( $output_data != '' && $output_type == 'video' ) { ?>
@@ -105,8 +112,7 @@
     			<?php if ($woo_options[ 'woo_slider_title' ] == "true" || $woo_options[ 'woo_slider_content' ] == "true" ) { ?>
 				<div class="<?php echo $slide_content_class; ?>">
     				<?php if ($woo_options[ 'woo_slider_title' ] == "true" ) { ?><h2><a href="<?php echo get_permalink($post->ID); ?>"><?php the_title(); ?></a></h2><?php } ?>
-    		  		<?php if ($woo_options[ 'woo_slider_content' ] == "true" ) { ?><p><?php echo $content; ?></p><?php } ?>
-    		  		<a class="slide-overlay-toggle">#</a>
+    		  		
     			</div>
     			<?php } ?>
     	
@@ -115,6 +121,12 @@
     				<?php echo woo_embed( 'key=embed&width=760' ); ?>
     	
     			</div>
+			
+			<?php if ($woo_options[ 'woo_slider_title' ] == "true" || $woo_options[ 'woo_slider_content' ] == "true" ) { ?>
+			
+			<?php if ($woo_options[ 'woo_slider_content' ] == "true" ) { ?><p class="desc"><?php echo $content; ?></p><?php } ?>
+			
+			<?php } ?>
     		  
     		</div>
     		<?php } else { ?>
@@ -124,8 +136,7 @@
 				
     			<div class="<?php echo $slide_content_class; ?>">
     				<?php if ($woo_options[ 'woo_slider_title' ] == "true" ) { ?><h2><a href="<?php echo get_permalink($post->ID); ?>"><?php the_title(); ?></a></h2><?php } ?>
-    		  		<?php if ($woo_options[ 'woo_slider_content' ] == "true" ) { ?><p><?php echo $content; ?></p><?php } ?>
-    		  		<a class="slide-overlay-toggle">#</a>
+
     			</div>
     			
     			<?php } ?>
@@ -135,6 +146,12 @@
     				<?php echo woo_image_vimeo('key=image&width=760&id=' . $post->ID); ?>
     			
     			</div>
+			
+			<?php if ($woo_options[ 'woo_slider_title' ] == "true" || $woo_options[ 'woo_slider_content' ] == "true" ) { ?>
+			
+			<?php if ($woo_options[ 'woo_slider_content' ] == "true" ) { ?><p class="desc"><?php echo $content; ?></p><?php } ?>
+			
+			<?php } ?>
     		  
     		</div>
     		<?php } ?>

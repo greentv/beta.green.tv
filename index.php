@@ -1,6 +1,14 @@
 <?php get_header(); ?>
 <?php global $woo_options; ?>
-
+<div id="content-wrapper">
+    <div id="slider-content">
+    
+	<div id="banner">
+	    
+	    <?php if (function_exists('iinclude_page')) iinclude_page(163) ?>
+	    
+	</div>
+	
     <?php 
     	// Featured Video
     	if ( get_option('woo_slider') != "true" AND get_option('woo_exclude') )
@@ -22,6 +30,8 @@
 		
 		query_posts($args);			
 	?>
+    </div>
+
 
     <div id="content-wrap">   
 
@@ -156,7 +166,9 @@
 				
 	    </div><!-- /wooTabs -->
 
-	</div><!-- #content-wrap -->
+    </div><!-- #content-wrap -->
+	
+</div>
 
 <script type="text/javascript">
 jQuery(document).ready(function(){
