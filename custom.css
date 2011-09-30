@@ -149,9 +149,13 @@ a:visited,
 }
 
 #feat-title .title {
-    line-height : 34px;
+
     margin-top : 52px;
     margin-bottom : 0px;
+}
+
+.ie7 #feat-title .title {
+    line-height : 34px;
 }
 
 .search img.thumbnail {
