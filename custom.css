@@ -367,6 +367,10 @@ a:visited,
     float : right !important;
 }
 
+#footer #credit img {
+    margin : 0 0 0 10px;
+}
+
 /* video page */
 #feat-title .title,
 .archive_header {
