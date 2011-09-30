@@ -1,7 +1,7 @@
 <?php get_header(); ?>
        
     <div id="content-wrap">   
-    <div id="content" class="col-full">
+    <div id="content" class="col-full search">
     	<?php if ( $woo_options[ 'woo_breadcrumbs_show' ] == 'true' ) { woo_breadcrumbs(); } ?>
 		<div id="main" class="col-left">
 			<?php if (have_posts()) { $count = 0; ?>
