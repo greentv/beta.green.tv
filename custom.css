@@ -25,7 +25,7 @@ a:visited,
 }
 
 #top {
-    background : #4f7b4c;
+    background : #555555;
 }
 
 #top .nav a {
@@ -653,29 +653,8 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
     max-width : 300px;
 }
 
-#main-nav.nav li.sfHover a {
-    background-color : #EBEDEA;
-    color : #000;
-}
-
-#main-nav.nav li ul li {
-    background-color : #EBEDEA;
-    background-image : none;
-    margin : 0px;
-    padding : 0px;
-    padding-left : 10px;
-}
-
-#main-nav.nav li ul li a {
-    font-size : 12px;
-    line-height : 30px !important;
-    margin : 0px;
-    padding : 0px;
-}
-
-#main-nav.nav li ul li a:hover, #main-nav.nav li ul li.current_page_item a, #main-nav.nav li ul li.current-menu-item a {
-    background : none !important;
-    color : #439539;
+#top .nav li ul {
+    background-color : #555555 !important;
 }
 
 #post-entries {
