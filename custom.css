@@ -52,9 +52,8 @@ a:visited,
     background-color : #555555 !important;
 }
 
-#top .nav li ul li {
+#top .nav li ul li a {
     margin : 0px !important;
-    padding : 0px !important;
 }
 
 #top .nav a, #tabs-home ul.wooTabs li a {
