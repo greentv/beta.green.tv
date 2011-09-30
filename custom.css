@@ -516,6 +516,7 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
     margin-top : -35px;
     text-indent : -9999px;
     top : 100%;
+    width : 35px;
 }
 
 .ie7 #slides .prev, .ie7 #slides .next {
@@ -533,7 +534,7 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 }
 
 #slides .pagination li a {
-    margin-top : 20px;
+    margin-top : 11px;
 }
 
 #slides .pagination {
