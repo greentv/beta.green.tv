@@ -141,6 +141,10 @@ a:visited,
     padding-top : 13px;
 }
 
+.archive #content-wrap {
+    padding-top : 0px;
+}
+
 .search img.thumbnail {
     float      : left;
     margin: 0px 10px 20px 0px;
