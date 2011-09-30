@@ -352,6 +352,10 @@ a:visited,
     width : 200px !important;
 }
 
+.footer-widget-4 {
+    float : right !important;
+}
+
 /* video page */
 #feat-title .title,
 .archive_header {
@@ -380,6 +384,31 @@ a:visited,
 
 #feat-video .video-excerpt {
     background : none;
+}
+
+#feat-video .share li a {
+    border-style : hidden;
+    font-weight : normal;
+    text-shadow : none;
+    width : 181px;
+}
+
+#feat-video .share li.last a, #feat-video .share li.first a {
+    border-radius : 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius : 0;
+}
+
+#feat-video .share li.first a {
+    border-left : hidden;
+}
+
+#feat-video .meta .post-tags a {
+    background-color : #EBEDEA !important;
+}
+
+#feat-video .meta .post-tags a:hover {
+    color : #4F9849 !important;
 }
 
 /* twitter feed */
@@ -572,4 +601,68 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 
 .ie7 #feat-video {
     background-image : none;
+}
+
+#post-author {
+    display : none;
+}
+
+#sidebar {
+    padding-top : 0px; 
+}
+
+#sidebar .primary {
+    margin-top : -3px;
+}
+
+.widget_execphp h3 {
+    display : none;
+}
+
+.widget_execphp {
+    padding : 0px;
+}
+
+.execphpwidget img {
+    margin : 28px 0px 0px 20px;
+    max-width : 300px;
+}
+
+#main-nav.nav li.sfHover a {
+    background-color : #EBEDEA;
+    color : #000;
+}
+
+#main-nav.nav li ul li {
+    background-color : #EBEDEA;
+    background-image : none;
+    margin : 0px;
+    padding : 0px;
+    padding-left : 10px;
+}
+
+#main-nav.nav li ul li a {
+    font-size : 12px;
+    line-height : 30px !important;
+    margin : 0px;
+    padding : 0px;
+}
+
+#main-nav.nav li ul li a:hover, #main-nav.nav li ul li.current_page_item a, #main-nav.nav li ul li.current-menu-item a {
+    background : none !important;
+    color : #4F9849;
+}
+
+#post-entries {
+    display : none;
+}
+
+#main.video-archive .sorting {
+    border-radius : 0;
+    -moz-border-radius : 0;
+    -webkit-border-radius : 0;
+}
+
+#main.video-archive .sorting {
+    text-shadow : none !important;
 }
