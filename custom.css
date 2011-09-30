@@ -37,7 +37,7 @@ a:visited,
     float : right;
 }
 
-
+#top .nav a:hover, 
 #top .nav li.current_page_item a, 
 #top .nav li.current_page_parent a,
 #top .nav li.current-menu-ancestor a,
@@ -60,6 +60,12 @@ a:visited,
     border-radius : 0px 0px 0 0 !important;
     -moz-border-radius : 0px 0px 0 0 !important;
     -webkit-border-radius :  0px 0px 0 0 !important;
+}
+
+#top .nav li ul, #top .nav li ul li:last-child a {
+    border-radius : 0px 0px 4px 4px !important;
+    -moz-border-radius : 0px 0px 4px 4px !important;
+    -webkit-border-radius :  0px 0px 4px 4px !important;
 }
 
 
