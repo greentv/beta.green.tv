@@ -50,7 +50,7 @@ a:visited,
 
 #header {
     border-bottom : 8px solid #ebedea;
-    margin-bottom : 20px;
+    margin-bottom : 30px;
 }
 
 #header #header-top {
@@ -138,7 +138,7 @@ a:visited,
 
 #content-wrap {
     background : #fff;
-    padding-top : 3px;
+    padding-top : 13px;
 }
 
 .search img.thumbnail {
