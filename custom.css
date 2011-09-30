@@ -512,7 +512,7 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 
 #slides .prev, #slides .next {
     padding-top : 0px;
-    height : 50px;
+    height : 35px;
     margin-top : -35px;
     text-indent : -9999px;
     top : 100%;
