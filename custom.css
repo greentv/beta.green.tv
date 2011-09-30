@@ -213,12 +213,12 @@ a:visited,
 
 #banner h2 {
     color : #4F9849;
-    font-size : 55px;
-    line-height : 75px;
+    font-size : 35px;
+    line-height : 55px;
 }
 
 #banner p {
-    font-size : 32px;
+    font-size : 25px;
     margin-bottom : 10%;
 }
 
