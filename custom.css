@@ -253,6 +253,7 @@ a:visited,
 #banner {
     float : left;
     height : auto;
+    position : relative;
     width : 280px;
 }
 
