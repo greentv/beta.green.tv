@@ -50,7 +50,7 @@ a:visited,
 
 #header {
     border-bottom : 8px solid #ebedea;
-    margin-bottom : 4em;
+    margin-bottom : 20px;
 }
 
 #header #header-top {
@@ -137,7 +137,8 @@ a:visited,
 }
 
 #content-wrap {
-    background : #fff
+    background : #fff;
+    padding-top : 3px;
 }
 
 .search img.thumbnail {
@@ -276,9 +277,6 @@ a:visited,
 
 .slides_container p.desc {
     margin : 10px 0px;
-}
-
-#content-wrap {
 }
 
 #content-wrap ul.wooTabs li a, #content-wrap ul.wooTabs li a.selected {
