@@ -506,14 +506,14 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 }
 
 #slides .pagination {
-    height : 50px;
+    height : 30px;
     width : 620px;
 }
 
 #slides .prev, #slides .next {
     padding-top : 0px;
     height : 50px;
-    margin-top : -50px;
+    margin-top : -30px;
     text-indent : -9999px;
     top : 100%;
 }
