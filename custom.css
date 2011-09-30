@@ -142,7 +142,11 @@ a:visited,
 }
 
 .archive #content-wrap {
-    padding-top : 0px;
+    padding-top : 2px;
+}
+
+#feat-title .title {
+    margin-top : 52px;
 }
 
 .search img.thumbnail {
