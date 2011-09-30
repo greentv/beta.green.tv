@@ -58,6 +58,12 @@ a:visited,
     -moz-box-shadow : none
 }
 
+#top .nav li ul li a {
+    border-radius-top : 0;
+    -moz-border-radius-top : 0;
+    -webkit-border-radius-top : 0;
+}
+
 #header {
     border-bottom : 8px solid #ebedea;
     margin-bottom : 30px;
