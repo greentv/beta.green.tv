@@ -628,7 +628,7 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 }
 
 .ie7 #sidebar .primary {
-    margin-top : 15px;
+    margin-top : 20px;
 }
 
 .widget_execphp h3 {
