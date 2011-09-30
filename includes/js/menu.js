@@ -1,4 +1,4 @@
-sfHover = function() {
+/*sfHover = function() {
 	if (!document.getElementsByTagName) return false;
 	var sfEls = document.getElementById("navigation").getElementsByTagName("li");
 	// if you only have one main menu - delete the line below //
@@ -23,4 +23,4 @@ sfHover = function() {
 //	}
 	//
 }
-if (window.attachEvent) window.attachEvent("onload", sfHover);
+if (window.attachEvent) window.attachEvent("onload", sfHover);*/
