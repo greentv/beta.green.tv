@@ -52,17 +52,12 @@ a:visited,
     background-color : #555555 !important;
 }
 
-#top .nav li ul li {
-    box-shadow : none;
-    -webkit-box-shadow : none;
-    -moz-box-shadow : none
+#top .nav a, #tabs-home ul.wooTabs li a {
+    border-radius : 0px 0px 0 0 !important;
+    -moz-border-radius : 0px 0px 0 0 !important;
+    -webkit-border-radius :  0px 0px 0 0 !important;
 }
 
-#top .nav li ul li a {
-    border-radius-top : 0;
-    -moz-border-radius-top : 0;
-    -webkit-border-radius-top : 0;
-}
 
 #header {
     border-bottom : 8px solid #ebedea;
