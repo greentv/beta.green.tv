@@ -45,7 +45,17 @@ a:visited,
 #top .nav li.current-menu-item a,
 #top .nav li.sfHover {
     color : #fff;
-    background : #4f7b4c !important;  
+    background : #000000 !important;  
+}
+
+#top .nav li ul {
+    background-color : #555555 !important;
+}
+
+#top .nav li ul li {
+    box-shadow : none;
+    -webkit-box-shadow : none;
+    -moz-box-shadow : none
 }
 
 #header {
@@ -651,10 +661,6 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 .execphpwidget img {
     margin : 28px 0px 0px 20px;
     max-width : 300px;
-}
-
-#top .nav li ul {
-    background-color : #555555 !important;
 }
 
 #post-entries {
