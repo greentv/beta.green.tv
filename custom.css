@@ -539,6 +539,7 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 
 #slides .pagination {
     background-color : #EBEDEA;
+    margin-top : 5px;
 }
 
 .woo-pagination .current, .woo-pagination a:hover {
