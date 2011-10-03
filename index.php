@@ -62,9 +62,9 @@
 		
 		                <div class="tab-image-block">
 		                	<?php
-		                		$args = 'key=image&width=' . $woo_options['woo_thumb_w'] . '&height=' . $woo_options['woo_thumb_h'] . '&class=thumbnail&link=img&return=true&id=' . get_the_ID();
+		                		$argsNew = 'key=image&width=' . $woo_options['woo_thumb_w'] . '&height=' . $woo_options['woo_thumb_h'] . '&class=thumbnail&link=img&return=true&id=' . get_the_ID();
 		                		
-		                		echo '<a href="' . get_permalink( get_the_ID() ) . '" title="' . the_title_attribute( array( 'echo' => 0 ) ) . '">' . woo_image_vimeo( $args ) . '</a>';
+		                		echo '<a href="' . get_permalink( get_the_ID() ) . '" title="' . the_title_attribute( array( 'echo' => 0 ) ) . '">' . woo_image_vimeo( $argsNew ) . '</a>';
 		                	?>
 		                </div> 
 		                
