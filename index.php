@@ -25,12 +25,11 @@
 		query_posts($args);			
 	?>
 	
-	<div id="feat-right">
-	    <?php get_sidebar(); ?>
+	<div id="banner">
+	    <?php //get_sidebar(); ?>
 	    <?php //if (function_exists('iinclude_page')) iinclude_page(163) ?>
 	    
 	</div>
-	
     </div>
 
 
@@ -62,9 +61,9 @@
 		
 		                <div class="tab-image-block">
 		                	<?php
-		                		$argsNew = 'key=image&width=' . $woo_options['woo_thumb_w'] . '&height=' . $woo_options['woo_thumb_h'] . '&class=thumbnail&link=img&return=true&id=' . get_the_ID();
+		                		$args = 'key=image&width=' . $woo_options['woo_thumb_w'] . '&height=' . $woo_options['woo_thumb_h'] . '&class=thumbnail&link=img&return=true&id=' . get_the_ID();
 		                		
-		                		echo '<a href="' . get_permalink( get_the_ID() ) . '" title="' . the_title_attribute( array( 'echo' => 0 ) ) . '">' . woo_image_vimeo( $argsNew ) . '</a>';
+		                		echo '<a href="' . get_permalink( get_the_ID() ) . '" title="' . the_title_attribute( array( 'echo' => 0 ) ) . '">' . woo_image_vimeo( $args ) . '</a>';
 		                	?>
 		                </div> 
 		                
