@@ -250,20 +250,20 @@ a:visited,
     
 }
 
-#banner {
-    float : left;
+#feat-right {
+    float : right;
     height : auto;
     position : relative;
     width : 280px;
 }
 
-#banner h2 {
+#feat-right h2 {
     color : #439539;
     font-size : 35px;
     line-height : 55px;
 }
 
-#banner p {
+#feat-right p {
     font-size : 25px;
     margin-bottom : 10%;
 }
