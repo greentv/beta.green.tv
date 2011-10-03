@@ -26,7 +26,7 @@
 	?>
 	
 	<div id="feat-right">
-	    <?php get_sidebar(); ?>
+	    <?php //get_sidebar(); ?>
 	    <?php //if (function_exists('iinclude_page')) iinclude_page(163) ?>
 	    
 	</div>
