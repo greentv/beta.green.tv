@@ -86,5 +86,5 @@
 	</div><!-- /#header -->
 	
     <div id="tagline" class="col-full">
-        <span class="site-description"><?php bloginfo('description'); ?></span>
+        <span class="site-description"><?php if (function_exists('iinclude_page')) iinclude_page(163) //bloginfo('description'); ?></span>
     </div>
