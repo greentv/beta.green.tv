@@ -34,6 +34,15 @@ a:visited,
 }
 
 #top-nav {
+    float : left;
+    width : 100%:
+}
+
+#top .nav li.menu-item-235, #top .nav li.menu-item-236 {
+    float : left;
+}
+
+#top .nav li {
     float : right;
 }
 
