@@ -154,6 +154,10 @@ a:visited,
     color : #000
 }
 
+#home-tab-latest div.pagination {
+    display : none;
+}
+
 #tagline {
     font-size : 16px;
     line-height : 18px;
