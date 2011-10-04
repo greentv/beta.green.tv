@@ -74,6 +74,15 @@ a:visited,
     -webkit-border-radius :  0px 0px 4px 4px !important;
 }
 
+#top #social-links {
+    top : 0px;
+    right : -80px;
+    position : absolute;
+}
+
+#top #social-links img {
+    margin : 6px 4px 0 0;
+}
 
 #header {
     border-bottom : 8px solid #ebedea;
@@ -85,7 +94,7 @@ a:visited,
     padding : 0px;
 }
 
-#header-top .col-full {
+#top .col-full, #header-top .col-full {
     position : relative;
 }
 
