@@ -96,7 +96,7 @@ a:visited,
 
 #header {
     border-bottom : 8px solid #ebedea;
-    margin-bottom : 30px;
+    margin-bottom : 10px;
 }
 
 #header #header-top {
@@ -185,7 +185,7 @@ a:visited,
 }
 
 #partner-logos {
-    margin : 0px auto;
+    margin : 0px auto 20px;
     width : 960px;
 }
 
