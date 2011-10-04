@@ -5,7 +5,8 @@
     
 	<div id="banner">
 	    
-	    <?php if (function_exists('iinclude_page')) iinclude_page(163) ?>
+	    <?php get_sidebar(); ?>
+	    <?php //if (function_exists('iinclude_page')) iinclude_page(163) ?>
 	    
 	</div>
 	
