@@ -163,7 +163,10 @@ a:visited,
 
 #tagline {
     color : #fff;
+    left : 90px;
     position : absolute !important;
+    top : 20px; 
+    width : auto;
 }
 
 .site-description {
