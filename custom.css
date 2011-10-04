@@ -668,6 +668,10 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
     margin-top : 20px;
 }
 
+#banner .widget ul {
+    display : none;
+}
+
 .widget_execphp h3 {
     display : none;
 }
