@@ -255,6 +255,10 @@ a:visited,
     width : 280px;
 }
 
+#banner .widget ul {
+    display : none;
+}
+
 #banner h2 {
     color : #439539;
     font-size : 35px;
@@ -273,6 +277,11 @@ a:visited,
 #banner .widget_text {
     padding : 0px 0px 0px 20px;
     text-align : right;
+}
+
+#banner #sidebar {
+    padding-top : 0px;
+    width : auto;
 }
 
 #slides {
@@ -664,8 +673,7 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 }
 
 #sidebar {
-    padding-top : 3px;
-    width : auto;
+    padding-top : 0px;
 }
 
 #sidebar .primary {
@@ -674,10 +682,6 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 
 .ie7 #sidebar .primary {
     margin-top : 20px;
-}
-
-#banner .widget ul {
-    display : none;
 }
 
 .widget_execphp h3 {
