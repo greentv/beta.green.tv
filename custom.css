@@ -748,3 +748,7 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 #main.video-archive .sorting {
     text-shadow : none !important;
 }
+
+#widget_woo_embed-5 h3 {
+    background : url(./images/vestas.png) 100% 50% no-repeat;
+}
