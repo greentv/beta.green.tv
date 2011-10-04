@@ -159,29 +159,24 @@ a:visited,
     display : none;
 }
 
+
+
 #tagline {
-    font-size : 16px;
-    line-height : 18px;
+    color : #fff;
 }
 
 .site-description {
-    display : none;
-    margin : 18px 0px 27px 0px;
-}
-
-.home .site-description {
-    display : block;
+    margin : 0px;
 }
 
 .site-description h1 {
-    font-size : 22px;
 }
 
 .site-description h1 b {
-    color : #439539;
-    font-size : 30px;
     font-weight : normal;
 }
+
+
 
 #wrapper {
     background : #fff
