@@ -367,7 +367,9 @@ a:visited,
 
 .slides_container .text h2 {
     background-color : #EBEDEA;
-    margin : 0 0 20px 0;
+    font-size : 22px;
+    line-height : 22px;
+    margin : 0 0 16px 0;
 }
 
 .slides_container .text h2 a {
