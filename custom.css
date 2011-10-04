@@ -266,8 +266,12 @@ a:visited,
     margin-bottom : 10%;
 }
 
+#banner .widget {
+    padding-bottom : 0px;
+}
+
 #banner .widget_text {
-    padding : 0px !important;
+    padding : 0px;
 }
 
 #slides {
