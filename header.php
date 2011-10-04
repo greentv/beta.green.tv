@@ -84,7 +84,9 @@
 		</div><!-- /#header -->  
 		
 	</div><!-- /#header -->
-	
+
+    <?php if ( is_front_page() ): ?>
     <div id="tagline" class="col-full">
         <span class="site-description"><?php bloginfo('description'); ?></span>
     </div>
+    <?php endif; ?>
