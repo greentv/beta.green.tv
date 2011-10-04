@@ -153,8 +153,11 @@ a:visited,
 
 .site-description {
     display : block;
-    font-size : 22px;
     margin : 18px 0px 27px 0px;
+}
+
+.site-description h1 {
+    font-size : 22px;
 }
 
 #wrapper {
