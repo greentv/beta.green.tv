@@ -317,6 +317,10 @@ a:visited,
     padding-bottom : 0px !important;
 }
 
+#banner .widget_woo_embed {
+    margin-bottom : 0px;
+}
+
 #banner .widget_text {
     padding : 0px 0px 0px 20px;
     text-align : right;
