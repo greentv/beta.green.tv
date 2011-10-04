@@ -185,8 +185,13 @@ a:visited,
 }
 
 #partner-logos {
+    display : none;
     margin : 0px auto 11px;
     width : 960px;
+}
+
+.home #partner-logos {
+    display : block;
 }
 
 
