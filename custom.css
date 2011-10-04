@@ -251,9 +251,8 @@ a:visited,
 }
 
 #banner {
+    float : right;
     height : auto;
-    left : 1020px;
-    position : absolute;
     width : 280px;
 }
 
