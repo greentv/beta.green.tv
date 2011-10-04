@@ -38,6 +38,10 @@ a:visited,
     float : right;
 }
 
+#top .nav li {
+    float : right;
+}
+
 #top .nav li.menu-item-235, #top .nav li.menu-item-236 {
     float : left;
 }
