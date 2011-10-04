@@ -82,13 +82,12 @@
 					}
 					?>
 		        </ul><!-- /#nav -->
-		        <?php } ?> 
-					       
+		        <?php } ?> 	       
 			</div>
 		</div><!-- /#header -->  
 		
 	</div><!-- /#header -->
-	
+
 	<div id="partner-logos">
 		<?php if (function_exists('iinclude_page')) iinclude_page(246); ?>
 	</div>
