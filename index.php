@@ -3,12 +3,7 @@
 <div id="content-wrapper">
     <div id="slider-content">
     
-	<div id="banner">
-	    
-	    <?php get_sidebar(); ?>
-	    <?php if (function_exists('iinclude_page')) iinclude_page(163) ?>
-	    
-	</div>
+	
 	
     <?php 
     	// Featured Video
@@ -31,6 +26,13 @@
 		
 		query_posts($args);			
 	?>
+	
+	<div id="banner">
+	    
+	    <?php get_sidebar(); ?>
+	    <?php if (function_exists('iinclude_page')) iinclude_page(163) ?>
+	    
+	</div>
     </div>
 
 
