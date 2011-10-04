@@ -25,6 +25,11 @@
 	<div id="top">
 		<div class="col-full">
 			<?php wp_nav_menu( array( 'depth' => 6, 'sort_column' => 'menu_order', 'container' => 'ul', 'menu_id' => 'top-nav', 'menu_class' => 'nav fl', 'theme_location' => 'top-menu' ) ); ?>
+    		<div id="social-links">
+                <a href="http://youtube.com/greentvgreentv" target="_blank" title="green.tv on youtube"><img src="<?php bloginfo('template_directory'); ?>/images/social/yt.png" alt="Youtube" /></a>
+                <a href="http://twitter.com/green_tv" target="_blank" title="green.tv on twitter"><img src="<?php bloginfo('template_directory'); ?>/images/social/tw.png" alt="Twitter" /></a>
+                <a href="https://www.facebook.com/greentv" target="_blank" title="green.tv on facebook"><img src="<?php bloginfo('template_directory'); ?>/images/social/fb.png" alt="FaceBook" /></a>
+    		</div>
 		</div>
 	</div><!-- /#top -->
 	
