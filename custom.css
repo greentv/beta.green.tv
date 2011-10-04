@@ -151,8 +151,12 @@ a:visited,
 }
 
 .site-description {
-    display : block;
+    display : none;
     margin : 18px 0px 27px 0px;
+}
+
+.home .site-description {
+    display : block;
 }
 
 .site-description h1 {
