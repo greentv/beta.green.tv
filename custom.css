@@ -156,12 +156,12 @@ a:visited,
 }
 
 .site-description h1 {
-    
     font-size : 22px;
 }
 
 .site-description h1 b {
     color : #439539;
+    font-size : 30px;
     font-weight : normal;
 }
 
