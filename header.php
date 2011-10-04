@@ -56,6 +56,10 @@
 			      	
 				</div><!-- /#logo -->
 				
+				<div id="tagline" class="col-full">
+					<span class="site-description"><?php if (function_exists('iinclude_page')) iinclude_page(163) //bloginfo('description'); ?></span>
+				</div>
+				
 				<div id="search-top">
 					<?php get_template_part( 'search-form' ); ?>
 				</div>
@@ -78,15 +82,7 @@
 					}
 					?>
 		        </ul><!-- /#nav -->
-		        <?php } ?> 
-					       
+		        <?php } ?> 	       
 			</div>
-		</div><!-- /#header -->  
-		
+		</div><!-- /#header top -->  
 	</div><!-- /#header -->
-
-    <?php if ( is_front_page() ): ?>
-    <div id="tagline" class="col-full">
-        <span class="site-description"><?php bloginfo('description'); ?></span>
-    </div>
-    <?php endif; ?>

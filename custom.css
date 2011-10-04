@@ -31,10 +31,20 @@ a:visited,
 #top .nav a {
     color : #ebedea;
     font-size : 10px;
+    padding : 6px 6px;
 }
 
 #top-nav {
     float : right;
+    width : 598px;
+}
+
+#top .nav li {
+    float : right;
+}
+
+#top .nav li.menu-item-235, #top .nav li.menu-item-236 {
+    float : left;
 }
 
 #top .nav a:hover, 
@@ -145,17 +155,36 @@ a:visited,
     color : #000
 }
 
+#home-tab-latest div.pagination {
+    display : none;
+}
+
+
+
 #tagline {
-    color : #439539;
-    font-size : 16px;
-    line-height : 18px;
+    color : #fff;
+    left : 110px;
+    position : absolute !important;
+    top : 26px; 
+    width : auto;
 }
 
 .site-description {
-    display : block;
-    font-size : 22px;
-    margin : 18px 0px 27px 0px;
+    margin : 0px;
 }
+
+.site-description h1 {
+    float : left;
+    color : #fff;
+    font-size : 16px;
+    width : auto;
+}
+
+.site-description h1 b {
+    font-size : 18px;
+}
+
+
 
 #wrapper {
     background : #fff
@@ -264,6 +293,10 @@ a:visited,
     width : 280px;
 }
 
+#banner .widget ul {
+    display : none;
+}
+
 #banner h2 {
     color : #439539;
     font-size : 35px;
@@ -282,6 +315,11 @@ a:visited,
 #banner .widget_text {
     padding : 0px 0px 0px 20px;
     text-align : right;
+}
+
+#banner #sidebar {
+    padding-top : 0px;
+    width : auto;
 }
 
 #slides {
@@ -673,8 +711,7 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 }
 
 #sidebar {
-    padding-top : 3px;
-    width : auto;
+    padding-top : 0px;
 }
 
 #sidebar .primary {
@@ -683,10 +720,6 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 
 .ie7 #sidebar .primary {
     margin-top : 20px;
-}
-
-#banner .widget ul {
-    display : none;
 }
 
 .widget_execphp h3 {
