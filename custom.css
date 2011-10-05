@@ -739,7 +739,7 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 }
 
 .ie7 #sidebar .widget {
-    display : inline;
+    padding : 0px;
 }
 
 .widget_execphp h3 {
