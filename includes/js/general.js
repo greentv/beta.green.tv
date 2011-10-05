@@ -24,6 +24,7 @@ jQuery(document).ready(function(){
         unselectedNavItem.closest('li').addClass('current-menu-item');
     }
     
+    //add vestas link to h3 widget title on homepage
     jQuery('#widget_woo_embed-5 h3').append('<a href="http://www.vestas.com/" target="_blank" title="Vestas"></a>');
     
 	
