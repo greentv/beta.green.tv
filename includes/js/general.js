@@ -24,6 +24,8 @@ jQuery(document).ready(function(){
         unselectedNavItem.closest('li').addClass('current-menu-item');
     }
     
+    jQuery('#widget_woo_embed-5 h3').append('<a href="http://www.vestas.com/" target="_blank" title="Vestas"></a>');
+    
 	
 });
 
