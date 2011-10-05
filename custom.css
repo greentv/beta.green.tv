@@ -280,7 +280,8 @@ a:visited,
     border-radius : 0;
     -moz-border-radius : 0;
     -webkit-border-radius : 0;
-    opacity: 1;
+    cursor : pointer;
+    opacity: 0.9;
 }
 
 #content-wrapper {
@@ -701,7 +702,8 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 }
 
 #main.video-archive .post img {
-    opacity : 1;
+    cursor : pointer;
+    opacity : 0.9;
 }
 
 #feat-video .video {
