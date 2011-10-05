@@ -701,6 +701,10 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
     -webkit-border-radius : 0;    
 }
 
+#main.video-archive .post img {
+    opacity : 1;
+}
+
 #feat-video .video {
     padding-left : 0px;
 }
