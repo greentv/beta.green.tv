@@ -779,4 +779,12 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 
 #widget_woo_embed-5 h3 {
     background : url(./images/vestas.png) 100% 50% no-repeat;
+    position : relative;
+}
+
+#widget_woo_embed-5 h3 a {
+    display : block;
+    height: 100%;
+    position : absolute;
+    width : 50px;
 }
