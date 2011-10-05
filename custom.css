@@ -26,6 +26,8 @@ a:visited,
 
 #top {
     background : #555555;
+    position : relative;
+    z-index : 9;
 }
 
 #top .nav a {
