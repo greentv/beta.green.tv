@@ -278,7 +278,8 @@ a:visited,
 #tabs-home .block img {
     border-radius : 0;
     -moz-border-radius : 0;
-    -webkit-border-radius : 0;   
+    -webkit-border-radius : 0;
+    opacity: 1;
 }
 
 #content-wrapper {
