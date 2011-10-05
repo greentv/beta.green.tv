@@ -783,8 +783,11 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 }
 
 #widget_woo_embed-5 h3 a {
+    cursor : pointer;
     display : block;
     height: 100%;
     position : absolute;
-    width : 50px;
+    right : 0px;
+    top : 0px;
+    width : 60px;
 }
