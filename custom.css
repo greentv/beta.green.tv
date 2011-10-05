@@ -26,6 +26,8 @@ a:visited,
 
 #top {
     background : #555555;
+    position : relative;
+    z-index : 9;
 }
 
 #top .nav a {
@@ -737,6 +739,10 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 
 .ie7 #sidebar .primary {
     margin-top : 20px;
+}
+
+.ie7 #sidebar .widget {
+    padding : 0px;
 }
 
 .widget_execphp h3 {
