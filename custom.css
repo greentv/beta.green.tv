@@ -738,6 +738,10 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
     margin-top : 20px;
 }
 
+.ie7 #sidebar .widget {
+    display : inline;
+}
+
 .widget_execphp h3 {
     display : none;
 }
