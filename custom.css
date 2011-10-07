@@ -328,6 +328,7 @@ a:visited,
 #menu-category-menu {
     margin : 0px;
     padding : 0px;
+    width : 200px;
 }
 
 #menu-category-menu li {
@@ -339,7 +340,9 @@ a:visited,
 
 #menu-category-menu li a {
     color : #000;
+    font-size : 18px;
     font-weight : normal;
+    line-height : 25px;
     padding : 0px;
 }
 
