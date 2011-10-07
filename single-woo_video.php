@@ -65,6 +65,13 @@
 					</div>
 											                                
 	            </div><!-- .post -->
+		    
+				<?php
+				    $comm = $woo_options['woo_comments'];
+				    if ( ( $comm == 'post' || $comm == 'both' ) ) {
+					    comments_template('', true);
+				    }
+				?>
 	
 				<?php if ( $woo_options['woo_post_author'] == 'true' ) { ?>
 				<div id="post-author">
@@ -83,12 +90,7 @@
 				<?php } ?>
 				
 				
-				<?php
-				    $comm = $woo_options['woo_comments'];
-				    if ( ( $comm == 'post' || $comm == 'both' ) ) {
-					    comments_template('', true);
-				    }
-				?>
+				
 				
 				<?php $original_post = $post; /* Save the original post data to make sure we display it correctly after related posts. */ ?>
 				
