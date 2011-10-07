@@ -127,6 +127,10 @@ a:visited,
     margin-right : 3px;
 }
 
+#main-nav li ul li a {
+    color : #fff;
+}
+
 .nav a,
 #tabs-home ul.wooTabs li a {
     border-radius : 4px 4px 0 0;
