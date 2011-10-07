@@ -791,7 +791,7 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
     margin-top : 20px;
 }
 
-.ie7 .home #sidebar .primary {
+.ie7.home #sidebar .primary {
     margin-top : 0px;
 }
 
