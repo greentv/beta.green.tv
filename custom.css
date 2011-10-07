@@ -32,7 +32,6 @@ a:visited,
     background : none;
     float : right;
     border-bottom : solid 1px #fff;
-    width : auto;
 }
 
 #top .nav a {
@@ -790,6 +789,10 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 
 .ie7 #sidebar .primary {
     margin-top : 20px;
+}
+
+.ie7 .home #sidebar .primary {
+    margin-top : 0px;
 }
 
 .ie7 #sidebar .widget {
