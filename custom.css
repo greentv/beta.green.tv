@@ -773,6 +773,7 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 }
 
 #feat-video .meta {
+    padding : 0px;
     width : 280px;
 }
 
