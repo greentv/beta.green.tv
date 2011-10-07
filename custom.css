@@ -32,6 +32,7 @@ a:visited,
     background : none;
     float : right;
     border-bottom : solid 1px #fff;
+    width : auto;
 }
 
 #top .nav a {
