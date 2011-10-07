@@ -18,7 +18,7 @@ jQuery(document).ready(function(){
 		
 	});
 
-    var unselectedNavItem = jQuery('ul#main-nav a[href="' + window.location.pathname.toString() + '"]');
+    var unselectedNavItem = jQuery('ul#menu-category-menu a[href="' + window.location.pathname.toString() + '"]');
 
     if( unselectedNavItem.length ) {
         unselectedNavItem.closest('li').addClass('current-menu-item');
