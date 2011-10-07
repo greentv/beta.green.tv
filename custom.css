@@ -81,8 +81,8 @@ a:visited,
     float   : right;
 }
 
-#social-links img {
-    margin : 6px 4px 0 0;
+.addthis_toolbox a {
+    margin : 2px 0 -2px;
 }
 
 #header {
