@@ -610,6 +610,7 @@ a:visited,
     box-shadow : none;
     -moz-box-shadow : none;
     -webkit-box-shadow : none;
+    margin-bottom : 25px;
 }
 
 a.button, #commentform #submit, .submit {
