@@ -134,7 +134,7 @@ a:visited,
     -webkit-border-radius :  4px 4px 0 0;
     color : #fff;
     font-family : 'PT Sans', arial, sans-serif;
-    font-size : 20px;
+    font-size : 14px;
     line-height : 43px !important;
     padding : 0px 10px 6px;
     text-shadow : none;
@@ -149,7 +149,11 @@ a:visited,
 .nav li.current-menu-item a,
 #tabs-home ul.wooTabs li a:hover {
     background : #ebedea;
-    color : #000
+    color : #000;
+}
+
+.nav .sf-sub-indicator {
+    top : 40%;
 }
 
 #home-tab-latest div.pagination {
@@ -164,7 +168,7 @@ a:visited,
     font-size : 28px;
     font-weight : bold;
     line-height : 32px;
-    padding : 15px 0 15px 6px;
+    padding : 15px 0 15px 0px;
 }
 
 .site-description {
@@ -332,13 +336,13 @@ a:visited,
 #menu-category-menu {
     margin : 0px;
     padding : 0px;
-    width : 200px;
+    width : 250px;
 }
 
 #menu-category-menu li {
     display : inline;
     list-style : none;
-    margin : 0px;
+    margin : 0px 8px 0px 0px;
     padding : 0px;
 }
 
@@ -610,6 +614,7 @@ a:visited,
     box-shadow : none;
     -moz-box-shadow : none;
     -webkit-box-shadow : none;
+    margin-bottom : 25px;
 }
 
 a.button, #commentform #submit, .submit {
@@ -705,6 +710,10 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
     width : 610px;
 }
 
+.single-woo_video  #main {
+    padding-top : 0px;
+}
+
 #main.video-archive .sorting {
     width : 580px;
 }
@@ -782,6 +791,10 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
     margin-top : 20px;
 }
 
+.ie7.home #sidebar .primary {
+    margin-top : 0px;
+}
+
 .ie7 #sidebar .widget {
     padding : 0px;
 }
@@ -827,3 +840,7 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
     top : 0px;
     width : 60px;
 }
+
+/* 3.6 Entry Tables */
+.entry table  {border: 0px solid #e6e6e6; }
+.entry table td  { padding: 0px 0px 0px 0px; border: 0px solid #e6e6e6; }
