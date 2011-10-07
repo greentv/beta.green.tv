@@ -350,6 +350,15 @@ a:visited,
     color : #439539;
 }
 
+.textwidget a {
+    color : #000;
+    font-weight : normal;
+}
+
+.textwidget a:hover {
+    color : #439539;
+}
+
 #slides {
     background : #ebedea;
     padding : 0px;
