@@ -81,7 +81,19 @@
 					<div class="fix"></div>
 				</div><!-- #post-author -->
 				<?php } ?>
+				
+				
+				<?php
+				    $comm = $woo_options['woo_comments'];
+				    if ( ( $comm == 'post' || $comm == 'both' ) ) {
+					    comments_template('', true);
+				    }
+				?>
+				
 				<?php $original_post = $post; /* Save the original post data to make sure we display it correctly after related posts. */ ?>
+				
+				
+				
 				<div class="related-videos">
 				
 					<?php
@@ -90,6 +102,9 @@
 					?>
 					
 					<div class="fix"></div>
+			
+			
+			
 					
 				</div><!-- /.related-videos -->
 				<?php $post = $original_post; /* Make sure the correct post is used to display the comments. */ ?>
@@ -101,12 +116,7 @@
 		            <div class="fix"></div>
 		        </div><!-- #post-entries -->
 	            
-	            <?php
-	            	$comm = $woo_options['woo_comments'];
-	            	if ( ( $comm == 'post' || $comm == 'both' ) ) {
-	            		comments_template('', true);
-	            	}
-	            ?>
+	            
 	                                                        
 			</div><!-- #main -->
 
