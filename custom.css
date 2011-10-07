@@ -293,8 +293,8 @@ a:visited,
     width : 280px;
 }
 
-#sidebar_wrapper .widget ul {
-
+#sidebar_wrapper .widget-video-list {
+    display : none;
 }
 
 #sidebar_wrapper h2 {
