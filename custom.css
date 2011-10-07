@@ -190,8 +190,13 @@ a:visited,
 
 #content-wrap {
     background : #fff;
-    overflow-x : hidden;
+    
     padding-top : 30px;
+    
+}
+
+.home #content-wrap {
+    overflow-x : hidden;
     width : 660px;
 }
 
