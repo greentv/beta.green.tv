@@ -24,7 +24,6 @@
            
 		<div id="header-top">
 			<div class="col-full">
-
             	<?php if ( function_exists( 'has_nav_menu') && has_nav_menu( 'top-menu') ) : ?>
             	<div id="top">
                     <?php wp_nav_menu( array( 'depth' => 6, 'sort_column' => 'menu_order', 'container' => 'ul', 'menu_id' => 'top-nav', 'menu_class' => 'nav fl', 'theme_location' => 'top-menu' ) ); ?>
@@ -44,34 +43,36 @@
 					<h1 class="site-title"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
 		        <?php endif; ?>
 				</div><!-- /#logo -->
-
-                <div id="main-navigation">
-    				<div id="search-top">
-    					<?php get_template_part( 'search-form' ); ?>
-    				</div>
-				<?php
-				if ( function_exists('has_nav_menu') && has_nav_menu('primary-menu') ) {
-					wp_nav_menu( array( 'depth' => 6, 'sort_column' => 'menu_order', 'container' => 'ul', 'menu_id' => 'main-nav', 'menu_class' => 'nav fl', 'theme_location' => 'primary-menu' ) );
-				} else {
-				?>
-    		        <ul class="nav">
-    					<?php 
-    		        	if ( isset($woo_options['woo_custom_nav_menu']) AND $woo_options['woo_custom_nav_menu'] == 'true' ) {
-    		        		if ( function_exists('woo_custom_navigation_output') )
-    							woo_custom_navigation_output();
-    					} else { ?>
-    			            <?php if ( is_page() ) $highlight = "page_item"; else $highlight = "page_item current_page_item"; ?>
-    			            <li class="<?php echo $highlight; ?>"><a href="<?php bloginfo('url'); ?>"><?php _e('Home', 'woothemes') ?></a></li>
-    			            <?php 
-    			    			wp_list_pages('sort_column=menu_order&depth=6&title_li=&exclude='); 
-    					}
-    					?>
-    		        </ul><!-- /#nav -->
-		        <?php } ?>
-		        </div><!-- /#main-nav -->  
 			</div>
-		</div><!-- /#header -->  
-		
+		</div><!-- /#header-top -->  
+
+        <div class="col-full">
+            <div id="main-navigation">
+    			<div id="search-top">
+    				<?php get_template_part( 'search-form' ); ?>
+    			</div>
+    		<?php
+    		if ( function_exists('has_nav_menu') && has_nav_menu('primary-menu') ) {
+    			wp_nav_menu( array( 'depth' => 6, 'sort_column' => 'menu_order', 'container' => 'ul', 'menu_id' => 'main-nav', 'menu_class' => 'nav fl', 'theme_location' => 'primary-menu' ) );
+    		} else {
+    		?>
+    	        <ul class="nav">
+    				<?php 
+    	        	if ( isset($woo_options['woo_custom_nav_menu']) AND $woo_options['woo_custom_nav_menu'] == 'true' ) {
+    	        		if ( function_exists('woo_custom_navigation_output') )
+    						woo_custom_navigation_output();
+    				} else { ?>
+    		            <?php if ( is_page() ) $highlight = "page_item"; else $highlight = "page_item current_page_item"; ?>
+    		            <li class="<?php echo $highlight; ?>"><a href="<?php bloginfo('url'); ?>"><?php _e('Home', 'woothemes') ?></a></li>
+    		            <?php 
+    		    			wp_list_pages('sort_column=menu_order&depth=6&title_li=&exclude='); 
+    				}
+    				?>
+    	        </ul><!-- /#nav -->
+            <?php } ?>
+            </div><!-- /#main-nav -->
+        </div>
+
 	</div><!-- /#header -->
 
 	<div class="col-full">
