@@ -2,6 +2,10 @@ body {
     background : #fff
 }
 
+a:hover {
+    text-decoration : none;
+}
+
 .widget ul {
     list-style-position : outside;
 }
