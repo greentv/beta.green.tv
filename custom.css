@@ -325,6 +325,17 @@ a:visited,
     width : auto;
 }
 
+#menu-category-menu {
+    
+}
+
+#menu-category-menu li {
+    display : inline;
+    list-style : none;
+    margin : 0px;
+    padding : 0px;
+}
+
 #slides {
     background : #ebedea;
     padding : 0px;
