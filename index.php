@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <?php global $woo_options; ?>
 <div id="content-wrapper">
-	<div id="banner">
+	<div id="sidebar_wrapper">
 	    <?php get_sidebar(); ?>
 	</div>
 
