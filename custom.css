@@ -325,12 +325,15 @@ a:visited,
     width : auto;
 }
 
-#menu-category-menu ul {
+#menu-category-menu {
     
 }
 
 #menu-category-menu li {
+    display : inline;
     list-style : none;
+    margin : 0px;
+    padding : 0px;
 }
 
 #slides {
