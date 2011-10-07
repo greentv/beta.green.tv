@@ -152,6 +152,10 @@ a:visited,
     color : #000;
 }
 
+.nav .sf-sub-indicator {
+    top : 40%;
+}
+
 #home-tab-latest div.pagination {
     display : none;
 }
