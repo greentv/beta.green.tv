@@ -190,7 +190,9 @@ a:visited,
 
 #content-wrap {
     background : #fff;
+    overflow-x : hidden;
     padding-top : 30px;
+    width : 660px;
 }
 
 .archive #content-wrap, 
@@ -280,41 +282,41 @@ a:visited,
     
 }
 
-#banner {
+#sidebar_wrapper {
     float : right;
     height : auto;
     width : 280px;
 }
 
-#banner .widget ul {
+#sidebar_wrapper .widget ul {
     display : none;
 }
 
-#banner h2 {
+#sidebar_wrapper h2 {
     color : #439539;
     font-size : 35px;
     line-height : 55px;
 }
 
-#banner p {
+#sidebar_wrapper p {
     font-size : 25px;
     margin-bottom : 10%;
 }
 
-#banner .widget {
+#sidebar_wrapper .widget {
     padding-bottom : 0px !important;
 }
 
-#banner .widget_woo_embed {
+#sidebar_wrapper .widget_woo_embed {
     margin-bottom : 5px;
 }
 
-#banner .widget_text {
+#sidebar_wrapper .widget_text {
     padding : 0px 0px 0px 20px;
     text-align : right;
 }
 
-#banner #sidebar {
+#sidebar_wrapper #sidebar {
     padding-top : 0px;
     width : auto;
 }
