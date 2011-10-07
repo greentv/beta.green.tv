@@ -22,10 +22,16 @@ jQuery(document).ready(function(){
     var unselectedSubNavItem = jQuery('ul#menu-category-menu a[href="' + window.location.pathname.toString() + '"]');
 
     if( unselectedNavItem.length ) {
-        unselectedNavItem.closest('li').addClass('current-menu-item');
+        var li_item = unselectedNavItem.closest('li');
+        li_item.addClass('current-menu-item');
+
+        if( unselectedNavItem.closest('.sub-menu').length ) {
+            li_item.closest('#main-nav>li').addClass('current-menu-item');
+        }
     }
 
     if( unselectedSubNavItem.length ) {
+        unselectedSubNavItem.closest('ul#main-nav>li').addClass('current-menu-item');
         unselectedSubNavItem.closest('li').addClass('current-menu-item');
     }
     
