@@ -223,6 +223,10 @@ a:visited,
     padding-top : 2px;
 }
 
+.ie #feat-video {
+	BACKGROUND: none;
+}
+
 #feat-title .title {
 
     margin-top : 52px;
