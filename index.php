@@ -2,6 +2,16 @@
 <?php global $woo_options; ?>
 <div id="content-wrapper">
 	<div id="sidebar_wrapper">
+	    
+	    <?php 	    
+	    if ( get_post_type() == 'woo_video' ) {
+	    $terms = get_the_terms( $post->ID, 'woo_video_category');
+		foreach ( $terms as $term ) {
+		echo $term->name;
+		}
+	    }
+	    ?>
+	    
 	    <?php get_sidebar(); ?>
 	</div>
 
