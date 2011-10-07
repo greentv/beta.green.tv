@@ -18,10 +18,15 @@ jQuery(document).ready(function(){
 		
 	});
 
-    var unselectedNavItem = jQuery('ul#menu-category-menu a[href="' + window.location.pathname.toString() + '"], ul#main-nav a[href="' + window.location.pathname.toString() + '"]');
+    var unselectedNavItem = jQuery('ul#main-nav a[href="' + window.location.pathname.toString() + '"]');	
+    var unselectedSubNavItem = jQuery('ul#menu-category-menu a[href="' + window.location.pathname.toString() + '"]');
 
     if( unselectedNavItem.length ) {
         unselectedNavItem.closest('li').addClass('current-menu-item');
+    }
+
+    if( unselectedSubNavItem.length ) {
+        unselectedSubNavItem.closest('li').addClass('current-menu-item');
     }
     
     //add vestas link to h3 widget title on homepage
