@@ -119,6 +119,10 @@ a:visited,
     width : 840px;
 }
 
+#main-nav ul li {
+    margin-right : 3px;
+}
+
 .nav a,
 #tabs-home ul.wooTabs li a {
     border-radius : 4px 4px 0 0;
