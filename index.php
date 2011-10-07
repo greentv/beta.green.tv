@@ -1,14 +1,12 @@
 <?php get_header(); ?>
 <?php global $woo_options; ?>
 <div id="content-wrapper">
-    <div id="slider-content">
-    
 	<div id="banner">
-	    
 	    <?php get_sidebar(); ?>
-	    
 	</div>
-	
+
+    <div id="slider-content">
+
     <?php 
     	// Featured Video
     	if ( get_option('woo_slider') != "true" AND get_option('woo_exclude') )
@@ -35,7 +33,7 @@
 
     <div id="content-wrap">   
 
- 		<div id="tabs-home" class="col-full">
+ 		<div id="tabs-home">
            
             <ul class="wooTabs">
                 <li class="latest"><a href="#home-tab-latest"><?php _e( 'Latest Videos', 'woothemes' ); ?></a></li>
