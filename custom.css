@@ -303,11 +303,6 @@ a:visited,
     line-height : 55px;
 }
 
-#sidebar_wrapper p {
-    font-size : 25px;
-    margin-bottom : 10%;
-}
-
 #sidebar_wrapper .widget {
     padding-bottom : 0px !important;
 }
