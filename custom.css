@@ -330,7 +330,7 @@ a:visited,
 }
 
 #menu-category-menu li {
-    
+    list-style : none;
 }
 
 #slides {
