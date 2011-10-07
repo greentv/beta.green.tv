@@ -346,6 +346,10 @@ a:visited,
     padding : 0px;
 }
 
+#menu-category-menu li a:hover, #menu-category-menu li.current-menu-item a {
+    color : #439539;
+}
+
 #slides {
     background : #ebedea;
     padding : 0px;
