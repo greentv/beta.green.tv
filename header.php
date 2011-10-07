@@ -78,9 +78,13 @@
 	<div class="col-full">
 		<?php /*if (function_exists('iinclude_page')) iinclude_page(246); */?>
         <div id="social-links">
-            <a href="http://youtube.com/greentvgreentv" target="_blank" title="green.tv on youtube"><img src="<?php bloginfo('template_directory'); ?>/images/social/yt.png" alt="Youtube" /></a>
-            <a href="http://twitter.com/green_tv" target="_blank" title="green.tv on twitter"><img src="<?php bloginfo('template_directory'); ?>/images/social/tw.png" alt="Twitter" /></a>
-            <a href="https://www.facebook.com/greentv" target="_blank" title="green.tv on facebook"><img src="<?php bloginfo('template_directory'); ?>/images/social/fb.png" alt="FaceBook" /></a>
+            <!-- AddThis Button BEGIN -->
+            <div class="addthis_toolbox addthis_default_style ">
+                <a class="addthis_button_twitter"></a>
+                <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>                
+            </div>
+            <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e8ed6ae71ce286b"></script>
+            <!-- AddThis Button END -->
         </div>
 		<div id="tagline">
 			<span class="site-description"><?php bloginfo('description'); ?></span>
