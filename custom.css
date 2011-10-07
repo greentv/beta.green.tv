@@ -38,15 +38,6 @@ a:visited,
 
 #top-nav {
     float : right;
-    width : 572px;
-}
-
-#top .nav li {
-    float : right;
-}
-
-#top .nav li.menu-item-235, #top .nav li.menu-item-236 {
-    float : left;
 }
 
 #top .nav a:hover, 
