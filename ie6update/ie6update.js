@@ -104,9 +104,9 @@ if(window.__noconflict){ jQuery.noConflict();}
             }
           }
           
-          $('<img src="'+options.icons_path+'icon.png" class="normal" style="padding:0px;">').load(function(){load.a=1; preloadInit()});
+          $('<img src="'+options.icons_path+'icon.png" class="normal">').load(function(){load.a=1; preloadInit()});
           $('<img src="'+options.icons_path+'icon-over.png" class="normal">').load(function(){load.b=1; preloadInit()});
-          $('<img src="'+options.icons_path+'close.png" class="normal" style="padding:0px;">').load(function(){load.c=1; preloadInit()});
+          $('<img src="'+options.icons_path+'close.png" class="normal">').load(function(){load.c=1; preloadInit()});
           $('<img src="'+options.icons_path+'close-over.png" class="normal">').load(function(){load.d=1; preloadInit()});
           
         }else{
@@ -250,7 +250,7 @@ if(window.__noconflict){ jQuery.noConflict();}
             'margin': '0 4px 0 0',
             'padding': '0'
           })
-          .append('<img src="'+options.icons_path+'icon.png" class="normal">')
+          .append('<img src="'+options.icons_path+'icon.png" class="normal" style="padding:0px;">')
           .append('<img src="'+options.icons_path+'icon-over.png" class="hover">')
         );
 
@@ -267,7 +267,7 @@ if(window.__noconflict){ jQuery.noConflict();}
                 $.fn.activebar.hide();
                 event.stopPropagation();
           }) 
-          .append('<img src="'+options.icons_path+'close.png" class="normal">')
+          .append('<img src="'+options.icons_path+'close.png" class="normal" style="padding:0px;">')
           .append('<img src="'+options.icons_path+'close-over.png" class="hover">')
         );
        
