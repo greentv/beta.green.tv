@@ -487,12 +487,12 @@ a:visited,
     -webkit-border-radius : 0;
     clear : both;
     color : #fff;
-    position : relative;
 }
 
 #footer-wrapper {
     margin : 0 auto;
     padding : 0px !important;
+    position : relative;
     width : 960px;
 }
 
