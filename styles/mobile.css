@@ -1,0 +1,72 @@
+#top, #logo, #top-nav,
+#main-navigation,
+#sidebar_wrapper,
+#slider-content,
+#main-nav {
+    clear : both;
+    float : none;
+}
+
+#header {
+    background : #439539;
+}
+
+#main-navigation {
+    margin : 0;
+    width : 480px;
+}
+
+#main-nav {
+    padding : 20px 0 0 10px;
+}
+
+#search-top {
+    float : none;
+    margin : 0 auto 20px;
+}
+
+.nav a, #tabs-home ul.wooTabs li a {
+    font-size : 11px;
+    line-height : 28px !important;
+    padding : 0px 5px 3px;
+}
+
+#tagline {
+    padding : 15px 0 15px 10px;
+}
+
+#content-wrapper,
+.home #content-wrap,
+#tabs-home {
+    margin   : 0px;
+    width : 480px;
+}
+
+#slider-content,
+#slides,
+.slides_container,
+.slides_container div {
+    width : 436px;
+}
+
+#logo {
+    margin : 0 auto;
+    width : 78px;
+}
+
+.col-full {
+    overflow : hidden;
+    width : 480px;
+}
+
+.widget_woo_twitter,
+#social-links {
+    display : none;
+}
+
+#sidebar {
+    float : none;
+    padding : 0 10px;
+}
+
+#footer, #footer-widgets { display : none }

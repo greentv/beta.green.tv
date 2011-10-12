@@ -191,10 +191,6 @@ a:visited,
     font-size : 18px;
 }
 
-#wrapper {
-    background : #fff
-}
-
 #content {
     background : none;
     border-radius : 0;
@@ -667,7 +663,7 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 
 #slides .pagination {
     height : 35px;
-    width : 620px;
+    width : 100%;
 }
 
 #slides .prev, #slides .next {
@@ -690,7 +686,8 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 
 #slides .next {
     background: url("images/btn-slider-next-gtv.png") no-repeat top;
-    left : 585px;
+    left : 100%;
+    margin-left : -35px;
 }
 
 #slides .pagination li a {

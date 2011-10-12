@@ -1,0 +1,28 @@
+#main-navigation {
+    margin : 0;
+    width : 320px;
+}
+
+#content-wrapper,
+.home #content-wrap,
+#tabs-home {
+    margin   : 0px;
+    width : 320px;
+}
+
+#slider-content,
+#slides,
+.slides_container,
+.slides_container div {
+    width : 276px;
+}
+
+.col-full {
+    overflow : hidden;
+    width : 320px;
+}
+
+#logo img {
+    height : 142px;
+    width : auto;
+}
