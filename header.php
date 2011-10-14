@@ -7,6 +7,7 @@
 <?php global $woo_options; ?>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes" />
 
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" media="screen" />
 
@@ -16,8 +17,6 @@
 <?php wp_head(); ?>
 <?php woo_head(); ?>
 
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/styles/mobile.css" media="screen and (max-width : 480px)" />
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/styles/mobile-portrait.css" media="screen and (orientation: portrait) and (max-width : 320px)" />
 </head>
 
 <body <?php body_class(); ?>>
