@@ -114,6 +114,7 @@ h3, .widget h3 {
 }
 
 #social-links {
+    display : none;
     margin-right : 10px;
 }
 
