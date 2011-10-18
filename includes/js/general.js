@@ -1,5 +1,11 @@
-jQuery(document).ready(function(){
+jQuery(window).load(function() {
+    setTimeout(function(){
+        // Hide the address bar!
+        window.scrollTo(0, 1);
+      }, 0);
+});
 
+jQuery(document).ready(function(){
 	// Add alt-row styling to tables
 	jQuery('.entry table tr:odd').addClass('alt-table-row');
 	
