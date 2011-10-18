@@ -13,15 +13,6 @@
 
 	    <div class="video fl">	
 			<?php echo woo_embed('width=600&height=337&class=single-video'); ?>
-			<ul class="share">
-				<li class="twitter">
-					<a href="http://twitter.com/home?status=Currently reading <?php the_permalink(); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/ico-share-twitter.png" alt="ico" /><?php _e( 'Tweet this Video', 'woothemes' ); ?></a>
-				</li>
-				<li class="facebook-share">
-					<a href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&t=<?php the_title_attribute(); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/ico-share-facebook.png" alt="ico" /><?php _e( 'Share on Facebook', 'woothemes' ); ?></a>
-				</li>
-				<?php if( function_exists( 'woo_email_share_link' ) ) { echo '<li class="email">' . woo_email_share_link() . '</li>'; } ?>
-			</ul>
 	    </div>
 
 	    <div class="meta fr">
