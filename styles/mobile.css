@@ -48,8 +48,11 @@
 }
 
 #logo {
-    margin : 0 auto;
-    width : 78px;
+    /*margin : 0 auto;*/
+    left            : 8px;
+    position        : absolute;
+    top             : 37px;
+    width           : 78px;
 }
 
 #main-navigation {
@@ -105,7 +108,7 @@ h3, .widget h3 {
 }
 
 .col-full {
-    overflow : hidden;
+/*    overflow : hidden; */
     width : auto;
 }
 
