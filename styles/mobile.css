@@ -43,6 +43,10 @@
     width : auto;
 }
 
+#header #header-top {
+    min-height      : 25px;
+}
+
 #header {
     background : #439539;
 }
@@ -66,7 +70,9 @@
 
 #search-top {
     float : none;
-    margin : 0 auto 20px;
+    position        : absolute;
+    right           : 10px;
+    top             : 54px;
 }
 
 .nav a, #tabs-home ul.wooTabs li a {
