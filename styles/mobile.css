@@ -185,6 +185,7 @@ h3, .widget h3 {
 }
 
 #tabs-home .inside {
+    min-height          : 330px;
     padding-left : 10px;
 }
 
