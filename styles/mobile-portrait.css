@@ -54,7 +54,3 @@
     top             : 10px;
     text-align      : right;
 }
-
-#main.video-archive .post:nth-child(odd) {
-    margin-right    : 0px !important;
-}
