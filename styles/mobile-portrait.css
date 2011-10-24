@@ -54,3 +54,9 @@
     top             : 10px;
     text-align      : right;
 }
+
+
+
+#main.video-archive .post:not(.fix):nth-child(even) {
+    margin-right    : 0px;
+}
