@@ -59,3 +59,7 @@
     top             : 10px;
     text-align      : right;
 }
+
+#footer .widget {
+    margin-bottom   : 0px;
+}
