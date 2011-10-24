@@ -255,10 +255,6 @@ h3, .widget h3 {
     width : 145px;
 }
 
-#main.video-archive .last {
-    margin-right : 10px !important;
-}
-
 #main.video-archive .fix {
     display      : none;
 }
