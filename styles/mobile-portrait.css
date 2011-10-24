@@ -54,6 +54,7 @@
 }
 
 #sp-link {
-    max-width       : 140px;
+    max-width       : 100px;
+    right           : 10px;
     text-align      : right;
 }
