@@ -15,8 +15,8 @@ jQuery(document).ready(function(){
 	
 	// Add "last" class to related videos li
 	jQuery('.related-videos ul li:nth-child(3n)').addClass('last');
-	
-    if( jQuery('.col-width').eq(0).width() < 960 ) {
+
+    if( jQuery('.col-full').eq(0).width() < 960 ) {
 	   jQuery('.#main.video-archive .fix').remove();
     }
 
