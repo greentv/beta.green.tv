@@ -260,7 +260,8 @@ h3, .widget h3 {
 }
 
 #main.video-archive .fix {
-    display      : none;
+    clear       : none;
+    display     : none;
 }
 
 #main.video-archive .post img {
@@ -268,7 +269,9 @@ h3, .widget h3 {
     max-width : 145px;
 }
 
-#widget_woo_embed-6 {
+#widget_woo_embed-6,
+#main.video-archive .woo-pagination,
+#menu-category-menu {
     clear : both;
     float : none;
     margin : 0 auto;

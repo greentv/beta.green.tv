@@ -54,3 +54,11 @@
     top             : 10px;
     text-align      : right;
 }
+
+#main.video-archive div.post:nth-of-type(odd) {
+    clear           : both;
+}
+
+#main.video-archive .post:nth-child(even) {
+    margin-right    : 0px !important;
+}
