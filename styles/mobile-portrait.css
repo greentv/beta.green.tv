@@ -57,6 +57,6 @@
 
 
 
-#main.video-archive:nth-child(odd) .post:not(.fix) {
+#main.video-archive .post:nth-child(odd:not(.fix)) {
     margin-right    : 0px !important;
 }
