@@ -55,6 +55,6 @@
     text-align      : right;
 }
 
-#main.video-archive .post:nth-child(even) {
+#main.video-archive .post:nth-child(odd) {
     margin-right    : 0px !important;
 }
