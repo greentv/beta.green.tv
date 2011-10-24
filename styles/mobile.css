@@ -288,6 +288,10 @@ h3, .widget h3 {
     width : 110px;
 }
 
+#footer-widgets .widget {
+    margin-bottom   : 0px;
+}
+
 #footer-wrapper {
     width : auto;
 }
