@@ -47,3 +47,8 @@
 .widget_woo_embed {
     width : 145px;
 }
+
+#tabs-home .block {
+    margin-bottom   : 9px;
+    min-height      : 140px;
+}
