@@ -54,7 +54,3 @@
     top             : 10px;
     text-align      : right;
 }
-
-#main.video-archive img:nth-of-type(even) {
-    margin-right    : 10px;
-}
