@@ -256,7 +256,11 @@ h3, .widget h3 {
 }
 
 #main.video-archive .last {
-    margin-right : 0px;
+    margin-right : 30px !important;
+}
+
+#main.video-archive .fix {
+    display      : none;
 }
 
 #main.video-archive .post img {
