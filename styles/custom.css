@@ -523,6 +523,12 @@ a:visited,
     margin : 0 0 0 10px;
 }
 
+#sp-link {
+    position		: absolute;
+    right		: 0px;
+    top			: 20px;
+}
+
 /* video page */
 #feat-title .title,
 .archive_header {
