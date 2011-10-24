@@ -189,6 +189,7 @@ h3, .widget h3 {
 }
 
 #tabs-home .block {
+    margin-bottom   : 9px;
     padding-right : 10px;
 }
 
