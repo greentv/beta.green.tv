@@ -92,6 +92,7 @@ a:visited,
 
 #header {
     margin-bottom : 6px;
+    min-width : 980px;
 }
 
 #header #header-top {
@@ -479,6 +480,7 @@ a:visited,
 #footer-widgets {
     background : #439539;
     border-radius : 0;
+    min-width : 980px;
     -moz-border-radius : 0;
     -webkit-border-radius : 0;
     clear : both;

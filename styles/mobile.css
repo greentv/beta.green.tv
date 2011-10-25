@@ -62,6 +62,7 @@ body {
 
 #header {
     background : #439539;
+    min-width : inherit;
 }
 
 #logo {
@@ -308,6 +309,10 @@ h3, .widget h3 {
 #footer .col-left {
     float : left;
     width : 110px;
+}
+
+#footer-widgets {
+    min-width : inherit;
 }
 
 #footer-widgets .widget {
