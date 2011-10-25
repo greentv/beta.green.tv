@@ -6,7 +6,13 @@
 <?php woo_meta(); ?>
 <?php global $woo_options; ?>
 
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<?php $isiPad = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'iPad'); ?>
+    <meta name="viewport" content="<?php if ( $isiPad ) {
+        echo "width=device-width";
+    } else {
+        echo "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1";
+    }
+    ?>" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" media="screen" />
