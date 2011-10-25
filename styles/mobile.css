@@ -299,6 +299,7 @@ h3, .widget h3 {
 
 #footer {
     font-size : 11px;
+    min-width : inherit;
     padding :  10px;
 }
 
