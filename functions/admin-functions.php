@@ -519,6 +519,27 @@ if (!function_exists( 'woo_get_video_image')) {
 	}
 }
 
+/* Get video ID from Video Embed code */
+
+if (!function_exists( 'woo_get_video_code')) {
+	function woo_get_video_code($embed) {
+
+		// YouTube - get the video code if this is an embed code (old embed)
+		preg_match( '/youtube\.com\/v\/([\w\-]+)/', $embed, $match);
+
+		// YouTube - if old embed returned an empty ID, try capuring the ID from the new iframe embed
+		if($match[1] == '')
+			preg_match( '/youtube\.com\/embed\/([\w\-]+)/', $embed, $match);
+
+		// YouTube - if it is not an embed code, get the video code from the youtube URL
+		if($match[1] == '')
+			preg_match( '/v\=(.+)&/',$embed ,$match);
+
+		// return whichever thumbnail image you would like to retrieve
+		return $match[1];
+	}
+}
+
 
 /*-----------------------------------------------------------------------------------*/
 /* vt_resize - Resize images dynamically using wp built in functions
