@@ -126,11 +126,13 @@ a:visited,
 }
 
 #main-nav li {
+    background  : #ebedea;
     margin-right : 3px;
 }
 
 #main-nav li ul li a {
-    color : #fff;
+    color : #000;
+    cursor : pointer;
 }
 
 .nav a,
