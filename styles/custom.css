@@ -139,7 +139,8 @@ slider-content
 }
 
 #main-nav.nav li ul li a {
-    line-height	: 35px !important;
+    font-size : 13px;
+    line-height	: 35px;
 }
 
 .nav a,
