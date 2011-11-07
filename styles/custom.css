@@ -214,7 +214,7 @@ slider-content
 
 #content-wrap {
     background : #fff;
-    
+    clear: left;    
     padding-top : 30px;
     
 }
