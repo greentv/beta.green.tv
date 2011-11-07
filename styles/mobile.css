@@ -197,6 +197,15 @@ h3, .widget h3 {
     width : 100% !important;
 }
 
+#slides .pagination {
+    height : auto;
+}
+
+#slides .pagination,
+#slides .pagination li a {
+    margin-top   : 0;
+}
+
 .slides_container .text h2 {
     font-size : 18px;
     line-height : 22px;
