@@ -155,7 +155,8 @@ a:visited,
 .nav li.current-menu-ancestor a,
 .nav li.current-cat a,
 .nav li.current-menu-item a,
-#tabs-home ul.wooTabs li a:hover {
+#tabs-home ul.wooTabs li a:hover,
+.nav li.sfHover a {
     background : #ebedea;
     color : #000;
 }
