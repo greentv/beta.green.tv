@@ -135,6 +135,10 @@ a:visited,
     cursor : pointer;
 }
 
+#main-nav.nav li ul li a {
+    line-height	: 20px !important;
+}
+
 .nav a,
 #tabs-home ul.wooTabs li a {
     border-radius : 4px 4px 0 0;
