@@ -701,6 +701,13 @@ if ( ( get_post_type() == 'post') || ( !get_post_type() ) ) {
 
 if ( ( get_post_type() == 'woo_video') || ( !get_post_type() ) ) {
 
+	$woo_metaboxes[] = array(	"name" => "video_guid",
+								"label" => "Video GUID",
+								"desc" => "A unique identifier for the video.",
+								"id" => $shortname."_video_guid",
+								"std" => '',
+								"type" => "text");
+
 	$woo_metaboxes[] = array (	"name" => "image",
 								"label" => "Image",
 								"type" => "upload",

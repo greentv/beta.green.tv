@@ -21,7 +21,8 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
 <?php while (have_posts()) : the_post(); ?>
     <item>
         <title><?php the_title_rss() ?></title>
-        <guid><?php the_permalink_rss() ?></guid>
+        <?php $custom_fields = get_post_custom(); ?>
+        <guid><?php echo isset($custom_fields['video_guid']) ? $custom_fields['video_guid'][0] : esc_url( apply_filters('the_permalink_rss', get_permalink() )) ?></guid>
         <link><?php the_permalink_rss() ?></link>
 
         <lb:original_link>http://www.green.tv/</lb:original_link>
@@ -42,6 +43,14 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
 
                 if ( $embed ) {
                     $custom_field = woo_get_video_code($embed);
+
+/** haxor attempt
+                    $content = file_get_contents("http://youtube.com/get_video_info?video_id=".$custom_field);
+                    $ytfmt = array('35','22');
+                    parse_str($content, $ytfmt);
+
+                    print_r($content);
+/**/
 
                     $xml = simplexml_load_file('http://gdata.youtube.com/feeds/api/videos/' . $custom_field);
 
