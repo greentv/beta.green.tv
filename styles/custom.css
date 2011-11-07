@@ -125,8 +125,11 @@ slider-content
     width : 840px;
 }
 
-#main-nav li {
+#main-nav li li {
     background  : #ebedea;
+}
+
+#main-nav li {
     margin-right : 3px;
 }
 
