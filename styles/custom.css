@@ -27,7 +27,7 @@ a:visited,
 #main.video-archive .sorting li.active a {
     color : #439539
 }
-
+slider-content
 #top {
     background : none;
     float : right;
@@ -125,8 +125,11 @@ a:visited,
     width : 840px;
 }
 
-#main-nav li {
+#main-nav li li {
     background  : #ebedea;
+}
+
+#main-nav li {
     margin-right : 3px;
 }
 
@@ -306,6 +309,7 @@ a:visited,
     border : 2px solid #dfdfdf;
     border-top-color : #439539;
     border-bottom-right-radius:3px; border-bottom-left-radius:3px; -moz-border-radius-bottomright:3px; -moz-border-radius-bottomleft:3px;-webkit-border-bottom-right-radius: 3px; -webkit-border-bottom-left-radius:3px;
+    float : left;
     height : auto;
     width : 616px;
     padding : 20px;

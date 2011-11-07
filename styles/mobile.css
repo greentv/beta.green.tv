@@ -56,6 +56,10 @@ body {
     width : auto;
 }
 
+#sidebar_wrapper {
+    padding-top  : 10px;
+}
+
 #header #header-top {
     min-height      : 125px;
 }
