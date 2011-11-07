@@ -60,10 +60,19 @@
 
 				<?php
 		            $counter = 0;            
-        
-		            if ( have_posts() ) {
-		            	while ( have_posts() ) {
-		            	the_post(); $counter++;
+
+					$args = array(
+									'post_type' => 'woo_video', 
+									'order' => 'DESC',
+									'numberposts' => 8
+								 );
+								 
+					$posts = get_posts( $args );
+
+		            if ( count($posts) ) {
+		            	foreach ( $posts as $post ) {
+		            	setup_postdata($post);
+		            	$counter++;
 		        ?>  
 		                                                                  
 		            <div class="post block">
