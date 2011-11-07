@@ -1,4 +1,9 @@
 <?php
+    include (TEMPLATEPATH . '/includes/youtube/config.php');
+    include (TEMPLATEPATH . '/includes/youtube/curl.php');
+    include (TEMPLATEPATH . '/includes/youtube/youtube.php');
+?>
+<?php
 /**
  * RSS 0.92 Feed Template for displaying RSS 0.92 Posts feed.
  *
@@ -42,8 +47,7 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
                 $embed = get_post_meta($id, "embed", true);
 
                 if ( $embed ) {
-                    $custom_field = woo_get_video_code($embed);
-
+                    $yt_id  = woo_get_video_code($embed);
 /** haxor attempt
                     $content = file_get_contents("http://youtube.com/get_video_info?video_id=".$custom_field);
                     $ytfmt = array('35','22');
@@ -52,7 +56,8 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
                     print_r($content);
 /**/
 
-                    $xml = simplexml_load_file('http://gdata.youtube.com/feeds/api/videos/' . $custom_field);
+                    $xml = simplexml_load_file('http://gdata.youtube.com/feeds/api/videos/' . $yt_id );
+                    $length = 0;
 
                     foreach($xml->xpath('//media:content') as $content) {
                         $media_file = $content->attributes();
@@ -60,8 +65,36 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
                             // remove from media list to avoid duplicates
                             unset($valid_media[array_search($media_file->type, $valid_media)]);
                             echo '<media:content lang="en" url="' . $media_file->url . '" duration="' . $media_file->duration . '" type="' . $media_file->type . '" fileSize=""/>';
+                            $length = $media_file->duration;
                         }
                     }
+
+/**/
+                    $_REQUEST['url'] = 'http://www.youtube.com/watch?feature=player_embedded&v=pyRGi2jbBto';
+                    if (isset($_REQUEST['url']) && !empty($_REQUEST['url'])) {
+                        $url = $_REQUEST['url'];
+                        $parts = parse_url($url);
+                        $host = $parts['host'];
+                        $service = strtolower($host);
+                        $host_parts = explode('.',$service);
+                        $service = $host_parts[count($host_parts)-2];
+                    
+                        $obj = new $service();
+                    
+                        if(isset($obj->src) && (!isset($_POST['src']) || empty($_POST['src'])) && !$stream) {
+                            $sourceRequired = true;
+                        } else {  
+                            $obj->stream = $stream;
+                            $videos = $obj->get($url);
+                    
+                        }
+                    
+                        foreach ($videos as $video) {
+                            echo '<media:content lang="en" url="' . get_bloginfo('template_directory') . '/includes/youtube/' . $video['url'] . '" duration="' . $length . '" type="' . $video['ext'] . '" fileSize=""/>';
+                        }
+                    
+                    }
+/**/
                }
             }
             ?>
