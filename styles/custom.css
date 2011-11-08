@@ -84,6 +84,17 @@ slider-content
 #social-links {
     float   : right;
     margin-right : -20px;
+    position : relative;
+}
+
+.share-email {
+    left : -125px;
+    position : absolute;
+    top : 3px;
+}
+
+.share-email img {
+    margin : 0px 6px -3px 0px;
 }
 
 .addthis_toolbox a {
