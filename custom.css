@@ -1,3 +1,3 @@
 @import url(./styles/custom.css);
-@import url(./styles/mobile.css) screen and (max-width : 480px);
-@import url(./styles/mobile-portrait.css) screen and (orientation: portrait) and (max-width : 480px);/**/
+@import url(./styles/mobile.css) screen and (max-width : 480px);/**/
+@import url(./styles/mobile-landscape.css) screen and (orientation: landscape) and (max-width : 480px);
