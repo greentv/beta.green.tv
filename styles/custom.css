@@ -863,7 +863,7 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 }
 
 #widget_woo_embed-7 h3 {
-    background : url(./images/vestas.png) 100% 50% no-repeat;
+    background : url(../images/vestas.png) 100% 50% no-repeat;
     position : relative;
 }
 
