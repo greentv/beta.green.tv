@@ -843,6 +843,10 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
     max-width : 300px;
 }
 
+.execphpwidget img.ad {
+    max-width : none;
+}
+
 #post-entries {
     display : none;
 }
