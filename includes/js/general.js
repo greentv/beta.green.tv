@@ -48,7 +48,7 @@ jQuery(document).ready(function(){
     }
     
     //add vestas link to h3 widget title on homepage
-    jQuery('#widget_woo_embed-5 h3').append('<a href="http://www.vestas.com/" target="_blank" title="Vestas"></a>');
+    jQuery('#widget_woo_embed-7 h3').append('<a href="http://www.vestas.com/" target="_blank" title="Vestas"></a>');
     
 	
 });
