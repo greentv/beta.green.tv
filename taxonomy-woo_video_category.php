@@ -26,7 +26,7 @@ $taxonomy_permalink = get_term_link( $taxonomy_archive_query_obj, 'woo_video_cat
 			<div id="main" class="video-archive">
 			<?php if (have_posts()) : $count = 0; ?>
 	        
-	            <span class="archive_header"><?php echo __( 'Video Category Archives:', 'woothemes' ); ?> <?php echo $taxonomy_term_nice_name; ?></span>
+	            <span class="archive_header"><?php //echo __( 'Video Category Archives:', 'woothemes' ); ?> <?php echo $taxonomy_term_nice_name; ?> Channel</span>
 	            
 	            <div class="fix"></div>
 	            <?php
