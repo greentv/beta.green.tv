@@ -810,6 +810,7 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 }
 
 #sidebar {
+    overflow : visible;
     padding-top : 0px;
     width : 300px;
 }
