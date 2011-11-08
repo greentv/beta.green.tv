@@ -289,13 +289,19 @@ add_shortcode( 'related_posts_custom', 'woo_shortcode_related_posts_custom' );
 if ( ! function_exists( 'woo_email_share_link' ) ) {
 	function woo_email_share_link () {
 		global $post;
-		
-		if ( ! $post ) { return; }
-		
+
 		$html = '';
 		
 		$subject = esc_attr( sprintf( __( '%1$s on %2$s', 'woothemes' ), get_the_title( $post->ID ), get_bloginfo( 'name' ) ) );
-		$body = esc_attr( sprintf( __( "Hi, \n\rCheck out this video called " . '%1$s' . " which I found on " . '%2$s.' . " \n\rIt can be viewed at " . '%3$s.', 'woothemes' ), get_the_title( $post->ID ), get_bloginfo( 'name' ), get_permalink( $post->ID ) ) );
+		
+
+        if( is_single() ) {
+            // single page
+            $body = esc_attr( "Hi, %0D%0A%0D%0ACheck out this video called " . get_the_title( $post->ID ) . " which I found on " . get_bloginfo( 'name' ) . " %0D%0A%0D%0AIt can be viewed at " . get_permalink( $post->ID ) );
+        } else {
+            $body = esc_attr( "Hi, %0D%0A%0D%0ACheck out what I found on " . get_bloginfo( 'name' ) . " %0D%0A%0D%0A" . ( 'http://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] ) );  
+        }
+
 		
 		$html = '<a href="mailto:?subject=' . $subject . '&body=' . $body . '"><img src="'. get_bloginfo('template_directory') .'/images/ico-share-mail.png" alt="ico" />' . __( 'Share via E-mail', 'woothemes' ) . '</a>' . "\n";
 		
