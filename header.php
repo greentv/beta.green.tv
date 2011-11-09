@@ -13,12 +13,18 @@
         echo "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1";
     }
     ?>" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" media="screen" />
+<?php if( is_single() ) : ?>
+    <meta property="og:title" content="<?= get_the_title( $post->ID ) ?>" />
+    <meta property="og:image" content="<?= woo_get_video_image( get_post_meta( $post->ID, 'embed', true ) ) ?>" />
+    <meta property="og:type" content="movie"/>
+<?php endif; ?>
 
-<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="<?php if ( $woo_options['woo_feed_url'] ) { echo $woo_options['woo_feed_url']; } else { echo get_bloginfo_rss('rss2_url'); } ?>" />
-<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" media="screen" />
+    
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="<?php if ( $woo_options['woo_feed_url'] ) { echo $woo_options['woo_feed_url']; } else { echo get_bloginfo_rss('rss2_url'); } ?>" />
+    <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
       
 <?php wp_head(); ?>
 <?php woo_head(); ?>
