@@ -52,5 +52,10 @@
 
 <?php wp_footer(); ?>
 <?php woo_foot(); ?>
+<?php
+if ( !isset($_COOKIE['greentv_location']) || $_COOKIE['greentv_location'] == 'unknown' ) :
+?>
+    <div id="map" style="display : none">hola!</div>
+<?php endif; ?>
 </body>
 </html>
