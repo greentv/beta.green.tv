@@ -61,8 +61,8 @@ if ( !isset($_COOKIE['greentv_location']) || $_COOKIE['greentv_location'] == 'un
             It looks like this is the first time you're visiting green.tv, which site would you like?
             <br />
             <div style="text-align : center">
-                <a class="button submit">UK</a>
-                <a class="button submit">South Pacific</a>
+                <a class="button submit" href="?set_location=en">UK</a>
+                <a class="button submit" href="http://sp.green.tv?set_location=en">South Pacific</a>
             </div>
         </p>
 
