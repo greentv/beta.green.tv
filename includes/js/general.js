@@ -49,6 +49,25 @@ jQuery(document).ready(function(){
     
     //add vestas link to h3 widget title on homepage
     //jQuery('#widget_woo_embed-7 h3').append('<a href="http://www.vestas.com/" target="_blank" title="Vestas"></a>');
+
+    jQuery('#map-choice').each(function(){
+        var map = jQuery(this);
+        var overlay = jQuery('#map-overlay');
+        
+        map.fadeIn();
+        overlay.fadeTo(0.77);
+        
+        jQuery('html, body').css({ overflow : 'hidden' });
+    });
+
+    /* hover over map */
+    jQuery('.world-map').hover(
+    function() {
+        jQuery('#' + jQuery(this).attr('rel') ).fadeIn(500);
+    }, 
+    function() {
+        jQuery('#' + jQuery(this).attr('rel') ).fadeOut(100);
+    });
     
 	
 });
