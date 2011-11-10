@@ -62,7 +62,7 @@ if ( !isset($_COOKIE['greentv_location']) || $_COOKIE['greentv_location'] == 'un
             <br />
             <div style="text-align : center">
                 <a class="button submit" href="?set_location=en">UK</a>
-                <a class="button submit" href="http://sp.green.tv?set_location=en">South Pacific</a>
+                <a class="button submit" href="http://sp.green.tv?set_location=sp">South Pacific</a>
             </div>
         </p>
 
