@@ -933,15 +933,40 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 }
 
 #map-container {
-    height      : 340px;
-    width       : 500px;
+    height      : 476px;
+    position    : relative;
+    width       : 700px;
 }
 
-#map-choice img {
+#map-choice #world-map {
     height : auto;
     width   : 100%;
 }
 
 #map-choice a.button {
     width : 100px;
+}
+
+#trans-map {
+    left        : 0;
+    position    : absolute;
+    top         : 0;
+    z-index     : 105;
+}
+
+#world-en, #world-sp {
+    background  : url(../images/world-en.png) 0 0 no-repeat;
+    cursor      : pointer;
+    display     : none;
+    height      : 476px;
+    left        : 0;
+    position    : absolute;
+    opacity     : 0.7;
+    top         : 0;
+    width       : 100%;
+    z-index     : 103;
+}
+
+#world-sp {
+    background-image : url(../images/world-sp.png);
 }

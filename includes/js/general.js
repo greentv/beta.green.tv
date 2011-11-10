@@ -58,7 +58,17 @@ jQuery(document).ready(function(){
         overlay.fadeTo(0.77);
         
         jQuery('html, body').css({ overflow : 'hidden' });
-    });    
+    });
+
+    /* hover over map */
+    jQuery('.world-map').hover(
+    function() {
+        jQuery('#' + jQuery(this).attr('rel') ).fadeIn(500);
+    }, 
+    function() {
+        jQuery('#' + jQuery(this).attr('rel') ).fadeOut(100);
+    });
+    
 	
 });
 
