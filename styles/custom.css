@@ -543,7 +543,7 @@ slider-content
 
 #footer-widgets .footer-widget-4 {
     float : right !important;
-    width : 270px !important;
+    width : 275px !important;
 }
 
 #footer-widgets .footer-widget-4 a {
@@ -552,7 +552,7 @@ slider-content
 }
 
 #footer-widgets .footer-widget-4 img {
-    margin: 10px 0px 0px 10px;
+    margin: 10px 0px 0px 5px;
 }
 
 #footer #credit img {
