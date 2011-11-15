@@ -63,10 +63,10 @@ jQuery(document).ready(function(){
     /* hover over map */
     jQuery('.world-map').hover(
     function() {
-        jQuery('#' + jQuery(this).attr('rel') ).fadeIn(500);
+        jQuery('#' + jQuery(this).attr('rel') ).stop().fadeIn(500);
     }, 
     function() {
-        jQuery('#' + jQuery(this).attr('rel') ).fadeOut(100);
+        jQuery('#' + jQuery(this).attr('rel') ).stop().fadeOut(100);
     });
     
 	
