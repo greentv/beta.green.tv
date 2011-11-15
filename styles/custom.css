@@ -547,6 +547,7 @@ slider-content
 }
 
 #footer-widgets .footer-widget-4 a {
+    float : right;
     text-align : right;
 }
 
