@@ -546,6 +546,10 @@ slider-content
     width : 270px !important;
 }
 
+#footer-widgets .footer-widget-4 a {
+    text-align : right;
+}
+
 #footer #credit img {
     margin : 0 0 0 10px;
 }
