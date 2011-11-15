@@ -541,8 +541,9 @@ slider-content
     padding : 20px 0px 0px;
 }
 
-.footer-widget-4 {
+#footer-widgets .footer-widget-4 {
     float : right !important;
+    width : 270px !important;
 }
 
 #footer #credit img {
