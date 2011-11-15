@@ -406,3 +406,12 @@ h3, .widget h3 {
 #main.video-archive .post:nth-child(even) {
     margin-right    : 0px !important;
 }
+
+#map-choice {
+    left            : auto;
+    margin          : 10px;
+}
+
+#map-container {
+    display         : none;
+}
