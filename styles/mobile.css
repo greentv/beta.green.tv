@@ -172,6 +172,10 @@ h3, .widget h3 {
     width : auto !important;
 }
 
+#footer-widgets .footer-widget-4 {
+    float : left !important;
+}
+
 /* comment form */
 #commentform p.field {
     clear : both;
