@@ -551,7 +551,11 @@ slider-content
 }
 
 #footer-widgets .footer-widget-4 img {
-    margin: 10px 0px 0px 5px;
+    margin : 10px 0px 0px 5px;
+}
+
+#footer-widgets .footer-widget-4:first-child img {
+    margin-left : 0px;
 }
 
 #footer #credit img {
