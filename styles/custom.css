@@ -543,12 +543,11 @@ slider-content
 
 #footer-widgets .footer-widget-4 {
     float : right !important;
-    width : 275px !important;
+    width : 225px !important;
 }
 
 #footer-widgets .footer-widget-4 a {
     float : right;
-    text-align : right;
 }
 
 #footer-widgets .footer-widget-4 img {
