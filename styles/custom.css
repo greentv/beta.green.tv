@@ -884,7 +884,7 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
     text-shadow : none !important;
 }
 
-
+/*
 #widget_woo_embed-7 h3 {
     background : url(../images/vestas.png) 100% 50% no-repeat;
     position : relative;
@@ -899,7 +899,7 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
     top : 0px;
     width : 60px;
 }
-
+*/
 
 /* 3.6 Entry Tables */
 .entry table  {border: 0px solid #e6e6e6; }
