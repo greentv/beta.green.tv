@@ -541,19 +541,30 @@ slider-content
     padding : 20px 0px 0px;
 }
 
-.footer-widget-4 {
+#footer-widgets .footer-widget-4 {
     float : right !important;
+    width : 220px !important;
+}
+
+#footer-widgets .footer-widget-4 a {
+    float : right;
+}
+
+#footer-widgets .footer-widget-4 img {
+    margin : 10px 0px 0px 10px;
 }
 
 #footer #credit img {
     margin : 0 0 0 10px;
 }
 
+/*
 #sp-link {
     position		: absolute;
     right		: 0px;
     top			: 20px;
 }
+*/
 
 /* video page */
 #feat-title .title,
@@ -714,12 +725,12 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
 }
 
 #slides .prev {
-    background: url("images/btn-slider-prev-gtv.png") no-repeat top;
+    background: url("../images/btn-slider-prev-gtv.png") no-repeat top;
     left : 0px;
 }
 
 #slides .next {
-    background: url("images/btn-slider-next-gtv.png") no-repeat top;
+    background: url("../images/btn-slider-next-gtv.png") no-repeat top;
     left : 100%;
     margin-left : -35px;
 }
@@ -873,7 +884,6 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
     text-shadow : none !important;
 }
 
-/*
 #widget_woo_embed-7 h3 {
     background : url(../images/vestas.png) 100% 50% no-repeat;
     position : relative;
@@ -888,7 +898,6 @@ a.button:hover, a.button.hover, a.button.active, #commentform #submit:hover, .su
     top : 0px;
     width : 60px;
 }
-*/
 
 /* 3.6 Entry Tables */
 .entry table  {border: 0px solid #e6e6e6; }

@@ -168,6 +168,15 @@ h3, .widget h3 {
     display : none;
 }
 
+#footer-widgets .block {
+    width : auto !important;
+}
+
+#footer-widgets .footer-widget-4 {
+    float : left !important;
+    margin-bottom : 10px;
+}
+
 /* comment form */
 #commentform p.field {
     clear : both;
@@ -383,13 +392,14 @@ h3, .widget h3 {
 .widget_woo_embed {
     width : 145px;
 }
-
+/*
 #sp-link {
     max-width       : 100px;
     right           : 10px;
     top             : 10px;
     text-align      : right;
 }
+*/
 
 #main.video-archive div.post:nth-of-type(3n+1) {
     clear           : none;
