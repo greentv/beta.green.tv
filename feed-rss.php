@@ -56,21 +56,22 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
                     print_r($content);
 /**/
 
-                    $xml = simplexml_load_file('http://gdata.youtube.com/feeds/api/videos/' . $yt_id );
-                    $length = 0;
-
-                    foreach($xml->xpath('//media:content') as $content) {
-                        $media_file = $content->attributes();
-                        if( in_array($media_file->type, $valid_media) ) {
-                            // remove from media list to avoid duplicates
-                            unset($valid_media[array_search($media_file->type, $valid_media)]);
-                            echo '<media:content lang="en" url="' . $media_file->url . '" duration="' . $media_file->duration . '" type="' . $media_file->type . '" fileSize=""/>';
-                            $length = $media_file->duration;
+                    if( @$xml = simplexml_load_file('http://gdata.youtube.com/feeds/api/videos/' . $yt_id ) ) {
+                        $length = 0;
+    
+                        foreach($xml->xpath('//media:content') as $content) {
+                            $media_file = $content->attributes();
+                            if( in_array($media_file->type, $valid_media) ) {
+                                // remove from media list to avoid duplicates
+                                unset($valid_media[array_search($media_file->type, $valid_media)]);
+                                echo '<media:content lang="en" url="' . $media_file->url . '" duration="' . $media_file->duration . '" type="' . $media_file->type . '" fileSize=""/>';
+                                $length = $media_file->duration;
+                            }
                         }
                     }
-
 /**/
-                    $_REQUEST['url'] = 'http://www.youtube.com/watch?feature=player_embedded&v=pyRGi2jbBto';
+                    $_REQUEST['url'] = 'http://www.youtube.com/watch?feature=player_embedded&v=' . $yt_id;
+
                     if (isset($_REQUEST['url']) && !empty($_REQUEST['url'])) {
                         $url = $_REQUEST['url'];
                         $parts = parse_url($url);
@@ -89,10 +90,11 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
                     
                         }
                     
-                        foreach ($videos as $video) {
-                            echo '<media:content lang="en" url="' . get_bloginfo('template_directory') . '/includes/youtube/' . $video['url'] . '" duration="' . $length . '" type="' . $video['ext'] . '" fileSize=""/>';
-                        }
-                    
+                        if( is_array($videos) ) {
+                            foreach ($videos as $video) {
+                                echo '<media:content lang="en" url="' . get_bloginfo('template_directory') . '/includes/youtube/' . $video['url'] . '" duration="' . $length . '" type="' . $video['ext'] . '" fileSize=""/>';
+                            }
+                        }                    
                     }
 /**/
                }
