@@ -119,7 +119,7 @@
 		<?php /*if (function_exists('iinclude_page')) iinclude_page(246); */?>
         <div id="social-links">
 		
-	    <?php if( function_exists( 'woo_email_share_link' ) ) { echo '<div class="share-email">' . woo_email_share_link() . '</div>'; } ?>	
+	    <!--<?php if( function_exists( 'woo_email_share_link' ) ) { echo '<div class="share-email">' . woo_email_share_link() . '</div>'; } ?>-->
 		
             <div class="addthis_toolbox addthis_default_style ">
                 <a class="addthis_button_tweet" tw:via="addthis"></a>
