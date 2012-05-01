@@ -34,6 +34,9 @@ TABLE OF CONTENTS
   25.1 Load Javascript for Google +1 Button
 26. Twitter Follow Button
   26.1 Load Javascript for Twitter Follow Button
+27. StumbleUpon Badge
+28. Pinterest "Pin It" Button
+  28.1 Load Javascript for Pinterest Button
 
 -----------------------------------------------------------------------------------*/
 
@@ -45,18 +48,18 @@ TABLE OF CONTENTS
 add_filter( 'widget_text', 'do_shortcode' );
 
 // Add stylesheet for shortcodes to HEAD (added to HEAD in admin-setup.php)
-if ( !function_exists( 'woo_shortcode_stylesheet' ) AND get_option( 'framework_woo_disable_shortcodes') != "true" ) {
+if ( ! function_exists( 'woo_shortcode_stylesheet' ) && get_option( 'framework_woo_disable_shortcodes' ) != 'true' ) {
 	function woo_shortcode_stylesheet() {
-		echo "<!-- Woo Shortcodes CSS -->\n";
-		echo '<link href="'. get_template_directory_uri() . '/functions/css/shortcodes.css" rel="stylesheet" type="text/css" />'."\n\n";
+		echo "\n" . "<!-- Woo Shortcodes CSS -->\n";
+		echo '<link href="'. get_template_directory_uri() . '/functions/css/shortcodes.css" rel="stylesheet" type="text/css" />'."\n";
 	}
 }
 
 // Replace WP autop formatting
-if (!function_exists( "woo_remove_wpautop")) {
-	function woo_remove_wpautop($content) {
+if ( ! function_exists( 'woo_remove_wpautop' ) ) {
+	function woo_remove_wpautop( $content ) {
 		$content = do_shortcode( shortcode_unautop( $content ) );
-		$content = preg_replace( '#^<\/p>|^<br \/>|<p>$#', '', $content);
+		$content = preg_replace( '#^<\/p>|^<br \/>|<p>$#', '', $content );
 		return $content;
 	}
 }
@@ -65,72 +68,25 @@ if (!function_exists( "woo_remove_wpautop")) {
 /* 1.1 Output shortcode JS in footer */
 /*-----------------------------------------------------------------------------------*/
 
-// Enqueue shortcode JS file.
+add_action( 'wp_print_scripts', 'woo_register_shortcode_js', 10 );
 
-add_action( 'init', 'woo_enqueue_shortcode_js' );
+function woo_register_shortcode_js () {
+	wp_register_script( 'woo-shortcodes', get_template_directory_uri() . '/functions/js/shortcodes.js', array( 'jquery', 'jquery-ui-tabs' ), '5.0.0' );
+} // End woo_register_shortcode_js()
+
+add_action( 'wp_footer', 'woo_enqueue_shortcode_js', 10 );
 
 function woo_enqueue_shortcode_js () {
-
-	if ( is_admin() ) {} else {
-
-		wp_enqueue_script( 'woo-shortcodes', get_template_directory_uri() . '/functions/js/shortcodes.js', array( 'jquery', 'jquery-ui-tabs' ), true );
-
+	if ( ! is_admin() && defined( 'WOO_SHORTCODE_JS' ) ) {
+		wp_enqueue_script( 'woo-shortcodes' );
+		
+		global $wp_scripts;
+		$wp_scripts->to_do = array( 'woo-shortcodes' );
+		
+		wp_print_scripts();
 	} // End IF Statement
 
 } // End woo_enqueue_shortcode_js()
-
-// Check if option to output shortcode JS is active
-if (!function_exists( "woo_check_shortcode_js")) {
-	function woo_check_shortcode_js($shortcode) {
-	   	$js = get_option( "woo_sc_js" );
-	   	if ( !$js )
-	   		woo_add_shortcode_js($shortcode);
-	   	else {
-	   		if ( !in_array($shortcode, $js) ) {
-		   		$js[] = $shortcode;
-	   			update_option( "woo_sc_js", $js);
-	   		}
-	   	}
-	}
-}
-
-// Add option to handle JS output
-if (!function_exists( "woo_add_shortcode_js")) {
-	function woo_add_shortcode_js($shortcode) {
-		$update = array();
-		$update[] = $shortcode;
-		update_option( "woo_sc_js", $update);
-	}
-}
-
-// Output queued shortcode JS in footer
-if (!function_exists( "woo_output_shortcode_js")) {
-	function woo_output_shortcode_js() {
-		$option = get_option( 'woo_sc_js' );
-		if ( $option ) {
-
-			// Toggle JS output
-			if ( in_array( 'toggle', $option) ) {
-
-			   	$output = '
-<script type="text/javascript">
-	jQuery(document).ready(function() {
-		jQuery( ".woo-sc-toggle-box").hide();
-		jQuery( ".woo-sc-toggle-trigger").click(function() {
-			jQuery(this).next( ".woo-sc-toggle-box").slideToggle(400);
-		});
-	});
-</script>
-';
-				echo $output;
-			}
-
-			// Reset option
-			delete_option( 'woo_sc_js' );
-		}
-	}
-}
-add_action( 'wp_footer', 'woo_output_shortcode_js' );
 
 /*-----------------------------------------------------------------------------------*/
 /* 2. Boxes - box
@@ -145,7 +101,7 @@ Optional arguments:
  - icon: none OR full URL to a custom icon
 
 */
-function woo_shortcode_box($atts, $content = null) {
+function woo_shortcode_box( $atts, $content = null ) {
    extract(shortcode_atts(array(	'type' => 'normal',
    									'size' => '',
    									'style' => '',
@@ -359,12 +315,12 @@ function woo_shortcode_related_posts ( $atts ) {
 				setup_postdata( $post );
 				
 				if ( $image <= 0 ) {
-					$image = '';
+					$image_html = '';
 				} else {
-					$image = '<a href="' . get_permalink( $post->ID ) . '" class="thumbnail">' . woo_image( 'link=img&width=' . $image . '&height=' . $image . '&return=true&id=' . $post->ID ) . '</a>' . "\n";
+					$image_html = '<a href="' . get_permalink( $post->ID ) . '" class="thumbnail">' . woo_image( 'link=img&width=' . $image . '&height=' . $image . '&return=true&id=' . $post->ID ) . '</a>' . "\n";
 				}
 				
-				$output .= '<li class="post-id-' . $post->ID . '">' . "\n" . $image . "\n" . '<a href="' . get_permalink( $post->ID ) . '" title="' . the_title_attribute( array( 'echo' => 0 ) ) . '" class="related-title"><span>' . get_the_title( $post->ID )  . '</span></a>' . "\n" . '</li>' . "\n";
+				$output .= '<li class="post-id-' . $post->ID . '">' . "\n" . $image_html . "\n" . '<a href="' . get_permalink( $post->ID ) . '" title="' . the_title_attribute( array( 'echo' => 0 ) ) . '" class="related-title"><span>' . get_the_title( $post->ID )  . '</span></a>' . "\n" . '</li>' . "\n";
 			}
 			
 			$output .= '</ul>' . "\n";
@@ -520,13 +476,17 @@ Optional arguments:
 function woo_shortcode_twitter($atts, $content = null) {
    	global $post;
    	extract(shortcode_atts(array(	'url' => '',
-   									'style' => 'vertical',
+   									'style' => '',
    									'source' => '',
    									'text' => '',
    									'related' => '',
    									'lang' => '',
    									'float' => 'left', 
-   									'use_post_url' => 'false' ), $atts));
+   									'use_post_url' => 'false', 
+   									'recommend' => '', 
+   									'hashtag' => '', 
+   									'size' => '', 
+   									 ), $atts));
 	$output = '';
 
 	if ( $url )
@@ -540,15 +500,25 @@ function woo_shortcode_twitter($atts, $content = null) {
 
 	if ( $related )
 		$output .= ' data-related="'.$related.'"';
+		
+	if ( $hashtag )
+		$output .= ' data-hashtags="'.$hashtag.'"';
+
+	if ( $size )
+		$output .= ' data-size="'.$size.'"';
 
 	if ( $lang )
 		$output .= ' data-lang="'.$lang.'"';
+		
+	if ( $style != '' ) {
+		$output .= 'data-count="'.$style.'"';
+	}
 		
 	if ( $use_post_url == 'true' && $url == '' ) {
 		$output .= ' data-url="' . get_permalink( $post->ID ) . '"';
 	}
 
-	$output = '<div class="woo-sc-twitter '.$float.'"><a href="http://twitter.com/share" class="twitter-share-button"'.$output.' data-count="'.$style.'">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></div>';
+	$output = '<div class="woo-sc-twitter '.$float.'"><a href="http://twitter.com/share" class="twitter-share-button"'.$output.'>Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></div>';
 	return $output;
 
 }
@@ -640,7 +610,8 @@ function woo_shortcode_fblike($atts, $content = null) {
    									'width' => '450',
    									'verb' => 'like',
    									'colorscheme' => 'light',
-   									'font' => 'arial'), $atts));
+   									'font' => 'arial', 
+   									'locale' => 'en_US' ), $atts));
 
 	global $post;
 
@@ -658,11 +629,18 @@ function woo_shortcode_fblike($atts, $content = null) {
 	if ( !$url )
 		$url = get_permalink($post->ID);
 
-	$height = '60';
+	$height = '65';
 	if ( $showfaces == 'true')
 		$height = '100';
 
 	if ( ! $width || ! is_numeric( $width ) ) { $width = 450; } // End IF Statement
+
+	// Set the width to "auto" if "showfaces" is off and the default width is still set.
+	$widthpx = $width . 'px';
+	if ( $width == 450 && $showfaces == 'false' ) { $widthpx = 'auto'; }
+	
+	// Set the height to 20 if "showfaces" is disabled and the style is either "standard" or "button_count".
+	if ( $showfaces == 'false' && ( $style != 'box_count' ) ) { $height = 25; }
 
 	switch ( $float ) {
 
@@ -685,7 +663,7 @@ function woo_shortcode_fblike($atts, $content = null) {
 
 	$output = '
 <div class="woo-fblike '.$float.'">
-<iframe src="http://www.facebook.com/plugins/like.php?href='.$url.'&amp;layout='.$style.'&amp;show_faces='.$showfaces.'&amp;width='.$width.'&amp;action='.$verb.'&amp;colorscheme='.$colorscheme.'&amp;font=' . $font . '" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:'.$width.'px; height:'.$height.'px"></iframe>
+<iframe src="http://www.facebook.com/plugins/like.php?href=' . $url . '&amp;layout=' . $style . '&amp;show_faces=' . $showfaces . '&amp;width=' . $width . '&amp;action=' . $verb . '&amp;colorscheme=' . $colorscheme . '&amp;font=' . $font . '&locale=' . esc_attr( $locale ) . '" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:' . $widthpx . '; height:' . $height . 'px;"></iframe>
 </div>
 	';
 	return $output;
@@ -926,16 +904,21 @@ Optional arguments:
  - style: download, note, tick, info, alert
  - url: the url for your link
  - icon: add an url to a custom icon
+ - title: optional title attribute
 
 */
-function woo_shortcode_ilink($atts, $content = null) {
-   	extract(shortcode_atts(array( 'style' => 'info', 'url' => '', 'icon' => ''), $atts));
+function woo_shortcode_ilink( $atts, $content = null ) {
+   	extract( shortcode_atts( array( 'style' => 'info', 'url' => '', 'icon' => '', 'title' => '' ), $atts ) );
 
-   	$custom_icon = '';
-   	if ( $icon )
-   		$custom_icon = 'style="background:url( '.$icon.') no-repeat left 40%;"';
-
-   return '<span class="woo-sc-ilink"><a class="'.$style.'" href="'.$url.'" '.$custom_icon.'>' . woo_remove_wpautop($content) . '</a></span>';
+	$atts = '';
+   	if ( $icon != '' ) {
+   		$atts .= ' style="background: url( ' . $icon . ') no-repeat left 40%;"';
+   	}
+   	if ( $title != '' ) {
+   		$atts .= ' title="' . esc_attr( $title ) . '"';
+   	}
+   	
+   	return '<span class="woo-sc-ilink"><a class="' . $style . '" href="' . $url . '"' . $atts . '>' . woo_remove_wpautop( $content ) . '</a></span>';
 }
 add_shortcode( 'ilink', 'woo_shortcode_ilink' );
 
@@ -953,6 +936,9 @@ Optional arguments:
 
 */
 function woo_shortcode_toggle ( $atts, $content = null ) {
+
+		// Instruct the shortcode JavaScript to load.
+		if ( ! defined( 'WOO_SHORTCODE_JS' ) ) { define( 'WOO_SHORTCODE_JS', 'load' ); }
 
 		$defaults = array(
 							'title_open' => __( 'Hide the Content', 'woothemes' ),
@@ -1032,15 +1018,15 @@ Optional arguments:
 
 */
 function woo_shortcode_fbshare($atts, $content = null) {
-   	extract(shortcode_atts(array( 'url' => '', 'type' => 'button', 'float' => 'left' ), $atts));
+   	extract( shortcode_atts( array( 'url' => '', 'type' => 'button', 'float' => 'left' ), $atts ) );
 
 	global $post;
 
-	if ( $url == '' ) { $url = get_permalink($post->ID); } // End IF Statement
+	if ( isset( $url ) && $url == '' && isset( $post ) ) { $url = get_permalink( $post->ID ); } // End IF Statement
 
 	$output = '
-<div class="woo-fbshare '.$float.'">
-<a name="fb_share" type="'.$type.'" share_url="'.$url.'">' . woo_remove_wpautop($content) . '</a>
+<div class="woo-fbshare ' . $float . '">
+<a name="fb_share" type="' . $type . '" share_url="' . $url . '">' . woo_remove_wpautop( $content ) . '</a>
 <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share"
         type="text/javascript">
 </script>
@@ -1076,7 +1062,8 @@ function woo_shortcode_contactform ( $atts, $content = null ) {
 		$defaults = array(
 						'email' => get_option( 'woo_contactform_email'),
 						'subject' => __( 'Message via the contact form', 'woothemes' ),
-						'button_text' => apply_filters( 'woo_contact_form_button_text', __( 'Submit', 'woothemes' ) )
+						'button_text' => apply_filters( 'woo_contact_form_button_text', __( 'Submit', 'woothemes' ) ), 
+						'show_default_fields' => 'yes'
 						);
 
 		extract( shortcode_atts( $defaults, $atts ) );
@@ -1367,7 +1354,7 @@ function woo_shortcode_contactform ( $atts, $content = null ) {
 
 		$emailSent = false;
 
-		if ( ( count( $_POST ) > 3 ) && isset( $_POST['submitted'] ) ) {
+		if ( ( count( $_POST ) > 2 ) && isset( $_POST['submitted'] ) ) {
 
 			$fields_to_skip = array( 'checking', 'submitted', 'sendCopy' );
 			$default_fields = array( 'contactName' => '', 'contactEmail' => '', 'contactMessage' => '' );
@@ -1379,21 +1366,21 @@ function woo_shortcode_contactform ( $atts, $content = null ) {
 
 			$posted_data = $_POST;
 
-			// Check for errors.
-			foreach ( array_keys( $default_fields ) as $d ) {
-
-				if ( !isset ( $_POST[$d] ) || $_POST[$d] == '' || ( $d == 'contactEmail' && ! is_email( $_POST[$d] ) ) ) {
-
-					$error_messages[$d] = $error_responses[$d];
-
-				} // End IF Statement
-
-			} // End FOREACH Loop
+			// Check if we're using the default fields.
+			if ( $show_default_fields != 'no' ) {
+				// Check for errors.
+				foreach ( array_keys( $default_fields ) as $d ) {
+					if ( !isset ( $_POST[$d] ) || $_POST[$d] == '' || ( $d == 'contactEmail' && ! is_email( $_POST[$d] ) ) ) {
+						$error_messages[$d] = $error_responses[$d];
+					} // End IF Statement
+				} // End FOREACH Loop
+			} else {
+				$default_fields = array( 'contactName' => get_bloginfo( 'name' ), 'contactEmail' => get_bloginfo( 'admin_email' ), 'contactMessage' => '' );
+			}
 
 			// If we have errors, don't do anything. Otherwise, run the processing code.
 
 			if ( count( $error_messages ) ) {} else {
-
 				// Setup e-mail variables.
 				$message_fromname = $default_fields['contactName'];
 				$message_fromemail = strtolower( $default_fields['contactEmail'] );
@@ -1402,21 +1389,15 @@ function woo_shortcode_contactform ( $atts, $content = null ) {
 
 				// Filter out skipped fields and assign default fields.
 				foreach ( $posted_data as $k => $v ) {
-
 					if ( in_array( $k, $fields_to_skip ) ) {
-
 						unset( $posted_data[$k] );
-
 					} // End IF Statement
 
 					if ( in_array( $k, array_keys( $default_fields ) ) ) {
-
 						$default_fields[$k] = $v;
 
 						unset( $posted_data[$k] );
-
 					} // End IF Statement
-
 				} // End FOREACH Loop
 
 				// Okay, so now we're left with only the dynamic fields. Assign to a fresh variable.
@@ -1425,35 +1406,23 @@ function woo_shortcode_contactform ( $atts, $content = null ) {
 				// Format the default fields into the $message_body.
 
 				foreach ( $default_fields as $k => $v ) {
-
 					if ( $v == '' ) {} else {
-
 						$message_body .= str_replace( 'contact', '', $k ) . ': ' . $v . "\n\r";
-
 					} // End IF Statement
-
 				} // End FOREACH Loop
 
 				// Format the dynamic fields into the $message_body.
 
 				foreach ( $dynamic_fields as $k => $v ) {
-
 					if ( $v == '' ) {} else {
-
 						$value = '';
 
 						if ( substr( $k, 0, 7 ) == 'select_' || substr( $k, 0, 6 ) == 'radio_' ) {
-
 							$message_body .= $formatted_dynamic_atts[$k]['label'] . ': ' . $formatted_dynamic_atts[$k]['options'][$v] . "\n\r";
-
 						} else {
-
 							$message_body .= $formatted_dynamic_atts[$k]['label'] . ': ' . $v . "\n\r";
-
 						} // End IF Statement
-
 					} // End IF Statement
-
 				} // End FOREACH Loop
 
 				// Send the e-mail.
@@ -1462,13 +1431,10 @@ function woo_shortcode_contactform ( $atts, $content = null ) {
 				$emailSent = wp_mail($email, $subject, $message_body, $headers);
 
 				// Send a copy of the e-mail to the sender, if specified.
-
 				if ( isset( $_POST['sendCopy'] ) && $_POST['sendCopy'] == 'true' ) {
-
 					$headers = __( 'From: ', 'woothemes') . $default_fields['contactName'] . ' <' . $default_fields['contactEmail'] . '>' . "\r\n" . __( 'Reply-To: ', 'woothemes' ) . $default_fields['contactEmail'];
 
 					$emailSent = wp_mail($default_fields['contactEmail'], $subject, $message_body, $headers);
-
 				} // End IF Statement
 
 			} // End IF Statement ( count( $error_messages ) )
@@ -1483,81 +1449,65 @@ function woo_shortcode_contactform ( $atts, $content = null ) {
 		/* Display message HTML if necessary.
 		--------------------------------------------------*/
 
-		// Success message.
-
+		// Success messages
 		if( isset( $emailSent ) && $emailSent == true ) {
-
 			$html .= do_shortcode( '[box type="tick"]' . __( 'Your email was successfully sent.', 'woothemes' ) . '[/box]' );
 			$html .= '<span class="has_sent hide"></span>' . "\n";
+		}
 
-		} // End IF Statement
-
-		// Error messages.
-
+		// Error messages
 		if( count( $error_messages ) ) {
-
 			$html .= do_shortcode( '[box type="alert"]' . __( 'There were one or more errors while submitting the form.', 'woothemes' ) . '[/box]' );
-
-		} // End IF Statement
+		}
 
         // No e-mail address supplied.
-
         if( $email == '' ) {
-
 			$html .= do_shortcode( '[box type="alert"]' . __( 'E-mail has not been setup properly. Please add your contact e-mail!', 'woothemes' ) . '[/box]' );
-
-		} // End IF Statement
+		}
 
 		if ( $email == '' ) {} else {
-
 			$html .= '<form action="" id="contactForm" method="post">' . "\n";
-
 				$html .= '<fieldset class="forms">' . "\n";
 
 			/* Parse the "static" form fields.
 			--------------------------------------------------*/
+			if ( $show_default_fields != 'no' ) {
+				$contactName = '';
+				if( isset( $_POST['contactName'] ) ) { $contactName = $_POST['contactName']; }
 
-			$contactName = '';
-			if( isset( $_POST['contactName'] ) ) { $contactName = $_POST['contactName']; } // End IF Statement
+				$contactEmail = '';
+				if( isset( $_POST['contactEmail'] ) ) { $contactEmail = $_POST['contactEmail']; }
 
-			$contactEmail = '';
-			if( isset( $_POST['contactEmail'] ) ) { $contactEmail = $_POST['contactEmail']; } // End IF Statement
+				$contactMessage = '';
+				if( isset( $_POST['contactMessage'] ) ) { $contactMessage = stripslashes( $_POST['contactMessage'] ); }
 
-			$contactMessage = '';
-			if( isset( $_POST['contactMessage'] ) ) { $contactMessage = stripslashes( $_POST['contactMessage'] ); } // End IF Statement
+				$html .= '<p><label for="contactName">' . __( 'Name', 'woothemes' ) . '</label>' . "\n";
+				$html .= '<input type="text" name="contactName" id="contactName" value="' . esc_attr( $contactName ) . '" class="txt requiredField" />' . "\n";
 
-			$html .= '<p><label for="contactName">' . __( 'Name', 'woothemes' ) . '</label>' . "\n";
-			$html .= '<input type="text" name="contactName" id="contactName" value="' . esc_attr( $contactName ) . '" class="txt requiredField" />' . "\n";
+				if( array_key_exists( 'contactName', $error_messages ) ) {
+					$html .= '<span class="error">' . $error_messages['contactName'] . '</span>' . "\n";
+				}
 
-			if( array_key_exists( 'contactName', $error_messages ) ) {
+				$html .= '</p>' . "\n";
 
-				$html .= '<span class="error">' . $error_messages['contactName'] . '</span>' . "\n";
+				$html .= '<p><label for="contactEmail">' . __( 'Email', 'woothemes' ) . '</label>' . "\n";
+				$html .= '<input type="text" name="contactEmail" id="contactEmail" value="' . esc_attr( $contactEmail ) . '" class="txt requiredField email" />' . "\n";
 
-			} // End IF Statement
+				if( array_key_exists( 'contactEmail', $error_messages ) ) {
+					$html .= '<span class="error">' . $error_messages['contactEmail'] . '</span>' . "\n";
+				}
 
-			$html .= '</p>' . "\n";
+				$html .= '</p>' . "\n";
 
-			$html .= '<p><label for="contactEmail">' . __( 'Email', 'woothemes' ) . '</label>' . "\n";
-			$html .= '<input type="text" name="contactEmail" id="contactEmail" value="' . esc_attr( $contactEmail ) . '" class="txt requiredField email" />' . "\n";
+				$html .= '<p class="textarea"><label for="contactMessage">' . __( 'Message', 'woothemes' ) . '</label>' . "\n";
+				$html .= '<textarea name="contactMessage" id="contactMessage" rows="20" cols="30" class="textarea requiredField">' . esc_textarea( $contactMessage ) . '</textarea>' . "\n";
 
-			if( array_key_exists( 'contactEmail', $error_messages ) ) {
+				if( array_key_exists( 'contactMessage', $error_messages ) ) {
+					$html .= '<span class="error">' . $error_messages['contactMessage'] . '</span>' . "\n";
+				}
 
-				$html .= '<span class="error">' . $error_messages['contactEmail'] . '</span>' . "\n";
-
-			} // End IF Statement
-
-			$html .= '</p>' . "\n";
-
-			$html .= '<p class="textarea"><label for="contactMessage">' . __( 'Message', 'woothemes' ) . '</label>' . "\n";
-			$html .= '<textarea name="contactMessage" id="contactMessage" rows="20" cols="30" class="textarea requiredField">' . esc_textarea( $contactMessage ) . '</textarea>' . "\n";
-
-			if( array_key_exists( 'contactMessage', $error_messages ) ) {
-
-				$html .= '<span class="error">' . $error_messages['contactMessage'] . '</span>' . "\n";
-
-			} // End IF Statement
-
-			$html .= '</p>' . "\n";
+				$html .= '</p>' . "\n";
+			} // End static fields check
 
 			/* Parse dynamic fields into HTML.
 			--------------------------------------------------*/
@@ -1570,7 +1520,6 @@ function woo_shortcode_contactform ( $atts, $content = null ) {
 					--------------------------------------------------*/
 
 					if ( substr( $k, 0, 6 ) == 'radio_' ) {
-
 						/* Generate Select Box Field HTML.
 						----------------------------------------------*/
 
@@ -1582,20 +1531,16 @@ function woo_shortcode_contactform ( $atts, $content = null ) {
 							$html .= '<span class="woo-radio-container fl">' . "\n";
 
 							foreach ( $v['options'] as $value => $label ) {
-
 								$html .= '<input type="radio" name="' . $k . '" class="radio-button woo-input-radio" value="' . $value . '"' . checked( $value, ${$k}, false ) . ' />&nbsp;' . $label . '<br />' . "\n";
-
-							} // End FOREACH Loop
+							}
 
 							$html .= '</span><!--/.woo-radio-container-->' . "\n";
-
-					} // End IF Statement
+					}
 
 					/* Parse the checkbox inputs.
 					--------------------------------------------------*/
 
 					if ( substr( $k, 0, 9 ) == 'checkbox_' ) {
-
 						/* Generate Checkbox Input Field HTML.
 						----------------------------------------------*/
 
@@ -1608,14 +1553,12 @@ function woo_shortcode_contactform ( $atts, $content = null ) {
 						$html .= '<p class="inline">' . "\n";
 						$html .= '<input type="checkbox" value="' . ${$k} . '" name="' . $k . '" id="' . $k . '" class="checkbox input-checkbox woo-input-checkbox"' . checked( $checked, ${$k}, false ) . ' />' . "\n";
 						$html .= '<label for="' . $k . '">' . $v['label'] . '</label></p>' . "\n";
-
-					} // End IF Statement
+					}
 
 					/* Parse the text inputs.
 					--------------------------------------------------*/
 
 					if ( substr( $k, 0, 5 ) == 'text_' ) {
-
 						/* Generate Text Input Field HTML.
 						----------------------------------------------*/
 
@@ -1624,14 +1567,12 @@ function woo_shortcode_contactform ( $atts, $content = null ) {
 
 						$html .= '<p><label for="' . $k . '">' . $v['label'] . '</label>' . "\n";
 						$html .= '<input type="text" value="' . esc_attr( ${$k} ) . '" name="' . $k . '" id="' . $k . '" class="txt input-text textfield woo-input-text" /></p>' . "\n";
-
-					} // End IF Statement
+					}
 
 					/* Parse the select boxes.
 					--------------------------------------------------*/
 
 					if ( substr( $k, 0, 7 ) == 'select_' ) {
-
 						/* Generate Select Box Field HTML.
 						----------------------------------------------*/
 
@@ -1642,23 +1583,19 @@ function woo_shortcode_contactform ( $atts, $content = null ) {
 						$html .= '<select name="' . $k . '" id="' . $k . '" class="select selectfield woo-select">' . "\n";
 
 							foreach ( $v['options'] as $value => $label ) {
-
 								$selected = '';
 								if ( $value == ${$k} ) { $selected = ' selected="selected"'; } // End IF Statement
 
 								$html .= '<option value="' . esc_attr( $value ) . '"' . $selected . '>' . $label . '</option>' . "\n";
-
-							} // End FOREACH Loop
+							}
 
 						$html .= '</select></p>' . "\n";
-
-					} // End IF Statement
+					}
 
 					/* Parse the textarea inputs.
 					--------------------------------------------------*/
 
 					if ( substr( $k, 0, 9 ) == 'textarea_' ) {
-
 						/* Generate Textarea Input Field HTML.
 						----------------------------------------------*/
 
@@ -1668,10 +1605,8 @@ function woo_shortcode_contactform ( $atts, $content = null ) {
 						$html .= '<p><label for="' . $k . '">' . $v['label'] . '</label>' . "\n";
 						$html .= '<textarea rows="' . $v['number_of_rows'] . '" cols="' . $v['number_of_columns'] . '" name="' . $k . '" id="' . $k . '" class="input-textarea textarea woo-textarea">' . $v['default_text'] . '</textarea></p>' . "\n";
 
-					} // End IF Statement
-
+					}
 				} // End FOREACH Loop
-
 			} // End IF Statement
 
 			/* The end of the form.
@@ -1679,36 +1614,25 @@ function woo_shortcode_contactform ( $atts, $content = null ) {
 
 			$sendCopy = '';
 			if(isset($_POST['sendCopy']) && $_POST['sendCopy'] == true) {
-
 				$sendCopy = ' checked="checked"';
-
-			} // End IF Statement
+			}
 
 			$html .= '<p class="inline"><input type="checkbox" name="sendCopy" id="sendCopy" value="true"' . $sendCopy . ' /><label for="sendCopy">' . __( 'Send a copy of this email to yourself', 'woothemes' ) . '</label></p>' . "\n";
 
 			$checking = '';
 			if(isset($_POST['checking'])) {
-
 				$checking = $_POST['checking'];
-
-			} // End IF Statement
+			}
 
 			$html .= '<p class="screenReader"><label for="checking" class="screenReader">' . __('If you want to submit this form, do not enter anything in this field', 'woothemes') . '</label><input type="text" name="checking" id="checking" class="screenReader" value="' . esc_attr( $checking ) . '" /></p>' . "\n";
-
 			$html .= '<p class="buttons"><input type="hidden" name="submitted" id="submitted" value="true" /><input class="submit button" type="submit" value="' . $button_text . '" /></p>';
-
 				$html .= '</fieldset>' . "\n";
-
 			$html .= '</form>' . "\n";
-
 			$html .= '</div><!--/.post .contact-form-->' . "\n";
-
 			$html .= '<div class="fix"></div>' . "\n";
-
 		} // End IF Statement ( $email == '' )
 
 		return $html;
-
 } // End woo_shortcode_contactform()
 
 add_shortcode( 'contact_form', 'woo_shortcode_contactform' );
@@ -1719,9 +1643,15 @@ add_shortcode( 'contact_form', 'woo_shortcode_contactform' );
 
 function woo_shortcode_tabs ( $atts, $content = null ) {
 
-		$defaults = array( 'style' => 'default', 'title' => '', 'css' => '' );
+		// Instruct the shortcode JavaScript to load.
+		if ( ! defined( 'WOO_SHORTCODE_JS' ) ) { define( 'WOO_SHORTCODE_JS', 'load' ); }
+
+		$defaults = array( 'style' => 'default', 'title' => '', 'css' => '', 'id' => '' );
 
 		extract( shortcode_atts( $defaults, $atts ) );
+
+		// If no unique ID is set, set the ID as a random number between 1 and 100 (to make sure each tab group is unique).
+		if ( $id == '' ) { $id = rand( 1, 100 ); }
 
 		if ( $css != '' ) { $css = ' ' . $css; }
 
@@ -1755,7 +1685,7 @@ function woo_shortcode_tabs ( $atts, $content = null ) {
 
 		} // End IF Statement
 
-		return '<div id="tabs-' . rand(1, 100) . '" class="shortcode-tabs ' . $style . $css . '">' . $titles_html . do_shortcode( $content ) . "\n" . '<div class="fix"></div><!--/.fix-->' . "\n" . '</div><!--/.tabs-->';
+		return '<div id="tabs-' . $id . '" class="shortcode-tabs ' . $style . $css . '">' . $titles_html . do_shortcode( $content ) . "\n" . '<div class="fix"></div><!--/.fix-->' . "\n" . '</div><!--/.tabs-->';
 
 } // End woo_shortcode_tabs()
 
@@ -1931,7 +1861,7 @@ function woo_shortcode_typography_loadgooglefonts ( $font = '' ) {
 
 		} // End IF Statement
 
-		echo "<link rel='stylesheet' id='" . 'woo-googlefont-' . sanitize_title( $f ) . "'  href='" . 'http://fonts.googleapis.com/css?family=' . $f_include . '' . "' type='text/css' media='screen' />" . "\n";
+		echo "<link rel='stylesheet' id='" . 'woo-googlefont-' . sanitize_title( $f ) . "'  href='" . 'http'. ( is_ssl() ? 's' : '' ) .'://fonts.googleapis.com/css?family=' . $f_include . '' . "' type='text/css' media='screen' />" . "\n";
 
 	} else {
 
@@ -1984,7 +1914,7 @@ function woo_shortcode_typography_loadgooglefonts ( $font = '' ) {
 
 				} // End IF Statement
 
-				wp_enqueue_style( 'woo-googlefont-' . sanitize_title( $f ), 'http://fonts.googleapis.com/css?family=' . $f_include . '', array(), '3.6', 'screen' );
+				wp_enqueue_style( 'woo-googlefont-' . sanitize_title( $f ), 'http'. ( is_ssl() ? 's' : '' ) .'://fonts.googleapis.com/css?family=' . $f_include . '', array(), '3.6', 'screen' );
 
 			} // End FOREACH Loop
 
@@ -2253,15 +2183,68 @@ function woo_shortcode_google_plusone ( $atts, $content = null ) {
 						'count' => '',
 						'href' => '',
 						'callback' => '',
-						'float' => 'none'
+						'float' => 'none', 
+						'annotation' => 'none'
 					);
 
 	$atts = shortcode_atts( $defaults, $atts );
 
 	extract( $atts );
 
+	$params = array();
+
 	$allowed_floats = array( 'left' => ' fl', 'right' => ' fr', 'none' => '' );
 	if ( ! in_array( $float, array_keys( $allowed_floats ) ) ) { $float = 'none'; }
+	
+	if ( ! in_array( $annotation, array( 'bubble', 'inline', 'none' ) ) ) { $annotation = 'none'; } 
+
+	// A friendly-looking array of supported languages, along with their codes.
+	$supported_languages = array(
+		'ar' => 'Arabic', 
+		'bg' => 'Bulgarian', 
+		'ca' => 'Catalan', 
+		'zh-CN' => 'Chinese (Simplified)', 
+		'zh-TW' => 'Chinese (Traditional)', 
+		'hr' => 'Croatian', 
+		'cs' => 'Czech', 
+		'da' => 'Danish', 
+		'nl' => 'Dutch', 
+		'en-US' => 'English (US)', 
+		'en-GB' => 'English (UK)', 
+		'et' => 'Estonian', 
+		'fil' => 'Filipino', 
+		'fi' => 'Finnish', 
+		'fr' => 'French', 
+		'de' => 'German', 
+		'el' => 'Greek', 
+		'iw' => 'Hebrew', 
+		'hi' => 'Hindi', 
+		'hu' => 'Hungarian', 
+		'id' => 'Indonesian', 
+		'it' => 'Italian', 
+		'ja' => 'Japanese', 
+		'ko' => 'Korean', 
+		'lv' => 'Latvian', 
+		'lt' => 'Lithuanian', 
+		'ms' => 'Malay', 
+		'no' => 'Norwegian', 
+		'fa' => 'Persian', 
+		'pl' => 'Polish', 
+		'pt-BR' => 'Portuguese (Brazil)', 
+		'pt-PT' => 'Portuguese (Portugal)', 
+		'ro' => 'Romanian', 
+		'ru' => 'Russian', 
+		'sr' => 'Serbian', 
+		'sv' => 'Swedish', 
+		'sk' => 'Slovak', 
+		'sl' => 'Slovenian', 
+		'es' => 'Spanish', 
+		'es-419' => 'Spanish (Latin America)', 
+		'th' => 'Thai', 
+		'tr' => 'Turkish', 
+		'uk' => 'Ukrainian', 
+		'vi' => 'Vietnamese'
+	);
 
 	$output = '';
 	$tag_atts = '';
@@ -2275,15 +2258,30 @@ function woo_shortcode_google_plusone ( $atts, $content = null ) {
 
 	foreach ( $atts as $k => $v ) {
 		if ( ${$k} != '' ) {
-			$tag_atts .= ' ' . $k . '="' . ${$k} . '"';
+			$tag_atts .= ' data-' . $k . '="' . ${$k} . '"';
 		}
 	}
 
-	$output = '<div class="shortcode-google-plusone' . $allowed_floats[$float] . '"><g:plusone' . $tag_atts . '></g:plusone></div><!--/.shortcode-google-plusone-->' . "\n";
+	$output = '<div class="shortcode-google-plusone' . $allowed_floats[$float] . '"><div class="g-plusone" ' . $tag_atts . '></div></div><!--/.shortcode-google-plusone-->' . "\n";
+	
+	// Parameters to pass to Google PlusOne JavaScript.
+	if ( in_array( $atts['language'] , array_values( $supported_languages ) ) ) {
+		$language = '';
+		
+		foreach ( $supported_languages as $k => $v ) {
+			if ( $v == $atts['language'] ) {
+				$language = $k;
+				break;
+			}
+		}
+		
+		$params = array( 'language' => $language );
+	}
 
 	// Enqueue the Google +1 button JavaScript from their API.
-	add_action( 'wp_footer', 'woo_shortcode_google_plusone_js' );
-	add_action( 'woo_shortcode_generator_preview_footer', 'woo_shortcode_google_plusone_js' );
+	// add_action( 'wp_footer', 'woo_shortcode_google_plusone_js' );
+	// add_action( 'woo_shortcode_generator_preview_footer', 'woo_shortcode_google_plusone_js' );
+	woo_shortcode_google_plusone_js( $params );
 
 	return $output . "\n";
 
@@ -2295,8 +2293,12 @@ add_shortcode( 'google_plusone', 'woo_shortcode_google_plusone' );
 /* 25.1 Load Javascript for Google +1 Button
 /*-----------------------------------------------------------------------------------*/
 
-function woo_shortcode_google_plusone_js () {
-	echo '<script src="https://apis.google.com/js/plusone.js" type="text/javascript"></script>' . "\n";
+function woo_shortcode_google_plusone_js ( $params ) {
+	echo '<script src="https://apis.google.com/js/plusone.js" type="text/javascript">' . "\n";
+	if ( isset( $params['language'] ) && ( $params['language'] != '' ) ) {
+		echo ' {lang: \'' . $params['language'] . '\'}' . "\n";
+	}
+	echo '</script>' . "\n";
 	echo '<script type="text/javascript">gapi.plusone.go();</script>' . "\n";
 } // End woo_shortcode_google_plusone_js()
 
@@ -2319,7 +2321,9 @@ function woo_shortcode_twitter_follow ( $atts, $content = null ) {
 						'align' => '',
 						'language' => '',
 						'count' => '',
-						'float' => 'none'
+						'float' => 'none', 
+						'show_screen_name' => 'true', 
+						'size' => 'medium'
 					);
 
 	$atts = shortcode_atts( $defaults, $atts );
@@ -2347,7 +2351,9 @@ function woo_shortcode_twitter_follow ( $atts, $content = null ) {
 						'width' => 'data-width', 
 						'align' => 'data-align', 
 						'language' => 'data-lang', 
-						'count' => 'data-show-count'
+						'count' => 'data-show-count', 
+						'show_screen_name' => 'data-show-screen-name', 
+						'size' => 'data-size'
 					);
 
 	foreach ( $atts as $k => $v ) {
@@ -2375,6 +2381,124 @@ add_shortcode( 'twitter_follow', 'woo_shortcode_twitter_follow' );
 function woo_shortcode_twitter_follow_js () {
 	echo '<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>' . "\n";
 } // End woo_shortcode_twitter_follow_js()
+
+/*-----------------------------------------------------------------------------------*/
+/* 27. StumbleUpon Badge - [stumbleupon]
+/*-----------------------------------------------------------------------------------*/
+
+function woo_shortcode_stumbleupon ( $atts, $content = null ) {
+	global $post;
+	
+	$defaults = array(
+						'design' => 'horizontal_large',
+						'float' => 'none', 
+						'url' => '', 
+						'use_post' => 'false'
+					);
+
+	$atts = shortcode_atts( $defaults, $atts );
+
+	extract( $atts );
+
+	$allowed_floats = array( 'left' => ' fl', 'right' => ' fr', 'none' => '' );
+	if ( ! in_array( $float, array_keys( $allowed_floats ) ) ) { $float = 'none'; }
+	
+	$allowed_designs = array( 'horizontal_large' => '1', 'horizontal_medium' => '2', 'horizontal_small' => '3', 'icon_small' => '4', 'vertical_count' => '5', 'icon_large' => '6' );
+	if ( ! in_array( $design, array_keys( $allowed_designs ) ) ) { $design = 'horizontal_large'; }
+
+	$output = '';
+	
+	$url_call = '';
+	
+	// Use the custom URL, if it has been specified.
+	if ( $atts['url'] != '' ) {
+		$url_call = '&r=' . esc_url( $url );
+	}
+	
+	// Use the URL to the current $post in the loop, if no custom URL is set and if instructed to do so.
+	if ( $url_call == '' && $atts['use_post'] == 'true' ) {
+		$url_call = '&r=' . get_permalink( $post );
+	}
+
+	$output = apply_filters( 'woo_shortcode_stumbleupon', '<div class="shortcode-stumbleupon' . $allowed_floats[$float] . '"><script src="http://www.stumbleupon.com/hostedbadge.php?s=' . $allowed_designs[$design] . $url_call . '"></script></div><!--/.shortcode-stumbleupon-->' . "\n", $atts );
+
+	return $output . "\n";
+} // End woo_shortcode_stumbleupon()
+
+add_shortcode( 'stumbleupon', 'woo_shortcode_stumbleupon' );
+
+/*-----------------------------------------------------------------------------------*/
+/* 28. Pinterest "Pin It" Button [pinterest] */
+/*-----------------------------------------------------------------------------------*/
+
+function woo_shortcode_pinterest ( $atts, $content = null ) {
+	global $post;
+	
+	$defaults = array(
+						'count' => 'horizontal',
+						'float' => 'none', 
+						'url' => '', 
+						'image_url' => '', 
+						'description' => '', 
+						'use_post' => 'false'
+					);
+
+	$atts = shortcode_atts( $defaults, $atts );
+
+	extract( $atts );
+
+	$allowed_floats = array( 'left' => ' fl', 'right' => ' fr', 'none' => '' );
+	if ( ! in_array( $float, array_keys( $allowed_floats ) ) ) { $float = 'none'; }
+	
+	$allowed_counts = array( 'horizontal', 'vertical', 'none' );
+	if ( ! in_array( $count, array_keys( $allowed_counts ) ) ) { $count = 'horizontal'; }
+
+	$output = '';
+
+	// Use the custom URL, if it has been specified.
+	if ( $atts['url'] != '' ) {
+		$url = esc_url( $atts['url'] );
+	} else {
+		// Use the URL to the current $post in the loop.
+		$url = esc_url( get_permalink( $post ) );
+	}
+	
+	// Use the custom image URL, if it has been specified.
+	if ( $atts['image_url'] != '' ) {
+		$image_url = esc_url( $atts['image_url'] );
+	} else {
+		// Use the image of the current $post in the loop.
+		$image_url = esc_url( woo_image( 'link=url&return=true' ) );
+	}
+	
+	// Use the custom description, if it has been specified.
+	if ( $atts['description'] != '' ) {
+		$description = esc_attr( $atts['description'] );
+	} else {
+		// Use the excerpt of the current $post in the loop, if no description is set and if instructed to do so.
+		if ( $atts['use_post'] == 'true' ) {
+			$description = esc_attr( strip_shortcodes( apply_filters( 'get_the_excerpt', $post->post_excerpt ) ) );
+		}
+	}
+
+	$output = apply_filters( 'woo_shortcode_pinterest', '<div class="shortcode-pinterest' . $allowed_floats[$float] . '"><a href="http://pinterest.com/pin/create/button/?url=' . urlencode( $url ) . '&media=' . urlencode( $image_url ) . '&description=' . urlencode( $description ) . '" class="pin-it-button" count-layout="' . $count . '">' . __( 'Pin It', 'woothemes' ) . '</a></div><!--/.shortcode-pinterest-->' . "\n", $atts );
+
+	// Enqueue the Pinterest button JavaScript from their API.
+	add_action( 'wp_footer', 'woo_shortcode_pinterest_javascript' );
+	add_action( 'woo_shortcode_generator_preview_footer', 'woo_shortcode_pinterest_javascript' );
+
+	return $output . "\n";
+} // End woo_shortcode_pinterest()
+
+add_shortcode( 'pinterest', 'woo_shortcode_pinterest' );
+
+/*-----------------------------------------------------------------------------------*/
+/* 28.1 Load Javascript for Pinterest Button
+/*-----------------------------------------------------------------------------------*/
+
+function woo_shortcode_pinterest_javascript () {
+	echo '<script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>' . "\n";
+} // End woo_shortcode_pinterest_javascript()
 
 /*-----------------------------------------------------------------------------------*/
 /* THE END */

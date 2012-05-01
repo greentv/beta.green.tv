@@ -163,8 +163,8 @@ function woothemes_seo_page(){
 										'search' => 'Search Results',
 										'date' => 'Date Archives'));
 
-	$seo_options[] = array( "name" => "Set meta for Posts & Pages to 'follow' by default",
-					"desc" => "By default the woo_meta(); adds a 'nofollow' meta to post and pages, meaning search engines will not index pages leading away from these pages.",
+	$seo_options[] = array( "name" => "Add 'nofollow' meta",
+					"desc" => "By default your site outputs 'follow' meta on all your pages, meaning search engines will follow all links. <br />Enable this option to output 'nofollow' meta, which will tell search engines to <strong>not follow</strong> links on your site.",
 					"id" => $shortname."_meta_single_follow",
 					"std" => "",
 					"type" => "checkbox" );
@@ -286,7 +286,7 @@ function woothemes_seo_page(){
     ?>
     <div id="woo-popup-save" class="woo-save-popup"><div class="woo-save-save">Options Updated</div></div>
     <div id="woo-popup-reset" class="woo-save-popup"><div class="woo-save-reset">Options Reset</div></div>
-        <form action="" enctype="multipart/form-data" id="wooform">
+        <form action="" enctype="multipart/form-data" id="wooform" method="post">
         <?php
 	    	// Add nonce for added security.
 	    	if ( function_exists( 'wp_nonce_field' ) ) { wp_nonce_field( 'wooframework-seo-options-update' ); } // End IF Statement
@@ -322,7 +322,7 @@ function woothemes_seo_page(){
                 <ul>
                     <li class="changelog"><a title="Theme Changelog" href="<?php echo $manualurl; ?>#Changelog">View Changelog</a></li>
                     <li class="docs"><a title="Theme Documentation" href="<?php echo $manualurl; ?>">View Themedocs</a></li>
-                    <li class="forum"><a href="http://forum.woothemes.com" target="_blank">Visit Forum</a></li>
+                    <li class="forum"><a href="http://www.woothemes.com/support-forum" target="_blank">Visit Forum</a></li>
                     <li class="right"><img style="display:none" src="<?php echo get_template_directory_uri(); ?>/functions/images/loading-top.gif" class="ajax-loading-img ajax-loading-img-top" alt="Working..." /><a href="#" id="expand_options">[+]</a> <input type="submit" value="Save All Changes" class="button submit-button" /></li>
                 </ul>
 
@@ -342,6 +342,7 @@ function woothemes_seo_page(){
             </div>
             <div class="save_bar_top">
             <img style="display:none" src="<?php echo get_template_directory_uri(); ?>/functions/images/loading-bottom.gif" class="ajax-loading-img ajax-loading-img-bottom" alt="Working..." />
+            <input type="hidden" name="woo_save" value="save" />
             <input type="submit" value="Save All Changes" class="button submit-button" />
             </form>
 
@@ -363,15 +364,12 @@ function woothemes_seo_page(){
 		    	} // End IF Statement
 		    ?>
             <span class="submit-footer-reset">
-            <input name="reset" type="submit" value="Reset Options" class="button submit-button reset-button" onclick="return confirm( 'Click OK to reset. Any settings will be lost!' );" />
+            <input name="reset" type="submit" value="Reset All SEO Options" class="button submit-button reset-button" onclick="return confirm( 'Click OK to reset all SEO options. All settings will be lost!' );" />
             <input type="hidden" name="woo_save" value="reset" />
             </span>
         	</form>
 
-
             </div>
-
-
 
     <div style="clear:both;"></div>
     </div><!--wrap-->

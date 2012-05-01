@@ -30,13 +30,12 @@ add_action( 'woo_theme_activate', 'woo_themeoptions_redirect', 10 );
 
 function woo_themeoptions_redirect () {
 	// Do redirect
-	header( 'Location: ' . admin_url() . 'admin.php?page=woothemes' );
+	header( 'Location: ' . admin_url() . 'admin.php?page=woothemes&activated=true' );
 } // End woo_themeoptions_redirect()
 
 /*-----------------------------------------------------------------------------------*/
 /* Flush rewrite rules to refresh permalinks for custom post types, etc. */
 /*-----------------------------------------------------------------------------------*/
-add_action( 'admin_head', 'woo_flush_rewriterules', 9 );
 
 function woo_flush_rewriterules () {
 	flush_rewrite_rules();
@@ -156,29 +155,34 @@ add_action( 'wp_head', 'woothemes_wp_head', 10 );
 /*-----------------------------------------------------------------------------------*/
 if ( ! function_exists( 'woo_output_alt_stylesheet' ) ) {
 	function woo_output_alt_stylesheet() {
-
 		$style = '';
 
 		if ( isset( $_REQUEST['style'] ) ) {
 			// Sanitize requested value.
-			$requested_style = strtolower( strip_tags( trim( $_REQUEST['style'] ) ) );
+			$requested_style = esc_attr( strtolower( strip_tags( trim( $_REQUEST['style'] ) ) ) );
 			$style = $requested_style;
 		}
 
-		echo "<!-- Alt Stylesheet -->\n";
-		if ($style != '') {
-			echo '<link href="'. get_template_directory_uri() . '/styles/'. $style . '.css" rel="stylesheet" type="text/css" />' . "\n\n";
+		echo "\n" . "<!-- Alt Stylesheet -->\n";
+		// If we're using the query variable, be sure to check for /css/layout.css as well.
+		if ( $style != '' ) {
+			if ( strtolower( $style ) == 'default' ) {
+				if ( file_exists( get_template_directory() . '/css/layout.css' ) ) {
+					echo '<link href="' . get_template_directory_uri() . '/css/layout.css" rel="stylesheet" type="text/css" />' . "\n";
+				}
+				echo '<link href="' . get_stylesheet_uri() . '" rel="stylesheet" type="text/css" />' . "\n";
+			} else {
+				echo '<link href="' . get_template_directory_uri() . '/styles/'. $style .'.css" rel="stylesheet" type="text/css" />' . "\n";
+			}
 		} else {
 			$style = get_option( 'woo_alt_stylesheet' );
+			$style = esc_attr( strtolower( strip_tags( trim( $style ) ) ) );
 			if( $style != '' ) {
-				// Sanitize value.
-				$style = strtolower( strip_tags( trim( $style ) ) );
-				echo '<link href="'. get_template_directory_uri() . '/styles/'. $style .'" rel="stylesheet" type="text/css" />' . "\n\n";
+				echo '<link href="'. get_template_directory_uri() . '/styles/'. $style .'" rel="stylesheet" type="text/css" />' . "\n";
 			} else {
-				echo '<link href="'. get_template_directory_uri() . '/styles/default.css" rel="stylesheet" type="text/css" />' . "\n\n";
+				echo '<link href="'. get_template_directory_uri() . '/styles/default.css" rel="stylesheet" type="text/css" />' . "\n";
 			}
 		}
-
 	} // End woo_output_alt_stylesheet()
 }
 
@@ -194,8 +198,8 @@ if ( ! function_exists( 'woo_output_custom_favicon' ) ) {
 		// Allow child themes/plugins to filter here.
 		$favicon = apply_filters( 'woo_custom_favicon', $favicon );
 		if( $favicon != '' ) {
-			echo "<!-- Custom Favicon -->\n";
-	        echo '<link rel="shortcut icon" href="' .  esc_url( $favicon )  . '"/>' . "\n\n";
+			echo "\n" . "<!-- Custom Favicon -->\n";
+	        echo '<link rel="shortcut icon" href="' .  esc_url( $favicon )  . '"/>' . "\n";
 	    }
 	} // End woo_output_custom_favicon()
 }
@@ -233,24 +237,24 @@ if ( ! function_exists( 'woo_head_css' ) ) {
 				if(isset($option['id'])){
 					if($option['id'] == 'woo_texttitle') {
 						// Add CSS to output
-						if ( $text_title == "true" ) {
-							$output .= '#logo img { display:none; } #logo .site-title { display:block; }' . "\n";
+						if ( $text_title == 'true' ) {
+							$output .= '#logo img { display:none; } .site-title { display:block!important; }' . "\n";
 							if ( $tagline == "false" )
-								$output .= '#logo .site-description { display:none; }' . "\n";
+								$output .= '.site-description { display:none!important; }' . "\n";
 							else
-								$output .= '#logo .site-description { display:block; }' . "\n";
+								$output .= '.site-description { display:block!important; }' . "\n";
 						}
 					}
 				}
 			}
 		}
 
-		if ( $custom_css <> '' ) {
+		if ( $custom_css != '' ) {
 			$output .= $custom_css . "\n";
 		}
 
 		// Output styles
-		if ( $output <> '' ) {
+		if ( $output != '' ) {
 			$output = strip_tags($output);
 			echo "<!-- Options Panel Custom CSS -->\n";
 			$output = "<style type=\"text/css\">\n" . $output . "</style>\n\n";
@@ -268,9 +272,14 @@ if ( ! function_exists( 'woo_head_css' ) ) {
 if ( ! function_exists( 'woo_output_custom_css' ) ) {
 	function woo_output_custom_css() {
 
+		$theme_dir = get_template_directory_uri();
+		
+		if ( is_child_theme() && file_exists( get_stylesheet_directory() . '/custom.css' ) ) {
+			$theme_dir = get_stylesheet_directory_uri();
+		}
 		// Custom.css insert
-		echo "<!-- Custom Stylesheet -->\n";
-		echo '<link href="'. get_template_directory_uri() . '/custom.css" rel="stylesheet" type="text/css" />' . "\n";
+		echo "\n" . "<!-- Custom Stylesheet -->\n";
+		echo '<link href="'. $theme_dir . '/custom.css" rel="stylesheet" type="text/css" />' . "\n";
 
 	} // End woo_output_custom_css()
 }
