@@ -425,3 +425,11 @@ h3, .widget h3 {
 #map-container {
     display         : none;
 }
+
+
+/* LIVE STREAM */
+
+#slider-content iframe {
+    max-height          : 205px !important;
+    max-width           : 300px !important;
+}

@@ -4,6 +4,7 @@
 
     <div id="slider-content">
 
+    <!--
     <?php 
     	// Featured Video
     	if ( get_option('woo_slider') != "true" AND get_option('woo_exclude') )
@@ -25,6 +26,16 @@
 		
 		query_posts($args);			
 	?>
+	-->
+
+	<h2>The Ashden Awards LIVE at 7.15 BST today</h2>
+
+	<iframe style="margin-top: 20px; margin-bottom: 20px; width: 620px; height: 424px;" src="http://www.ustream.tv/embed/11216026" scrolling="no" frameborder="0" style="border: 0px none transparent;"></iframe>
+
+	<p>The Ashden Awards reward high calibre, pioneering enterprises in the UK and developing world that help develop sustainable energy for all. At the annual Awards ceremony, prize-winners receive not just cash but global exposure and a tailored package of support to help them grow.</p>
+	<br />
+	<p>Watch the event live here on GREEN.TV.</p>
+
     </div>
 
 	<div id="sidebar_wrapper">
