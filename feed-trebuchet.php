@@ -1,4 +1,12 @@
 <?php
+
+#ini_set('error_repor#ting', E_ALL);
+#ini_set('display_errors', 'On');
+#ini_set('display_startup_errors', 'On');
+
+$taxonomy_images_plugin = new taxonomy_images_plugin();
+
+
 /**
  * Trebuchet Feed Template.
  *
@@ -35,7 +43,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
         <?php foreach($categories as $category) { ?>
 <category id="<?php echo $category->term_id; ?>">
             <default_icons>
-                <icon_std></icon_std>
+                <icon_std><?php $img_src = $taxonomy_images_plugin->get_image_src( $category->term_id ); print $img_src; ?></icon_std>
             </default_icons>
             <languages>
                 <language id="en">
