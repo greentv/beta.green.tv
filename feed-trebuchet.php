@@ -55,13 +55,17 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
         <?php } ?>
     </root_category>
     <assets>
-    <?php foreach($posts as $post) { ?>
+    <?php foreach($posts as $post) {
+        $custom_fields = get_post_custom($post->ID); ?>
 <asset id="<?php echo $post->ID; ?>">
             <?php $terms = get_the_terms( $post->ID, 'woo_video_category');
             foreach ( $terms as $term ) {
                 echo '<in_category id="'.$term->term_id.'" />';
             } ?>
             <type>video</type>
+            <default_icons>
+                <icon_std><?php echo isset($custom_fields['trebuchet_icon']) ? $custom_fields['trebuchet_icon'][0] : '' ?></icon_std>
+            </default_icons>
             <languages>
                 <language id="en">
                     <title><?php echo the_title_rss(); ?></title>
