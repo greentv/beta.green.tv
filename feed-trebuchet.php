@@ -35,12 +35,12 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
         <?php foreach($categories as $category) { ?>
 <category id="<?php echo $category->term_id; ?>">
             <default_icons>
-                <icon_std>http://www.green.tv/wp-content/uploads/2011/11/gtvlogo.png</icon_std>
+                <icon_std></icon_std>
             </default_icons>
             <languages>
                 <language id="en">
                     <title><?php echo $category->name; ?></title>
-                    <description><?php echo $category->category_description; ?></description>
+                    <description><![CDATA[<?php echo $category->category_description; ?>]]></description>
                 </language>
             </languages>
         </category>
