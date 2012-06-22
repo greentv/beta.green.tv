@@ -708,6 +708,41 @@ if ( ( get_post_type() == 'woo_video') || ( !get_post_type() ) ) {
 								"std" => '',
 								"type" => "text");
 
+    $woo_metaboxes[] = array(   "name" => "trebuchet_asset_url",
+                                "label" => "Trebuchet asset url",
+                                "desc" => "The url of the media file for Trebuchet feed.",
+                                "id" => $shortname."_trebuchet_asset_guid",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "trebuchet_rating",
+                                "label" => "Trebuchet rating",
+                                "desc" => "Video rating for Trebuchet feed.",
+                                "id" => $shortname."_trebuchet_rating",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "trebuchet_duration",
+                                "label" => "Trebuchet duration",
+                                "desc" => "Video duration for Trebuchet feed.",
+                                "id" => $shortname."_trebuchet_duration",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "trebuchet_video_type",
+                                "label" => "Trebuchet video type",
+                                "desc" => "Video type for Trebuchet feed.",
+                                "id" => $shortname."_trebuchet_video_type",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "trebuchet_audio_type",
+                                "label" => "Trebuchet audio type",
+                                "desc" => "Audio type for Trebuchet feed.",
+                                "id" => $shortname."_trebuchet_audio_type",
+                                "std" => '',
+                                "type" => "text");
+
 	$woo_metaboxes[] = array (	"name" => "image",
 								"label" => "Image",
 								"type" => "upload",
