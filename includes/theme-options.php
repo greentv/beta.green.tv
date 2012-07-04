@@ -700,20 +700,24 @@ if ( ( get_post_type() == 'post') || ( !get_post_type() ) ) {
 // Fields for `woo_video` Custom Post Type.
 
 if ( ( get_post_type() == 'woo_video') || ( !get_post_type() ) ) {
-
-	$woo_metaboxes[] = array(	"name" => "video_guid",
+    
+    $woo_metaboxes[] = array(	"name" => "video_guid",
 								"label" => "Video GUID",
 								"desc" => "A unique identifier for the video.",
 								"id" => $shortname."_video_guid",
-								"std" => '',
 								"type" => "text");
 
-    $woo_metaboxes[] = array(   "name" => "trebuchet_asset_url",
-                                "label" => "Trebuchet asset url",
-                                "desc" => "The url of the media file for Trebuchet feed.",
-                                "id" => $shortname."_trebuchet_asset_guid",
-                                "std" => '',
-                                "type" => "text");
+	$woo_metaboxes[] = array(	"name" => "trebuchet_processed",
+								"label" => "Trebuchet processed",
+								"desc" => "Has this video been processed.",
+								"id" => $shortname."_trebuchet_processed",
+								"type" => "text");
+
+	$woo_metaboxes[] = array(	"name" => "trebuchet_enabled",
+								"label" => "Trebuchet enabled",
+								"desc" => "Has this video will appear in the trebuchet feed.",
+								"id" => $shortname."_trebuchet_enabled",
+								"type" => "text");
 
     $woo_metaboxes[] = array(   "name" => "trebuchet_rating",
                                 "label" => "Trebuchet rating",
@@ -722,31 +726,87 @@ if ( ( get_post_type() == 'woo_video') || ( !get_post_type() ) ) {
                                 "std" => '',
                                 "type" => "text");
 
-    $woo_metaboxes[] = array(   "name" => "trebuchet_duration",
-                                "label" => "Trebuchet duration",
-                                "desc" => "Video duration for Trebuchet feed.",
-                                "id" => $shortname."_trebuchet_duration",
-                                "std" => '',
-                                "type" => "text");
-
-    $woo_metaboxes[] = array(   "name" => "trebuchet_video_type",
-                                "label" => "Trebuchet video type",
-                                "desc" => "Video type for Trebuchet feed.",
-                                "id" => $shortname."_trebuchet_video_type",
-                                "std" => '',
-                                "type" => "text");
-
-    $woo_metaboxes[] = array(   "name" => "trebuchet_audio_type",
-                                "label" => "Trebuchet audio type",
-                                "desc" => "Audio type for Trebuchet feed.",
-                                "id" => $shortname."_trebuchet_audio_type",
-                                "std" => '',
-                                "type" => "text");
-
-    $woo_metaboxes[] = array (  "name" => "trebuchet_icon",
+	$woo_metaboxes[] = array (  "name" => "trebuchet_icon",
                                 "label" => "Trebuchet icon",
                                 "type" => "upload",
                                 "desc" => "Upload an image or enter an URL for trebuchet.");
+
+    $woo_metaboxes[] = array(   "name" => "asset_path",
+                                "label" => "asset path",
+                                "desc" => "asset path",
+                                "id" => $shortname."_asset_path",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "asset_duration",
+                                "label" => "asset duration",
+                                "desc" => "asset duration",
+                                "id" => $shortname."_asset_duration",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "wmv_asset_filename",
+                                "label" => "wmv asset filename",
+                                "desc" => "wmv asset filename",
+                                "id" => $shortname."_wmv_asset_filename",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "wmv_asset_bitrate",
+                                "label" => "wmv asset bitrate",
+                                "desc" => "wmv asset bitrate",
+                                "id" => $shortname."_wmv_asset_bitrate",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "wmv_audio_type",
+                                "label" => "wmv audio type",
+                                "desc" => "wmv audio type",
+                                "id" => $shortname."_wmv_audio_type",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "flv_asset_filename",
+                                "label" => "flv asset filename",
+                                "desc" => "flv asset filename",
+                                "id" => $shortname."_flv_asset_filename",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "flv_asset_bitrate",
+                                "label" => "flv asset bitrate",
+                                "desc" => "flv asset bitrate",
+                                "id" => $shortname."_flv_asset_bitrate",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "flv_audio_type",
+                                "label" => "flv audio type",
+                                "desc" => "flv audio type",
+                                "id" => $shortname."_flv_audio_type",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "h264_asset_filename",
+                                "label" => "h264 asset filename",
+                                "desc" => "h264 asset filename",
+                                "id" => $shortname."_h264_asset_filename",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "h264_asset_bitrate",
+                                "label" => "h264 asset bitrate",
+                                "desc" => "h264 asset bitrate",
+                                "id" => $shortname."_h264_asset_bitrate",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "h264_audio_type",
+                                "label" => "h264 audio type",
+                                "desc" => "h264 audio type",
+                                "id" => $shortname."_h264_audio_type",
+                                "std" => '',
+                                "type" => "text");
 
 	$woo_metaboxes[] = array (	"name" => "image",
 								"label" => "Image",
