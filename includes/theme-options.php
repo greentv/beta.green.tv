@@ -738,38 +738,60 @@ if ( ( get_post_type() == 'woo_video') || ( !get_post_type() ) ) {
                                 "std" => '',
                                 "type" => "text");
 
-    $woo_metaboxes[] = array(   "name" => "asset_duration",
-                                "label" => "asset duration",
-                                "desc" => "asset duration",
-                                "id" => $shortname."_asset_duration",
-                                "std" => '',
-                                "type" => "text");
 
-    $woo_metaboxes[] = array(   "name" => "wmv3_asset_filename",
+
+
+
+    $woo_metaboxes[] = array(   "name" => "wmv_asset_filename",
                                 "label" => "wmv asset filename",
                                 "desc" => "wmv asset filename",
                                 "id" => $shortname."_wmv_asset_filename",
                                 "std" => '',
                                 "type" => "text");
 
-    $woo_metaboxes[] = array(   "name" => "wmv3_asset_bitrate",
+    $woo_metaboxes[] = array(   "name" => "wmv_asset_duration",
+                                "label" => "wmv asset duration",
+                                "desc" => "wmv asset duration",
+                                "id" => $shortname."_wmv_asset_duration",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "wmv_asset_bitrate",
                                 "label" => "wmv asset bitrate",
                                 "desc" => "wmv asset bitrate",
                                 "id" => $shortname."_wmv_asset_bitrate",
                                 "std" => '',
                                 "type" => "text");
 
-    $woo_metaboxes[] = array(   "name" => "wmv3_audio_type",
+    $woo_metaboxes[] = array(   "name" => "wmv_video_type",
+                                "label" => "wmv video type",
+                                "desc" => "wmv video type",
+                                "id" => $shortname."_wmv_video_type",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "wmv_audio_type",
                                 "label" => "wmv audio type",
                                 "desc" => "wmv audio type",
                                 "id" => $shortname."_wmv_audio_type",
                                 "std" => '',
                                 "type" => "text");
 
+
+
+
+
     $woo_metaboxes[] = array(   "name" => "flv_asset_filename",
                                 "label" => "flv asset filename",
                                 "desc" => "flv asset filename",
                                 "id" => $shortname."_flv_asset_filename",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "flv_asset_duration",
+                                "label" => "flv asset duration",
+                                "desc" => "flv asset duration",
+                                "id" => $shortname."_flv_asset_duration",
                                 "std" => '',
                                 "type" => "text");
 
@@ -780,6 +802,13 @@ if ( ( get_post_type() == 'woo_video') || ( !get_post_type() ) ) {
                                 "std" => '',
                                 "type" => "text");
 
+    $woo_metaboxes[] = array(   "name" => "flv_video_type",
+                                "label" => "flv video type",
+                                "desc" => "flv video type",
+                                "id" => $shortname."_flv_video_type",
+                                "std" => '',
+                                "type" => "text");
+
     $woo_metaboxes[] = array(   "name" => "flv_audio_type",
                                 "label" => "flv audio type",
                                 "desc" => "flv audio type",
@@ -787,26 +816,123 @@ if ( ( get_post_type() == 'woo_video') || ( !get_post_type() ) ) {
                                 "std" => '',
                                 "type" => "text");
 
-    $woo_metaboxes[] = array(   "name" => "h264_asset_filename",
-                                "label" => "h264 asset filename",
-                                "desc" => "h264 asset filename",
-                                "id" => $shortname."_h264_asset_filename",
+
+
+
+    $woo_metaboxes[] = array(   "name" => "mp4_asset_filename",
+                                "label" => "mp4 asset filename",
+                                "desc" => "mp4 asset filename",
+                                "id" => $shortname."_mp4_asset_filename",
                                 "std" => '',
                                 "type" => "text");
 
-    $woo_metaboxes[] = array(   "name" => "h264_asset_bitrate",
-                                "label" => "h264 asset bitrate",
-                                "desc" => "h264 asset bitrate",
-                                "id" => $shortname."_h264_asset_bitrate",
+    $woo_metaboxes[] = array(   "name" => "mp4_asset_duration",
+                                "label" => "mp4 asset duration",
+                                "desc" => "mp4 asset duration",
+                                "id" => $shortname."_mp4_asset_duration",
                                 "std" => '',
                                 "type" => "text");
 
-    $woo_metaboxes[] = array(   "name" => "h264_audio_type",
-                                "label" => "h264 audio type",
-                                "desc" => "h264 audio type",
-                                "id" => $shortname."_h264_audio_type",
+    $woo_metaboxes[] = array(   "name" => "mp4_asset_bitrate",
+                                "label" => "mp4 asset bitrate",
+                                "desc" => "mp4 asset bitrate",
+                                "id" => $shortname."_mp4_asset_bitrate",
                                 "std" => '',
                                 "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "mp4_video_type",
+                                "label" => "mp4 video type",
+                                "desc" => "mp4 video type",
+                                "id" => $shortname."_mp4_video_type",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "mp4_audio_type",
+                                "label" => "mp4 audio type",
+                                "desc" => "mp4 audio type",
+                                "id" => $shortname."_mp4_audio_type",
+                                "std" => '',
+                                "type" => "text");
+
+
+
+
+	$woo_metaboxes[] = array(   "name" => "m4v_asset_filename",
+                                "label" => "m4v asset filename",
+                                "desc" => "m4v asset filename",
+                                "id" => $shortname."_m4v_asset_filename",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "m4v_asset_duration",
+                                "label" => "m4v asset duration",
+                                "desc" => "m4v asset duration",
+                                "id" => $shortname."_m4v_asset_duration",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "m4v_asset_bitrate",
+                                "label" => "m4v asset bitrate",
+                                "desc" => "m4v asset bitrate",
+                                "id" => $shortname."_m4v_asset_bitrate",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "m4v_video_type",
+                                "label" => "m4v video type",
+                                "desc" => "m4v video type",
+                                "id" => $shortname."_m4v_video_type",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "m4v_audio_type",
+                                "label" => "m4v audio type",
+                                "desc" => "m4v audio type",
+                                "id" => $shortname."_m4v_audio_type",
+                                "std" => '',
+                                "type" => "text");
+
+
+
+
+
+	$woo_metaboxes[] = array(   "name" => "mov_asset_filename",
+                                "label" => "mov asset filename",
+                                "desc" => "mov asset filename",
+                                "id" => $shortname."_mov_asset_filename",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "mov_asset_duration",
+                                "label" => "mov asset duration",
+                                "desc" => "mov asset duration",
+                                "id" => $shortname."_mov_asset_duration",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "mov_asset_bitrate",
+                                "label" => "mov asset bitrate",
+                                "desc" => "mov asset bitrate",
+                                "id" => $shortname."_mov_asset_bitrate",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "mov_video_type",
+                                "label" => "mov video type",
+                                "desc" => "mov video type",
+                                "id" => $shortname."_mov_video_type",
+                                "std" => '',
+                                "type" => "text");
+
+    $woo_metaboxes[] = array(   "name" => "mov_audio_type",
+                                "label" => "mov audio type",
+                                "desc" => "mov audio type",
+                                "id" => $shortname."_mov_audio_type",
+                                "std" => '',
+                                "type" => "text");
+
+
+
 
 	$woo_metaboxes[] = array (	"name" => "image",
 								"label" => "Image",
