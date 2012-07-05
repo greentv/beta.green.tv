@@ -707,10 +707,10 @@ if ( ( get_post_type() == 'woo_video') || ( !get_post_type() ) ) {
 								"id" => $shortname."_video_guid",
 								"type" => "text");
 
-	$woo_metaboxes[] = array(	"name" => "trebuchet_processed",
-								"label" => "Trebuchet processed",
+	$woo_metaboxes[] = array(	"name" => "processed",
+								"label" => "Processed",
 								"desc" => "Has this video been processed.",
-								"id" => $shortname."_trebuchet_processed",
+								"id" => $shortname."_processed",
 								"type" => "text");
 
 	$woo_metaboxes[] = array(	"name" => "trebuchet_enabled",
@@ -745,21 +745,21 @@ if ( ( get_post_type() == 'woo_video') || ( !get_post_type() ) ) {
                                 "std" => '',
                                 "type" => "text");
 
-    $woo_metaboxes[] = array(   "name" => "wmv_asset_filename",
+    $woo_metaboxes[] = array(   "name" => "wmv3_asset_filename",
                                 "label" => "wmv asset filename",
                                 "desc" => "wmv asset filename",
                                 "id" => $shortname."_wmv_asset_filename",
                                 "std" => '',
                                 "type" => "text");
 
-    $woo_metaboxes[] = array(   "name" => "wmv_asset_bitrate",
+    $woo_metaboxes[] = array(   "name" => "wmv3_asset_bitrate",
                                 "label" => "wmv asset bitrate",
                                 "desc" => "wmv asset bitrate",
                                 "id" => $shortname."_wmv_asset_bitrate",
                                 "std" => '',
                                 "type" => "text");
 
-    $woo_metaboxes[] = array(   "name" => "wmv_audio_type",
+    $woo_metaboxes[] = array(   "name" => "wmv3_audio_type",
                                 "label" => "wmv audio type",
                                 "desc" => "wmv audio type",
                                 "id" => $shortname."_wmv_audio_type",
