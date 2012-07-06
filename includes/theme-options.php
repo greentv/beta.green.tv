@@ -726,11 +726,6 @@ if ( ( get_post_type() == 'woo_video') || ( !get_post_type() ) ) {
                                 "std" => '',
                                 "type" => "text");
 
-	$woo_metaboxes[] = array (  "name" => "trebuchet_icon",
-                                "label" => "Trebuchet icon",
-                                "type" => "upload",
-                                "desc" => "Upload an image or enter an URL for trebuchet.");
-
     $woo_metaboxes[] = array(   "name" => "asset_path",
                                 "label" => "asset path",
                                 "desc" => "asset path",

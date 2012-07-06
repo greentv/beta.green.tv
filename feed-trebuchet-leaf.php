@@ -9,7 +9,6 @@ header('Content-Type: ' . feed_content_type('rss-http') . '; charset=' . get_opt
 
 $args = array('post_type' => 'woo_video', 'numberposts' => 9999999999);
 $posts = get_posts( $args);
-$fallback_icon = 'http://www.green.tv/wp-content/uploads/2011/11/gtvlogo.png';
 
 echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
 
@@ -25,7 +24,13 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
             } ?>
             <type>video</type>
             <default_icons>
-                <icon_std><?php echo isset($custom_fields['trebuchet_icon']) ? $custom_fields['trebuchet_icon'][0] : '' ?></icon_std>
+                <icon_std>
+                <?php foreach ( $custom_fields['asset_path'] as $key => $value ) {
+                    $base_dir = basename($value);
+                    echo 'http://static.green.tv/static/videos/'.$base_dir.'/'.$base_dir.'.jpg';
+                    break;
+                } ?>
+                </icon_std>
             </default_icons>
             <languages>
                 <language id="en">
@@ -33,6 +38,24 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
                     <description><![CDATA[<?php echo the_excerpt_rss(); ?>]]></description>
                 </language>
             </languages>
+            <asset_url downloadable='false'>
+            <?php foreach ( $custom_fields['mp4_asset_filename'] as $key => $value ) {
+                echo 'http://static.green.tv/static/videos/'.$base_dir.'/'.$value;
+                break;
+            } ?>
+            </asset_url>
+            <rating scheme="">
+            <?php foreach( $custom_fields['trebuchet_rating'] as $key => $value) {
+                echo $value;
+                break;
+            } ?>
+            </rating>
+            <duration>
+            <?php foreach( $custom_fields['mp4_asset_duration'] as $key => $value) {
+            echo $value;
+            break;
+            } ?>
+            </duration>
         </asset>
     <?php } ?>
     </assets>
