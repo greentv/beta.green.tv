@@ -20,14 +20,14 @@ function timeToSeconds($time) {
     return $seconds;
 }
 
-
 echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
 
 <trebuchet version="2.0">
     <mehta_data_version>1</mehta_data_version>
     <assets>
-    <?php foreach($posts as $post) {
-        $custom_fields = get_post_custom($post->ID); ?>
+    <?php foreach($posts as $post) { 
+    if (get_post_meta($post->ID, 'trebuchet_enabled', true) == 'true') {
+    ?>
 <asset id="<?php echo $post->ID; ?>">
             <?php $terms = get_the_terms( $post->ID, 'woo_video_category');
             foreach ( $terms as $term ) {
@@ -35,13 +35,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
             } ?>
             <type>video</type>
             <default_icons>
-                <icon_std>
-                <?php foreach ( $custom_fields['asset_path'] as $key => $value ) {
-                    $base_dir = basename($value);
-                    echo 'http://static.green.tv/static/videos/'.$base_dir.'/'.$base_dir.'.jpg';
-                    break;
-                } ?>
-                </icon_std>
+                <icon_std><?php echo get_post_meta($post->ID, 'asset_path', true); ?></icon_std>
             </default_icons>
             <languages>
                 <language id="en">
@@ -50,24 +44,12 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
                 </language>
             </languages>
             <asset_url downloadable='false'>
-            <?php foreach ( $custom_fields['mp4_asset_filename'] as $key => $value ) {
-                echo 'http://static.green.tv/static/videos/'.$base_dir.'/'.$value;
-                break;
-            } ?>
+            <?php echo get_post_meta($post->ID, 'mp4_asset_filename', true); ?>
             </asset_url>
-            <rating scheme="">
-            <?php foreach( $custom_fields['trebuchet_rating'] as $key => $value) {
-                echo $value;
-                break;
-            } ?>
-            </rating>
-            <duration>
-            <?php foreach( $custom_fields['mp4_asset_duration'] as $key => $value) {
-            echo timeToSeconds($value);
-            break;
-            } ?>
-            </duration>
+            <rating scheme=""><?php echo get_post_meta($post->ID, 'trebuchet_rating', true); ?></rating>
+            <duration><?php echo timeToSeconds(get_post_meta($post->ID, 'mp4_asset_duration', true)); ?></duration>
         </asset>
-    <?php } ?>
+    <?php } 
+    } ?>
     </assets>
 </trebuchet>
