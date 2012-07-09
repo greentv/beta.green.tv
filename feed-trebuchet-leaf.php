@@ -10,6 +10,17 @@ header('Content-Type: ' . feed_content_type('rss-http') . '; charset=' . get_opt
 $args = array('post_type' => 'woo_video', 'numberposts' => 9999999999);
 $posts = get_posts( $args);
 
+# function to convert the time format we're supplying to seconds
+function timeToSeconds($time) {
+    $parts = explode(':', $time);
+    $seconds = 0;
+    foreach ($parts as $i => $val) {
+        $seconds += $val * pow(60, 2 - $i);
+    }
+    return $seconds;
+}
+
+
 echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
 
 <trebuchet version="2.0">
@@ -52,7 +63,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
             </rating>
             <duration>
             <?php foreach( $custom_fields['mp4_asset_duration'] as $key => $value) {
-            echo $value;
+            echo timeToSeconds($value);
             break;
             } ?>
             </duration>
