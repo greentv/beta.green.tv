@@ -726,6 +726,13 @@ if ( ( get_post_type() == 'woo_video') || ( !get_post_type() ) ) {
                                 "std" => '',
                                 "type" => "text");
 
+    $woo_metaboxes[] = array(   "name" => "trebuchet_order",
+                                "label" => "Trebuchet order",
+                                "desc" => "Order value for Trebuchet feed.",
+                                "id" => $shortname."_trebuchet_order",
+                                "std" => '',
+                                "type" => "text");
+
     $woo_metaboxes[] = array(   "name" => "asset_path",
                                 "label" => "asset path",
                                 "desc" => "asset path",
