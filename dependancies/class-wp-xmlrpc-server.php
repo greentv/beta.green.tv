@@ -79,7 +79,7 @@ class wp_xmlrpc_server extends IXR_Server {
 			'wp.getPostType'		=> 'this:wp_getPostType',
 			'wp.getPostTypes'		=> 'this:wp_getPostTypes',
 			'wp.getPostIdByTitle'	=> 'this:wp_getPostIdByTitle',
-			'wp.getNewPosts'        => 'this:wp_getNewPosts',
+			'wp.getPostsByCustomFieldValue' => 'this:wp_getPostsByCustomFieldValue',
 
 			// Blogger API
 			'blogger.getUsersBlogs' => 'this:blogger_getUsersBlogs',
@@ -1286,29 +1286,37 @@ class wp_xmlrpc_server extends IXR_Server {
 	}
 
 	/** 
-	* Get non-processed posts - custom_field 'processed' != 'true'.
+	* Get posts where custom field key value does not equal supplied value in arguement.
 	* @param array $arfs Method parameters. Contains:
 	* - int     $blog_id
 	* - string  $username
 	* - string  $password
+	* - int 	$post_number
+	* - string  $post_type
+	* - string  $custom_field_key
+	* - string  $custom_field_value
+	* 
 	*
-	* @return array contains results of wp_getPost
+	* @return array of filtered posts from wp_getPosts
 	*/
 
 
-	function wp_getNewPosts( $args ) {
-		$posts = $this->wp_getPosts(Array($args[0], $args[1], $args[2], Array('number' => 100, 'post_type' => 'woo_video')));
-		$posts_to_process = Array();
+	function wp_getPostsByCustomFieldValue( $args ) {
+		$posts = $this->wp_getPosts(Array($args[0], $args[1], $args[2], Array('number' => $args[3], 'post_type' => $args[4])));
+		$filtered_posts = Array();
+
+		if ( ! $this->minimum_args( $args, 7 ) )
+			return $this->error;
 
 		foreach($posts as $post) {
 			foreach($post['custom_fields'] as $custom_field) {
-				if(($custom_field['key'] == 'processed') && ($custom_field['value'] != 'true')) {
-					$posts_to_process[] = $post;
+				if(($custom_field['key'] == $args[5]) && ($custom_field['value'] != $args[6])) {
+					$filtered_posts[] = $post;
 					break;
 				}
 			}
 		}
-		return $posts_to_process;
+		return $filtered_posts;
 	}
 	
 
