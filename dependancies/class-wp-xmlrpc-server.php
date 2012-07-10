@@ -1269,11 +1269,19 @@ class wp_xmlrpc_server extends IXR_Server {
 
 	/** 
 	* Retrieve a post id by title.
+	* @param array $arfs Method parameters. Contains:
+	* - int     $blog_id
+	* - string  $username
+	* - string  $password
+	* - string  $postTitle
+	*
+	* @return instance of wp_getPost
 	*/
 
 	function wp_getPostIdByTitle( $args ) {
 		global $wpdb;
-		return $wpdb->get_var( "SELECT ID FROM $wpdb->posts WHERE post_title = '" . $args[0] . "'" );
+		$post_id = $wpdb->get_var( "SELECT ID FROM $wpdb->posts WHERE post_title = '" . $args[3] . "'" );
+		return $this->wp_getPost(Array($args[0], $args[1], $args[2], $post_id));
 	}
 	
 
@@ -1350,7 +1358,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		$post_type = get_post_type_object( $post['post_type'] );
 		if ( ! current_user_can( $post_type->cap->edit_posts, $post_id ) )
 			return new IXR_Error( 401, __( 'Sorry, you cannot edit this post.' ) );
-
+		
 		return $this->_prepare_post( $post, $fields );
 	}
 
