@@ -79,6 +79,7 @@ class wp_xmlrpc_server extends IXR_Server {
 			'wp.getPostType'		=> 'this:wp_getPostType',
 			'wp.getPostTypes'		=> 'this:wp_getPostTypes',
 			'wp.getPostIdByTitle'	=> 'this:wp_getPostIdByTitle',
+			'wp.getNewPosts'        => 'this:wp_getNewPosts',
 
 			// Blogger API
 			'blogger.getUsersBlogs' => 'this:blogger_getUsersBlogs',
@@ -1282,6 +1283,32 @@ class wp_xmlrpc_server extends IXR_Server {
 		global $wpdb;
 		$post_id = $wpdb->get_var( "SELECT ID FROM $wpdb->posts WHERE post_title = '" . $args[3] . "'" );
 		return $this->wp_getPost(Array($args[0], $args[1], $args[2], $post_id));
+	}
+
+	/** 
+	* Get non-processed posts - custom_field 'processed' != 'true'.
+	* @param array $arfs Method parameters. Contains:
+	* - int     $blog_id
+	* - string  $username
+	* - string  $password
+	*
+	* @return array contains results of wp_getPost
+	*/
+
+
+	function wp_getNewPosts( $args ) {
+		$posts = $this->wp_getPosts(Array($args[0], $args[1], $args[2], Array('number' => 100, 'post_type' => 'woo_video')));
+		$posts_to_process = Array();
+
+		foreach($posts as $post) {
+			foreach($post['custom_fields'] as $custom_field) {
+				if(($custom_field['key'] == 'processed') && ($custom_field['value'] != 'true')) {
+					$posts_to_process[] = $post;
+					break;
+				}
+			}
+		}
+		return $posts_to_process;
 	}
 	
 
