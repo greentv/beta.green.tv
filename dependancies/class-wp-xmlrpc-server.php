@@ -1281,8 +1281,22 @@ class wp_xmlrpc_server extends IXR_Server {
 
 	function wp_getPostIdByTitle( $args ) {
 		global $wpdb;
-		$post_id = $wpdb->get_var( "SELECT ID FROM $wpdb->posts WHERE post_title = '" . $args[3] . "'" );
-		return $this->wp_getPost(Array($args[0], $args[1], $args[2], $post_id));
+		$post_id = $wpdb->get_var( 
+			$wpdb->prepare(
+				"
+				SELECT ID FROM $wpdb->posts 
+				WHERE post_type = '".$args[4]."'
+				AND post_status = 'publish'
+				AND post_title = '".$args[3]."'
+				"
+			)
+		);
+
+		if (!empty($post_id)) {
+			return $this->wp_getPost(Array($args[0], $args[1], $args[2], $post_id));
+		} else {
+			return null;
+		}
 	}
 
 	/** 
