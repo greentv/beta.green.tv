@@ -1327,7 +1327,13 @@ class wp_xmlrpc_server extends IXR_Server {
 				if(($custom_field['key'] == $args[5]) && ($custom_field['value'] != $args[6])) {
 					$filtered_posts[] = $post;
 					break;
+				} else if (($custom_field['key'] == $args[5]) && ($custom_field['value'] == $args[6])) {
+					$custom_true = true;
+					break;
 				}
+			}
+			if (!$custom_true) {
+				$filtered_posts[] = $post;
 			}
 		}
 		return $filtered_posts;
