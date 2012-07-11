@@ -20,6 +20,8 @@ function timeToSeconds($time) {
     return $seconds;
 }
 
+$post_order_count = 99999;
+
 echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
 
 <trebuchet version="2.0">
@@ -30,8 +32,13 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
     ?>
 <asset id="<?php echo $post->ID; ?>">
             <?php $terms = get_the_terms( $post->ID, 'woo_video_category');
+            $post_order = get_post_meta($post->ID, 'trebuchet_order', true);
+            if ($post_order == '') {
+                $post_order_count--;
+                $post_order = $post_order_count;
+            }
             foreach ( $terms as $term ) {
-                echo '<in_category id="'.$term->term_id.'" />';
+                echo '<in_category id="'.$term->term_id.'" order="'.$post_order.'" />';
             } ?>
             <type>video</type>
             <default_icons>
