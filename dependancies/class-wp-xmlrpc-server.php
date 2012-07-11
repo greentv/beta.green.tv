@@ -1285,9 +1285,9 @@ class wp_xmlrpc_server extends IXR_Server {
 			$wpdb->prepare(
 				"
 				SELECT ID FROM $wpdb->posts 
-				WHERE post_type = '".$args[4]."'
+				WHERE post_type = '".mysql_real_escape_string($args[4])."'
 				AND post_status = 'publish'
-				AND post_title = '".$args[3]."'
+				AND post_title = '".mysql_real_escape_string($args[3])."'
 				"
 			)
 		);
