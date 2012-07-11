@@ -43,7 +43,11 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
             } ?>
             <type>video</type>
             <default_icons>
-                <icon_std><?php echo get_post_meta($post->ID, 'asset_path', true); ?></icon_std>
+                <icon_std><?php 
+                $asset_path = get_post_meta($post->ID, 'asset_path', true);
+                $base_dir = basename($asset_path);
+                echo 'http://static.green.tv/static/videos/'.$base_dir.'/'.$base_dir.'.jpg';
+                ?></icon_std>
             </default_icons>
             <languages>
                 <language id="en">
