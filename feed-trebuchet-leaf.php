@@ -21,6 +21,7 @@ function timeToSeconds($time) {
 }
 
 $post_order_count = 99999;
+$default_rating = 'PG';
 
 echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
 
@@ -53,7 +54,13 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
             <asset_url downloadable='false'>
             <?php echo get_post_meta($post->ID, 'mp4_asset_filename', true); ?>
             </asset_url>
-            <rating scheme=""><?php echo get_post_meta($post->ID, 'trebuchet_rating', true); ?></rating>
+            <rating scheme="urn:mpaa"><?php 
+            $rating = get_post_meta($post->ID, 'trebuchet_rating', true);
+            if ($rating == '') {
+                $rating = $default_rating;
+            }
+            echo $rating;
+            ?></rating>
             <duration><?php echo timeToSeconds(get_post_meta($post->ID, 'mp4_asset_duration', true)); ?></duration>
         </asset>
     <?php } 
