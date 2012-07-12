@@ -55,9 +55,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
                     <description><![CDATA[<?php echo the_excerpt_rss(); ?>]]></description>
                 </language>
             </languages>
-            <asset_url downloadable='false'>
-            <?php echo get_post_meta($post->ID, 'mp4_asset_filename', true); ?>
-            </asset_url>
+            <asset_url downloadable='false'><?php echo 'http://static.green.tv/static/videos/'.$base_dir.'/'.get_post_meta($post->ID, 'mp4_asset_filename', true); ?></asset_url>
             <rating scheme="urn:mpaa"><?php 
             $rating = get_post_meta($post->ID, 'trebuchet_rating', true);
             if ($rating == '') {
