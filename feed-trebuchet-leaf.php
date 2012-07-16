@@ -17,7 +17,7 @@ function timeToSeconds($time) {
     foreach ($parts as $i => $val) {
         $seconds += $val * pow(60, 2 - $i);
     }
-    return $seconds;
+    return round($seconds);
 }
 
 $post_order_count = 99999;

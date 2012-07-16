@@ -17,6 +17,7 @@ $category_count = 0;
 
 echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
 <trebuchet version="2">
+    <mehta_data_version>1</mehta_data_version>
     <header>
         <config>
             <fallback_language>en</fallback_language>
