@@ -21,13 +21,13 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
     <header>
         <config>
             <fallback_language>en</fallback_language>
-            <icon_poster>http://www.green.tv/wp-content/uploads/2011/11/gtvlogo.png</icon_poster>
+            <icon_poster>http://feeds.largeblue.net/sony/default_icon.jpg</icon_poster>
         </config>
     </header>
     <supported_features><icon_formats>std</icon_formats></supported_features>
     <root_category id="1" style="tile">
         <default_icons>
-            <icon_std>http://www.green.tv/wp-content/uploads/2011/11/gtvlogo.png</icon_std> 
+            <icon_std>http://feeds.largeblue.net/sony/default_icon.jpg</icon_std> 
         </default_icons>
         <languages>
             <language id="en">
