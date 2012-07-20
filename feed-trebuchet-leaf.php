@@ -28,18 +28,21 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
 <trebuchet version="2.0">
     <mehta_data_version>1</mehta_data_version>
     <assets>
-    <?php foreach($posts as $post) { 
-    if (get_post_meta($post->ID, 'trebuchet_enabled', true) == 'true') {
+    <?php foreach($posts as $post) {
+    $in_categories = get_the_terms( $post->ID, 'woo_video_category');
+    $in_categories_count = count($in_categories);
+    
+    if ((get_post_meta($post->ID, 'trebuchet_enabled', true) == 'true') && ($in_categories_count > 0)) {
     ?>
 <asset id="<?php echo $post->ID; ?>">
-            <?php $terms = get_the_terms( $post->ID, 'woo_video_category');
+            <?php
             $post_order = get_post_meta($post->ID, 'trebuchet_order', true);
             if ($post_order == '') {
                 $post_order_count--;
                 $post_order = $post_order_count;
             }
-            foreach ( $terms as $term ) {
-                echo '<in_category id="'.$term->term_id.'" order="'.$post_order.'" />';
+            foreach ( $in_categories as $in_category ) {
+                echo '<in_category id="'.$in_category->term_id.'" order="'.$post_order.'" />';
             } ?>
             <type>video</type>
             <default_icons>
