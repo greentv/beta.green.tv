@@ -25,7 +25,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
         </config>
     </header>
     <supported_features><icon_formats>std</icon_formats></supported_features>
-    <root_category id="1" style="tile">
+    <root_category id="1" style="row">
         <default_icons>
             <icon_std>http://feeds.largeblue.net/sony/default_icon.jpg</icon_std> 
         </default_icons>
@@ -37,7 +37,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
         </languages>
         <?php foreach($categories as $category) { 
             $category_count++; ?>
-<category style="tile" order="<?php echo $category_count; ?>" id="<?php echo $category->term_id; ?>">
+<category style="row" order="<?php echo $category_count; ?>" id="<?php echo $category->term_id; ?>">
             <default_icons>
                 <icon_std>http://static.green.tv/static/categories/<?php echo $category->slug; ?>/<?php echo $category->slug; ?>.jpg</icon_std>
             </default_icons>
