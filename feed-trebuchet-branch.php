@@ -14,6 +14,8 @@ header('Content-Type: ' . feed_content_type('rss-http') . '; charset=' . get_opt
 
 $categories = get_categories( 'taxonomy=woo_video_category' );
 $category_count = 0;
+# Sony, Air, Business, Climate Change, Living, Nature, People, Transport, Technology, Water
+$included_categories = Array(512, 82, 3, 11, 20, 55, 33, 42, 49, 80);
 
 echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
 <trebuchet version="2">
@@ -36,22 +38,26 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
             </language>
         </languages>
         <?php foreach($categories as $category) { 
-            $category_count++; ?>
-<category style="row" order="<?php echo $category_count; ?>" id="<?php echo $category->term_id; ?>">
-            <default_icons>
-                <icon_std>http://static.green.tv/static/categories/<?php echo $category->slug; ?>/<?php echo $category->slug; ?>.jpg</icon_std>
-            </default_icons>
-            <languages>
-                <language id="en">
-                    <title><?php echo $category->name; ?></title>
-                    <description>
-                    <![CDATA[<?php 
-                        echo (strlen($category->category_description) > 0) ? $category->description : $category->name.' channel'; 
-                    ?>]]>
-                </description>
-                </language>
-            </languages>
-        </category>
-        <?php } ?>
+            $category_count++;
+            if(in_array($category->term_id, $included_categories)) {
+            ?>
+            <category style="row" order="<?php echo $category_count; ?>" id="<?php echo $category->term_id; ?>">
+                <default_icons>
+                    <icon_std>http://static.green.tv/static/categories/<?php echo $category->slug; ?>/<?php echo $category->slug; ?>.jpg</icon_std>
+                </default_icons>
+                <languages>
+                    <language id="en">
+                        <title><?php echo $category->name; ?></title>
+                        <description>
+                        <![CDATA[<?php 
+                            echo (strlen($category->category_description) > 0) ? $category->description : $category->name.' channel'; 
+                        ?>]]>
+                    </description>
+                    </language>
+                </languages>
+            </category>
+            <?php
+            }
+        } ?>
     </root_category>
 </trebuchet>

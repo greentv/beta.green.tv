@@ -27,6 +27,8 @@ function timeToSeconds($time) {
 
 $post_order_count = 99999;
 $default_rating = 'PG';
+# Sony, Air, Business, Climate Change, Living, Nature, People, Transport, Technology, Water
+$included_categories = Array(512, 82, 3, 11, 20, 55, 33, 42, 49, 80);
 
 echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
 
@@ -38,6 +40,12 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
     $in_categories_count = count($in_categories);
     
     if ((get_post_meta($post->ID, 'trebuchet_enabled', true) == 'true') && ($in_categories_count > 0)) {
+        $cats = array();
+        foreach( $in_categories as $in_category ) {
+            if (in_array($in_category->term_id, $included_categories)) {
+                array_push($cats, $in_category->term_id);
+            }
+        }
     ?>
 <asset id="<?php echo $post->ID; ?>">
             <?php
@@ -46,8 +54,8 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
                 $post_order_count--;
                 $post_order = $post_order_count;
             }
-            foreach ( $in_categories as $in_category ) {
-                echo '<in_category id="'.$in_category->term_id.'" order="'.$post_order.'" />';
+            foreach ( $cats as $cat ) {
+                echo '<in_category id="'.$cat.'" order="'.$post_order.'" />';
             } ?>
             <type>video</type>
             <default_icons>
