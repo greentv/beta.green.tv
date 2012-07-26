@@ -36,16 +36,18 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
     <mehta_data_version>1</mehta_data_version>
     <assets>
     <?php foreach($posts as $post) {
-    $in_categories = get_the_terms( $post->ID, 'woo_video_category');
-    $in_categories_count = count($in_categories);
-    
-    if ((get_post_meta($post->ID, 'trebuchet_enabled', true) == 'true') && ($in_categories_count > 0)) {
-        $cats = array();
-        foreach( $in_categories as $in_category ) {
-            if (in_array($in_category->term_id, $included_categories)) {
-                array_push($cats, $in_category->term_id);
-            }
+    $categories = get_the_terms( $post->ID, 'woo_video_category');
+
+    $cats = array();
+    foreach( $categories as $category ) {
+        if (in_array($category->term_id, $included_categories)) {
+            array_push($cats, $category->term_id);
         }
+    }
+
+    $in_cats_count = count($cats);
+
+    if ((get_post_meta($post->ID, 'trebuchet_enabled', true) == 'true') && ($in_cats_count > 0)) {
     ?>
 <asset id="<?php echo $post->ID; ?>">
             <?php
