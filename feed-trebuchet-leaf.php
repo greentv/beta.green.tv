@@ -1,8 +1,8 @@
 <?php
 
-ini_set('error_repor#ting', E_ALL);
-ini_set('display_errors', 'On');
-ini_set('display_startup_errors', 'On');
+#ini_set('error_repor#ting', E_ALL);
+#ini_set('display_errors', 'On');
+#ini_set('display_startup_errors', 'On');
 
 /**
  * Trebuchet Leaf Feed Template.
