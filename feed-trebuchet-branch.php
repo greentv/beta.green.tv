@@ -34,7 +34,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
         <languages>
             <language id="en">
                 <title><?php bloginfo_rss('name'); wp_title_rss(); ?></title>
-                <description></description>
+                <description><![CDATA[<?php echo bloginfo_rss('description') ?>]]></description>
             </language>
         </languages>
         <?php foreach($categories as $category) { 
