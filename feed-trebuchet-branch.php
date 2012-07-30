@@ -29,7 +29,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
     <supported_features><icon_formats>std</icon_formats></supported_features>
     <root_category id="1" style="row">
         <default_icons>
-            <icon_std>http://feeds.largeblue.net/sony/gtv_sonytv_thumbnail_128x96_greentv.jpg.jpg</icon_std>
+            <icon_std>http://feeds.largeblue.net/sony/gtv_sonytv_thumbnail_128x96_greentv.jpg</icon_std>
             <icon_hd>http://feeds.largeblue.net/sony/gtv_sonytv_thumbnail_256x192_greentv.jpg</icon_hd>
         </default_icons>
         <languages>
