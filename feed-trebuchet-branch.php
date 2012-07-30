@@ -27,12 +27,11 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
         </config>
     </header>
     <supported_features>
-        <icon_formats>std, hd</icon_formats>
+        <icon_formats>std</icon_formats>
     </supported_features>
     <root_category id="1" style="row">
         <default_icons>
             <icon_std>http://feeds.largeblue.net/sony/gtv_sonytv_thumbnail_128x96_greentv.jpg</icon_std>
-            <icon_hd>http://feeds.largeblue.net/sony/gtv_sonytv_thumbnail_256x192_greentv.jpg</icon_hd>
         </default_icons>
         <languages>
             <language id="en">
@@ -47,7 +46,6 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
             <category style="row" order="<?php echo $category_count; ?>" id="<?php echo $category->term_id; ?>">
                 <default_icons>
                     <icon_std>http://static.green.tv/static/categories/<?php echo $category->slug; ?>/gtv_sonytv_thumbnail_128x96_<?php echo $category->slug; ?>.jpg</icon_std>
-                    <icon_hd>http://static.green.tv/static/categories/<?php echo $category->slug; ?>/gtv_sonytv_thumbnail_256x192_<?php echo $category->slug; ?>.jpg</icon_hd>
                 </default_icons>
                 <languages>
                     <language id="en">
