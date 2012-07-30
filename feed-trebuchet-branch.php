@@ -26,7 +26,9 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
             <icon_poster>http://feeds.largeblue.net/sony/default_icon.jpg</icon_poster>
         </config>
     </header>
-    <supported_features><icon_formats>std</icon_formats></supported_features>
+    <supported_features>
+        <icon_formats>std, hd</icon_formats>
+    </supported_features>
     <root_category id="1" style="row">
         <default_icons>
             <icon_std>http://feeds.largeblue.net/sony/gtv_sonytv_thumbnail_128x96_greentv.jpg</icon_std>
