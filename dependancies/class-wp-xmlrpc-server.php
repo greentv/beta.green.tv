@@ -1316,13 +1316,14 @@ class wp_xmlrpc_server extends IXR_Server {
 
 
 	function wp_getPostsByCustomFieldValue( $args ) {
-		$posts = $this->wp_getPosts(Array($args[0], $args[1], $args[2], Array('number' => $args[3], 'post_type' => $args[4])));
+		$posts = $this->wp_getPosts(Array($args[0], $args[1], $args[2], Array('number' => $args[3], 'post_type' => $args[4], 'post_status' => 'publish')));
 		$filtered_posts = Array();
 
 		if ( ! $this->minimum_args( $args, 7 ) )
 			return $this->error;
 
 		foreach($posts as $post) {
+			$custom_true = false;
 			foreach($post['custom_fields'] as $custom_field) {
 				if(($custom_field['key'] == $args[5]) && ($custom_field['value'] != $args[6])) {
 					$filtered_posts[] = $post;
