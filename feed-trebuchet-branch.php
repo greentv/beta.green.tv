@@ -14,8 +14,8 @@ header('Content-Type: ' . feed_content_type('rss-http') . '; charset=' . get_opt
 
 $categories = get_categories( 'taxonomy=woo_video_category' );
 $category_count = 0;
-# Sony, Air, Business, Climate Change, Living, Nature, People, Transport, Technology, Water
-$included_categories = Array(512, 82, 3, 11, 20, 55, 33, 42, 49, 80);
+# Sony, Air, Business, Climate Change, Living, Nature, People, Transport, Technology, Water, Ashden
+$included_categories = Array(512, 82, 3, 11, 20, 55, 33, 42, 49, 80, 275);
 
 echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
 <trebuchet version="2">
