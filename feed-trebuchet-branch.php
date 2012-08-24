@@ -13,9 +13,8 @@
 header('Content-Type: ' . feed_content_type('rss-http') . '; charset=' . get_option('blog_charset'), true);
 
 $categories = get_categories( 'taxonomy=woo_video_category' );
-$category_count = 0;
-# Sony, Air, Business, Climate Change, Living, Nature, People, Transport, Technology, Water, Ashden, Featured
-$included_categories = Array(512, 82, 3, 11, 20, 55, 33, 42, 49, 80, 275, 515);
+# featured 515, latest 529, technology 49, climate change 11, water 80, business 3, living 20, nature 55, people 33, transport 42, air 82, sony 512, ashden 275
+$included_categories = array(515, 529, 49, 11, 80, 3, 20, 55, 33, 42, 82, 512, 275);
 
 echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
 <trebuchet version="2">
@@ -40,10 +39,9 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
             </language>
         </languages>
         <?php foreach($categories as $category) { 
-            $category_count++;
             if(in_array($category->term_id, $included_categories)) {
             ?>
-            <category style="row" order="<?php echo $category_count; ?>" id="<?php echo $category->term_id; ?>">
+            <category style="row" order="<?php echo array_search($category->term_id, $included_categories); ?>" id="<?php echo $category->term_id; ?>">
                 <default_icons>
                     <icon_std>http://static.green.tv/static/categories/<?php echo $category->slug; ?>/gtv_sonytv_thumbnail_128x96_<?php echo $category->slug; ?>.jpg</icon_std>
                 </default_icons>

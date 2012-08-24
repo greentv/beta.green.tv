@@ -25,7 +25,7 @@ function timeToSeconds($time) {
     return round($seconds);
 }
 
-$post_order_count = 99999;
+$post_order_count = 0;
 $default_rating = 'PG';
 # Sony, Air, Business, Climate Change, Living, Nature, People, Transport, Technology, Water, Ashden, Featured
 $included_categories = Array(512, 82, 3, 11, 20, 55, 33, 42, 49, 80, 275, 515);
@@ -53,7 +53,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
             <?php
             $post_order = get_post_meta($post->ID, 'trebuchet_order', true);
             if ($post_order == '') {
-                $post_order_count--;
+                $post_order_count++;
                 $post_order = $post_order_count;
             }
             foreach ( $cats as $cat ) {
