@@ -41,7 +41,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
         <?php foreach($categories as $category) { 
             if(in_array($category->term_id, $included_categories)) {
             ?>
-            <category style="row" order="<?php echo array_search($category->term_id, $included_categories); ?>" id="<?php echo $category->term_id; ?>">
+            <category style="row" order="<?php echo (array_search($category->term_id, $included_categories) + 1); ?>" id="<?php echo $category->term_id; ?>">
                 <default_icons>
                     <icon_std>http://static.green.tv/static/categories/<?php echo $category->slug; ?>/gtv_sonytv_thumbnail_128x96_<?php echo $category->slug; ?>.jpg</icon_std>
                 </default_icons>

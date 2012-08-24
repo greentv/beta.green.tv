@@ -28,7 +28,7 @@ function timeToSeconds($time) {
 $post_order_count = 0;
 $default_rating = 'PG';
 # Sony, Air, Business, Climate Change, Living, Nature, People, Transport, Technology, Water, Ashden, Featured
-$included_categories = Array(512, 82, 3, 11, 20, 55, 33, 42, 49, 80, 275, 515);
+$included_categories = Array(512, 82, 3, 11, 20, 55, 33, 42, 49, 80, 275, 515, 529);
 
 echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
 
