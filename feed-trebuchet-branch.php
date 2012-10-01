@@ -48,11 +48,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>
                 <languages>
                     <language id="en">
                         <title><?php echo $category->name; ?></title>
-                        <description>
-                        <![CDATA[<?php 
-                            echo (strlen($category->category_description) > 0) ? $category->description : $category->name.' channel'; 
-                        ?>]]>
-                    </description>
+                        <description><![CDATA[<?php echo (strlen($category->category_description) > 0) ? $category->description : $category->name.' channel'; ?>]]></description>
                     </language>
                 </languages>
             </category>
